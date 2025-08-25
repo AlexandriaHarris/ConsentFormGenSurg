@@ -1,0 +1,1321 @@
+<!doctype html>
+<html lang="en">
+<head> 
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Consent Form Builder - Template</title>
+  <style>
+    :root { --bg:#f7f7fb; --ink:#0f172a; --muted:#6b7280; --border:#e5e7eb; }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;color:var(--ink);background:linear-gradient(#fafafa,#f2f4f8)}
+    h1,h2,h3{margin:0 0 .5rem}
+    .app{max-width:1120px;margin:0 auto;padding:1rem}
+    .topbar{position:sticky;top:0;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);z-index:50}
+    .topbar .inner{display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:.5rem 1rem}
+    .btn{appearance:none;border:1px solid var(--border);background:#fff;padding:.5rem .75rem;border-radius:.5rem;cursor:pointer;font-weight:600}
+    .btn.primary{background:#111827;color:#fff;border-color:#111827}
+    .btn:active{transform:translateY(1px)}
+    .grid{display:grid;grid-template-columns:minmax(0,440px) 1fr;gap:1rem;margin:1rem auto}
+    @media (max-width:980px){.grid{grid-template-columns:1fr}}
+
+    /* Configuration Section */
+    .config-section {
+      background: #fef3c7;
+      border: 2px solid #f59e0b;
+      border-radius: 0.75rem;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+    .config-section h3 {
+      color: #92400e;
+      margin-bottom: 0.5rem;
+    }
+    .config-section p {
+      color: #78350f;
+      font-size: 0.875rem;
+      margin-bottom: 0.5rem;
+    }
+    .config-section code {
+      background: #fff;
+      padding: 0.125rem 0.25rem;
+      border-radius: 0.25rem;
+      font-size: 0.875rem;
+    }
+
+    /* Cards */
+    .card{background:#fff;border:1px solid var(--border);border-radius:.75rem;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+    .card>.hd{padding:.75rem 1rem;border-bottom:1px solid var(--border);font-weight:700}
+    .card>.bd{padding:1rem}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+    @media (max-width:640px){.row{grid-template-columns:1fr}}
+    label{display:block;font-size:.75rem;color:var(--muted);margin:.25rem 0}
+    input[type=text], textarea, select{width:100%;padding:.6rem .65rem;border:1px solid var(--border);border-radius:.5rem;background:#fff}
+    textarea{resize:vertical}
+    .muted{color:var(--muted)}
+    .list{display:grid;gap:.5rem}
+    .check{display:flex;align-items:flex-start;gap:.5rem;font-size:.9rem}
+    .check input{margin-top:.25rem}
+    .border{border:1px solid var(--border);border-radius:.5rem;padding:.75rem}
+    .actions{display:flex;gap:.5rem;align-items:center}
+
+    /* Surgeon dropdown styling */
+    select.btn {
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right .75rem center;
+      background-size: 1em;
+      padding-right: 2.5rem;
+    }
+
+    #selectedSurgeons {
+      margin-top: 0.5rem;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      padding: 0.5rem;
+      min-height: 2rem;
+    }
+
+    #selectedSurgeons .surgeon-item {
+      display: flex;
+      align-items: center;
+      padding: 0.25rem;
+      gap: 0.5rem;
+    }
+
+    #selectedSurgeons .remove-btn {
+      margin-left: auto;
+      background: transparent;
+      border: none;
+      color: var(--muted);
+      font-size: 1.2rem;
+      line-height: 1;
+      cursor: pointer;
+      padding: 0 0.3rem;
+    }
+
+    #selectedSurgeons .remove-btn:hover {
+      color: var(--ink);
+    }
+
+    /* Print preview side */
+    .sheet {
+      position: relative;
+      width: 8.5in;
+      height: 11in;
+      background: #fff;
+      margin: 0 auto;
+      border: 1px solid var(--border);
+      box-shadow: 0 3px 24px rgba(0,0,0,.12);
+      page-break-after: always;
+      page-break-inside: avoid;
+    }
+    /* HEADER layout */
+    .header{position:absolute;left:0;right:0;top:0;height:1.25in;border-bottom:1px solid #000}
+    .hdr{display:grid;grid-template-columns:1.6in 1fr;height:100%;padding:.25in .5in .2in .5in;column-gap:.3in;align-items:end}
+    .hdr-left{display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start}
+    .hdr-right{font:10pt "Times New Roman",Times,serif;line-height:1.1;text-align:right}
+    .pageNo{font:10pt "Times New Roman",Times,serif}
+    .logo {
+      height: 0.35in;
+      width: auto;
+      display: block;
+    }
+    .line{display:inline-block;min-width:10ch}
+
+    /* FOOTER minimal */
+    .footer {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 0.5in;
+      border-top: 1px solid #000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 0.5in;
+      font-size: 9pt;
+      box-sizing: border-box;
+      background: white;
+      z-index: 10;
+    }
+    .barcode{height:.45in;width:auto}
+    .foot-date{font:10pt "Times New Roman",Times,serif}
+
+    /* BODY */
+    .content {
+      position: absolute;
+      left: 0.5in;
+      right: 0.5in;
+      top: 1.25in;
+      bottom: 0.6in;
+      padding: 0;
+      font: 11pt "Times New Roman", Times, serif;
+      line-height: 1;
+      overflow: hidden;
+    }
+    .title{font-weight:700;text-align:center;margin:.15in 0;font-size:12pt}
+    .small{font-size:9pt;text-align:center}
+    .ol{padding-left:.25in}
+    .ol li{margin:.08in 0}
+
+    .ol, .dash, p {
+      page-break-inside: avoid;
+    }
+
+    .dash {
+      min-height: 0.5rem;
+      border-bottom: 1px solid #000;
+      padding-bottom: 0.2rem;
+      white-space: pre-wrap;
+      page-break-inside: avoid;
+    }
+
+    /* WITNESS/SIGNATURE BLOCK - Updated widths */
+    .siggrid{display:grid;grid-template-columns:auto 1fr;column-gap:.2in;row-gap:.14in;font-size:10pt}
+    .siggrid .label{white-space:nowrap}
+    .uline{display:inline-block;border-bottom:1px solid #000;padding-bottom:0;vertical-align:baseline}
+    .u-wide{min-width:3.2in}
+    .u-med{min-width:2.0in}
+    .u-short{min-width:1.2in}
+    .u-rel{min-width:3.2in}
+    .u-date-time{min-width:0.45in}
+    .signature-row{display:flex;gap:.10in;align-items:baseline;margin:.05in 0;font-size:10pt}
+    .sig-field{display:flex;gap:.05in;align-items:baseline}
+    .flex-grow{flex:1 1 auto}
+    .field-container {
+      display: inline-block;
+      position: relative;
+      min-width: 3in;
+      padding-bottom: 0;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .field-container .field-text {
+      display: inline-block;
+      border-bottom: 1px solid #000;
+      min-width: 3in;
+      padding-bottom: 0;
+    }
+    .field-container .field-label {
+      position: absolute;
+      top: 14px;
+      left: 0;
+      right: 0;
+      font-size: 9pt;
+      text-align: center;
+      line-height: 1;
+    }
+    
+    /* Print controls */
+    @page {
+      size: letter;
+      margin: 0;
+    }
+
+    .sheet {
+      width: 100%;
+      height: auto;
+      min-height: 11in;
+      page-break-after: always;
+      overflow: hidden;
+    }
+    
+    @media print {
+      @page {
+        size: letter;
+        margin: 0;
+      }
+      
+      .no-print {
+        display: none !important;
+      }
+      
+      .app {
+        max-width: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+      
+      .grid {
+        display: block !important;
+        margin: 0 !important;
+        gap: 0 !important;
+      }
+      
+      .right {
+        overflow: visible !important;
+      }
+      
+      body {
+        margin: 0;
+        padding: 0;
+        background: white;
+      }
+      
+      .sheet {
+        width: 8.5in !important;
+        height: 11in !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        page-break-after: always;
+        page-break-inside: avoid;
+        position: relative !important;
+        overflow: hidden !important;
+      }
+      
+      .sheet + .sheet {
+        margin-top: 0 !important;
+      }
+      
+      .content {
+        position: absolute !important;
+        left: 0.5in !important;
+        right: 0.5in !important;
+        top: 1.25in !important;
+        bottom: 0.6in !important;
+        overflow: hidden !important;
+        max-height: calc(11in - 1.25in - 0.6in) !important;
+      }
+      
+      .footer {
+        position: absolute !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 0.5in !important;
+        page-break-inside: avoid !important;
+        page-break-before: avoid !important;
+      }
+      
+      p, .ol, .dash, .signature-section {
+        page-break-inside: avoid;
+      }
+    }
+
+    .content p {
+      margin: 0.08in 0;
+    }
+
+    .content .ol li {
+      margin: 0.06in 0;
+    }
+
+    .signature-section {
+      page-break-inside: avoid;
+    }
+
+    .content > div:last-child {
+      page-break-inside: avoid;
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar no-print">
+    <div class="inner">
+      <div><strong>Consent Form Builder</strong> - Customizable Template</div>
+      <div class="actions">
+        <button id="loadConfigBtn" class="btn">Load Configuration</button>
+        <button id="resetBtn" class="btn">Reset</button>
+        <button id="printBtn" class="btn primary">Print / Save PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="app">
+    <!-- Configuration Instructions -->
+    <div class="config-section no-print">
+      <h3>⚠️ Template Configuration</h3>
+      <p>This is a template repository for consent forms. To customize for your specialty:</p>
+      <ol style="margin-left: 1.5rem; font-size: 0.875rem; color: #78350f;">
+        <li>Edit the <code>CONFIG</code> object in the script section below</li>
+        <li>Update <code>SPECIALTY_NAME</code> to your department name</li>
+        <li>Replace <code>SURGEONS</code> array with your surgeon names</li>
+        <li>Modify <code>PROCEDURES</code> array with your specialty's procedures</li>
+        <li>Save and use the "Load Configuration" button to reload</li>
+      </ol>
+      <p>Current specialty: <strong id="currentSpecialty">Not configured</strong></p>
+    </div>
+
+    <div class="grid">
+      <!-- Left: Human Interface -->
+      <div class="left no-print" id="left">
+        <div class="card">
+          <div class="hd">Patient & Surgeons</div>
+          <div class="bd">
+            <div class="row">
+              <div>
+                <label for="patientName">Patient Name</label>
+                <input type="text" id="patientName" data-field="patientName" />
+              </div>
+              <div>
+                <label for="dob">Date of Birth</label>
+                <input type="text" id="dob" data-field="dob" placeholder="MM/DD/YYYY" />
+              </div>
+              <div>
+                <label for="idNumber">MRN / Identification Number</label>
+                <input type="text" id="idNumber" data-field="idNumber" />
+              </div>
+              <div>
+                <label for="facility">Facility</label>
+                <input type="text" id="facility" data-field="facility" />
+              </div>
+              <div>
+                <label for="designeeName">Name of patient or Designee (signer)</label>
+                <input type="text" id="designeeName" data-field="designeeName" />
+              </div>
+              <div>
+                <label for="consentForName">Name of Patient (if signer is a designee)</label>
+                <input type="text" id="consentForName" data-field="consentForName" />
+              </div>
+            </div>
+
+            <div style="margin-top:.75rem">
+              <div style="font-weight:600;margin-bottom:.25rem">Select surgeon(s)</div>
+              <div class="row">
+                <div>
+                  <label for="surgeonDropdown">Select from list:</label>
+                  <select id="surgeonDropdown" class="btn" style="width:100%;padding:.5rem .75rem;">
+                    <option value="">-- Select Surgeon --</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="newSurgeon">Or enter manually:</label>
+                  <input id="newSurgeon" type="text" placeholder="Enter surgeon full name" />
+                </div>
+              </div>
+              <div id="selectedSurgeons" class="list"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:1rem">
+          <div class="hd">Procedures (multi‑select) & Risk Library</div>
+          <div class="bd">
+            <div id="procList" class="list"></div>
+            <div id="lateralitySection" class="list" style="margin-top:.5rem; display:none"></div>
+            <div class="border" style="margin-top:.75rem">
+              <div style="font-weight:600;margin-bottom:.25rem">Add a procedure</div>
+              <div class="list">
+                <input id="procName" type="text" placeholder="Procedure name" />
+                <textarea id="procRisks" rows="3" placeholder="Risks (comma or newline separated)"></textarea>
+                <textarea id="procAlts" rows="2" placeholder="Alternatives (comma or newline separated)"></textarea>
+                <label style="display:flex;align-items:center;font-size:.75rem"><input type="checkbox" id="procLaterality" style="margin-right:.25rem">Requires laterality (L/R/B)</label>
+                <div style="text-align:right"><button class="btn" id="addProcBtn">Add to Catalog</button></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:1rem">
+          <div class="hd">Auto‑populated Fields (editable)</div>
+          <div class="bd list">
+            <div>
+              <label for="diagnosis">Diagnosis</label>
+              <textarea id="diagnosis" data-field="diagnosis" rows="3"></textarea>
+            </div>
+            <div>
+              <label for="recommendedProcedure">Recommended Procedure (auto from selection -- you can edit)</label>
+              <textarea id="recommendedProcedure" data-field="recommendedProcedure" rows="2"></textarea>
+            </div>
+            <div>
+              <label for="alternatives">Treatment Alternatives (auto from selection -- you can edit)</label>
+              <textarea id="alternatives" data-field="alternatives" rows="2"></textarea>
+            </div>
+            <div>
+              <label for="otherRisks">Other risks (auto from selection -- you can edit)</label>
+              <textarea id="otherRisks" data-field="otherRisks" rows="4"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:1rem">
+          <div class="hd">Signatures & Times</div>
+          <div class="bd">
+            <div class="row">
+              <div>
+                <label for="signerDate">Signature Date (MM/DD/YYYY)</label>
+                <input type="text" id="signerDate" data-field="signerDate" />
+              </div>
+              <div>
+                <label for="signerTime">Signer Time (HH:MM)</label>
+                <input type="text" id="signerTime" data-field="signerTime" />
+              </div>
+              <div>
+                <label for="signerName">Printed name -- patient or authorized person</label>
+                <input type="text" id="signerName" data-field="signerName" />
+              </div>
+              <div>
+                <label for="signerRelationship">Relationship to patient (if not patient)</label>
+                <input type="text" id="signerRelationship" data-field="signerRelationship" />
+              </div>
+              <div>
+                <label for="witnessName">Witness (printed name)</label>
+                <input type="text" id="witnessName" data-field="witnessName" />
+              </div>
+              <div>
+                <label for="witnessTime">Witness Time</label>
+                <input type="text" id="witnessTime" data-field="witnessTime" />
+              </div>
+              <div>
+                <label for="physSigName">Physician/Representative (printed name)</label>
+                <input type="text" id="physSigName" data-field="physSigName" />
+              </div>
+              <div>
+                <label for="physSigTime">Physician/Rep Time</label>
+                <input type="text" id="physSigTime" data-field="physSigTime" />
+              </div>
+              <div>
+                <label for="cyracom">Interpreter Cyracom ID (if applicable)</label>
+                <input type="text" id="cyracom" data-field="cyracom" />
+              </div>
+              <div>
+                <label for="interpName">Interpreter Print Name</label>
+                <input type="text" id="interpName" data-field="interpName" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:1rem">
+          <div class="hd">Selected Text -- Review before printing</div>
+          <div class="bd">
+            <textarea id="reviewBox" rows="10" readonly style="width:100%"></textarea>
+            <div class="actions" style="margin-top:.5rem">
+              <button id="copyBtn" class="btn">Copy for Note</button>
+              <div class="muted" style="font-size:.8rem">This box is for quick review and can be copied into your documentation. Printing uses the PDF layout on the right.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Print Preview -->
+      <div class="right" style="overflow:auto;min-width:0">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ========================================
+    // CONFIGURATION SECTION - EDIT THIS!
+    // ========================================
+    const CONFIG = {
+      SPECIALTY_NAME: "YOUR_SPECIALTY_HERE", // e.g., "ENT", "General Surgery", "Orthopedics"
+      
+      // Add your surgeon names here (format: "FirstName LastName")
+      SURGEONS: [
+        "John Smith",
+        "Jane Doe",
+        // Add more surgeons here
+      ],
+      
+      // Define your specialty's procedures
+      PROCEDURES: [
+        {
+          key: 'EXAMPLE1',
+          name: 'Example Procedure 1',
+          specialty: 'Category 1',
+          risks: ['risk 1', 'risk 2', 'risk 3'],
+          alternatives: ['alternative 1', 'alternative 2'],
+          requiresLaterality: false // Set to true if procedure needs Left/Right/Bilateral selection
+        },
+        {
+          key: 'EXAMPLE2',
+          name: 'Example Procedure 2',
+          specialty: 'Category 2',
+          risks: ['bleeding', 'infection', 'pain'],
+          alternatives: ['conservative management', 'observation'],
+          requiresLaterality: true
+        },
+        // Add more procedures following the same format
+      ]
+    };
+
+    // ========================================
+    // APPLICATION CODE - DO NOT EDIT BELOW
+    // ========================================
+    
+    // Utilities
+    const $ = (sel, root=document) => root.querySelector(sel);
+    const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+    const BLANK = (n=20) => '_'.repeat(n);
+    const uniq = (arr) => Array.from(new Set((arr||[]).filter(Boolean).map(s => s.trim())));
+
+    function joinNames(arr){
+      if(!arr||arr.length===0) return '';
+      if(arr.length===1) return arr[0];
+      if(arr.length===2) return arr.join(' and ');
+      return arr.slice(0,-1).join(', ')+', and '+arr[arr.length-1];
+    }
+
+    // State & persistence
+    const defaults = { selectedProcKeys: [], selectedSurgeons: [], laterality: {} };
+    let f = {...defaults};
+    let catalog = [];
+    let surgeons = [];
+
+    // Load configuration
+    function loadConfiguration() {
+      // Update specialty display
+      $('#currentSpecialty').textContent = CONFIG.SPECIALTY_NAME;
+      
+      // Load surgeons from config
+      surgeons = [...CONFIG.SURGEONS];
+      
+      // Load procedures from config
+      catalog = [...CONFIG.PROCEDURES];
+      
+      // Save to localStorage
+      localStorage.setItem('consent-surgeons-html', JSON.stringify(surgeons));
+      localStorage.setItem('consent-proc-catalog-html', JSON.stringify(catalog));
+      
+      // Refresh UI
+      populateSurgeonDropdown();
+      renderProcedures();
+      save();
+    }
+
+    function load(){
+      try{ f = JSON.parse(localStorage.getItem('consent-html-state')||'{}') }catch{ f={} }
+      f = {...defaults, ...f};
+      
+      // Load catalog from localStorage or use config
+      try{ 
+        const savedCatalog = JSON.parse(localStorage.getItem('consent-proc-catalog-html')||'null');
+        if(savedCatalog) {
+          catalog = savedCatalog;
+        } else {
+          catalog = CONFIG.PROCEDURES;
+        }
+      }catch{ 
+        catalog = CONFIG.PROCEDURES;
+      }
+      
+      // Load surgeons from localStorage or use config
+      try{ 
+        const savedSurgeons = JSON.parse(localStorage.getItem('consent-surgeons-html')||'null');
+        if(savedSurgeons) {
+          surgeons = savedSurgeons;
+        } else {
+          surgeons = CONFIG.SURGEONS;
+        }
+      }catch{ 
+        surgeons = CONFIG.SURGEONS;
+      }
+      
+      // Update specialty display
+      $('#currentSpecialty').textContent = CONFIG.SPECIALTY_NAME;
+    }
+
+    function save(){
+      localStorage.setItem('consent-html-state', JSON.stringify(f));
+      localStorage.setItem('consent-proc-catalog-html', JSON.stringify(catalog));
+      localStorage.setItem('consent-surgeons-html', JSON.stringify(surgeons));
+    }
+
+    // Track manual edits
+    const touched = { rec:false, risks:false, alts:false };
+
+    // Populate surgeon dropdown
+    function populateSurgeonDropdown() {
+      const dropdown = $('#surgeonDropdown');
+      dropdown.innerHTML = '<option value="">-- Select Surgeon --</option>';
+      
+      function formatSurgeonName(name) {
+        const parts = name.trim().split(' ');
+        if (parts.length < 2) return name;
+        const lastName = parts[parts.length - 1];
+        const firstName = parts.slice(0, -1).join(' ');
+        return `${lastName}, ${firstName}`;
+      }
+      
+      const allSurgeons = [...new Set(surgeons)]
+        .map(name => ({
+          original: name,
+          formatted: formatSurgeonName(name)
+        }))
+        .sort((a, b) => a.formatted.localeCompare(b.formatted));
+      
+      allSurgeons.forEach(surgeon => {
+        const option = document.createElement('option');
+        option.value = surgeon.original;
+        option.textContent = surgeon.formatted;
+        dropdown.appendChild(option);
+      });
+    }
+
+    // Render selected surgeons
+    function renderSelectedSurgeons() {
+      const container = $('#selectedSurgeons');
+      container.innerHTML = '';
+      
+      function formatSurgeonName(name) {
+        const parts = name.trim().split(' ');
+        if (parts.length < 2) return name;
+        const lastName = parts[parts.length - 1];
+        const firstName = parts.slice(0, -1).join(' ');
+        return `${lastName}, ${firstName}`;
+      }
+      
+      if (f.selectedSurgeons && f.selectedSurgeons.length > 0) {
+        const sortedSurgeons = [...f.selectedSurgeons].sort((a, b) => {
+          const aLast = a.split(' ').pop();
+          const bLast = b.split(' ').pop();
+          return aLast.localeCompare(bLast);
+        });
+        
+        sortedSurgeons.forEach(name => {
+          const div = document.createElement('div');
+          div.className = 'surgeon-item';
+          div.innerHTML = `
+            <span>${formatSurgeonName(name)}</span>
+            <button class="remove-btn" onclick="removeSurgeon('${name.replace(/'/g, "\\'")}')">×</button>
+          `;
+          container.appendChild(div);
+        });
+      } else {
+        container.innerHTML = '<div class="muted" style="padding:0.5rem">No surgeons selected</div>';
+      }
+    }
+
+    function addSurgeon(name) {
+      name = name.trim();
+      if (!name) return;
+      
+      if (!f.selectedSurgeons) {
+        f.selectedSurgeons = [];
+      }
+      
+      if (!f.selectedSurgeons.includes(name)) {
+        f.selectedSurgeons.push(name);
+        
+        if (!surgeons.includes(name)) {
+          surgeons.push(name);
+        }
+        
+        save();
+        populateSurgeonDropdown();
+        renderSelectedSurgeons();
+        updateDerived();
+        generatePages();
+        renderPreview();
+        renderReview();
+      }
+    }
+
+    function removeSurgeon(name) {
+      f.selectedSurgeons = f.selectedSurgeons.filter(n => n !== name);
+      save();
+      renderSelectedSurgeons();
+      updateDerived();
+      generatePages();
+      renderPreview();
+      renderReview();
+    }
+
+    window.removeSurgeon = removeSurgeon;
+
+    // Render procedures
+    function renderProcedures(){
+      const list = $('#procList');
+      list.innerHTML = '';
+      
+      const grouped = {};
+      catalog.forEach(p => {
+        const spec = p.specialty || 'Other';
+        if(!grouped[spec]) grouped[spec] = [];
+        grouped[spec].push(p);
+      });
+      
+      const sortedSpecs = Object.keys(grouped).sort();
+      
+      sortedSpecs.forEach(spec => {
+        const header = document.createElement('div');
+        header.style.cssText = 'font-weight:700; color:#4B5563; margin-top:0.75rem; margin-bottom:0.25rem; padding:0.25rem; background:#F3F4F6; border-radius:0.25rem';
+        header.textContent = spec.toUpperCase();
+        list.appendChild(header);
+        
+        const procs = grouped[spec].sort((a,b) => a.name.localeCompare(b.name));
+        
+        procs.forEach(p => {
+          const id = 'proc_'+p.key;
+          const container = document.createElement('div');
+          container.style.marginLeft = '0.5rem';
+          
+          const el = document.createElement('label');
+          el.className = 'check';
+          el.innerHTML = `<input type="checkbox" id="${id}"> <div style="font-weight:600">${p.name}</div>`;
+          
+          const cb = el.querySelector('input');
+          cb.checked = (f.selectedProcKeys||[]).includes(p.key);
+          
+          if(p.requiresLaterality && cb.checked) {
+            const latButtons = document.createElement('div');
+            latButtons.style.cssText = 'margin-left:1.5rem; margin-top:0.25rem; display:flex; gap:0.25rem';
+            
+            ['Left', 'Right', 'Bilateral'].forEach(side => {
+              const btn = document.createElement('button');
+              btn.textContent = side;
+              btn.className = 'btn';
+              btn.style.cssText = 'padding:0.25rem 0.5rem; font-size:0.75rem';
+              
+              if(f.laterality && f.laterality[p.key] === side) {
+                btn.style.background = '#111827';
+                btn.style.color = '#fff';
+              }
+              
+              btn.onclick = (e) => {
+                e.preventDefault();
+                if(!f.laterality) f.laterality = {};
+                
+                if(f.laterality[p.key] === side) {
+                  f.laterality[p.key] = '';
+                } else {
+                  f.laterality[p.key] = side;
+                }
+                
+                save(); 
+                updateDerived();
+                generatePages();
+                renderPreview();
+                renderReview();
+                renderProcedures();
+              };
+              
+              latButtons.appendChild(btn);
+            });
+            
+            container.appendChild(el);
+            container.appendChild(latButtons);
+          } else {
+            container.appendChild(el);
+          }
+          
+          cb.addEventListener('change', () => {
+            const set = new Set(f.selectedProcKeys||[]);
+            if(cb.checked) {
+              set.add(p.key);
+            } else {
+              set.delete(p.key);
+              if(f.laterality && f.laterality[p.key]) {
+                delete f.laterality[p.key];
+              }
+            }
+            f.selectedProcKeys = Array.from(set);
+            updateDerived(); 
+            save(); 
+            renderPreview(); 
+            renderReview();
+            renderProcedures();
+          });
+          
+          list.appendChild(container);
+        });
+      });
+    }
+
+    // Bind inputs
+    function bindInputs(){
+      document.querySelectorAll('input[data-field], textarea[data-field]').forEach(el => {
+        const k = el.dataset.field;
+        el.value = f[k] || '';
+        el.addEventListener('input', () => {
+          f[k] = el.value;
+          if(k === 'signerDate') {
+            f.witnessDate = el.value;
+            f.physSigDate = el.value;
+            const wInput = document.getElementById('witnessDate');
+            if(wInput) wInput.value = el.value;
+            const pInput = document.getElementById('physSigDate');
+            if(pInput) pInput.value = el.value;
+          }
+          if(k==='recommendedProcedure') touched.rec = true;
+          if(k==='otherRisks') touched.risks = true;
+          if(k==='alternatives') touched.alts = true;
+          save(); renderPreview(); renderReview();
+        });
+      });
+    }
+
+    // Event listeners
+    $('#surgeonDropdown').addEventListener('change', function() {
+      if (this.value) {
+        addSurgeon(this.value);
+        this.value = '';
+      }
+    });
+
+    $('#newSurgeon').addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        addSurgeon(e.target.value);
+        e.target.value = '';
+        e.preventDefault();
+      }
+    });
+
+    $('#addProcBtn').addEventListener('click', () => {
+      const name = $('#procName').value.trim(); 
+      if(!name) return;
+      const risksCsv = $('#procRisks').value;
+      const altsCsv = $('#procAlts').value;
+      const risks = uniq(risksCsv.split(/[\n,]/));
+      const alternatives = uniq(altsCsv.split(/[\n,]/));
+      const key = (name.toUpperCase().replace(/[^A-Z0-9]+/g,'-') + '-' + Math.random().toString(36).slice(2,7).toUpperCase());
+      const lateralityRequired = $('#procLaterality').checked;
+      catalog.push({key, name, risks, alternatives, requiresLaterality: lateralityRequired});
+      $('#procName').value=''; 
+      $('#procRisks').value=''; 
+      $('#procAlts').value=''; 
+      $('#procLaterality').checked = false;
+      save(); 
+      renderProcedures(); 
+      updateDerived(); 
+      renderPreview(); 
+      renderReview();
+    });
+
+    $('#printBtn').addEventListener('click', () => window.print());
+    $('#resetBtn').addEventListener('click', () => { 
+      localStorage.clear(); 
+      location.reload(); 
+    });
+    $('#copyBtn').addEventListener('click', async () => {
+      try{ 
+        await navigator.clipboard.writeText($('#reviewBox').value) 
+      }catch{}
+    });
+    $('#loadConfigBtn').addEventListener('click', () => {
+      loadConfiguration();
+      alert(`Configuration loaded for ${CONFIG.SPECIALTY_NAME}`);
+    });
+
+    // Update derived text
+    function updateDerived(){
+      const selectedProcs = (f.selectedProcKeys||[]).map(key => catalog.find(p=>p && p.key===key)).filter(Boolean);
+      const namesWithLat = selectedProcs.map(p => {
+        let nm = p.name;
+        if(p.requiresLaterality){
+          const lat = f.laterality && f.laterality[p.key];
+          if(lat){ nm = `${lat} ${p.name}`; }
+        }
+        return nm;
+      });
+      let autoRecommended = '';
+      if(namesWithLat.length===1){ 
+        autoRecommended = namesWithLat[0]; 
+      }
+      else if(namesWithLat.length===2){ 
+        autoRecommended = namesWithLat.join(' and '); 
+      }
+      else if(namesWithLat.length>2){ 
+        autoRecommended = namesWithLat.slice(0,-1).join('; ') + '; and ' + namesWithLat[namesWithLat.length-1]; 
+      }
+      const allRisks = selectedProcs.flatMap(p=>p.risks||[]).filter(Boolean);
+      const riskMap = {};
+      allRisks.forEach(risk => {
+        const norm = risk.toLowerCase().trim();
+        if(!riskMap[norm]) riskMap[norm] = risk.trim();
+      });
+      const autoRisks = Object.values(riskMap);
+      const autoOtherRisks = autoRisks.length ? ('Procedure-specific risks: ' + autoRisks.join(', ') + '.') : '';
+      if(!touched.rec) f.recommendedProcedure = autoRecommended;
+      if(!touched.risks) f.otherRisks = autoOtherRisks;
+      const joined = joinNames(f.selectedSurgeons||[]);
+      f.physicianName = joined || f.physicianName || '';
+      save();
+      if(!touched.rec){ 
+        const el=document.getElementById('recommendedProcedure'); 
+        if(el) el.value=f.recommendedProcedure||''; 
+      }
+      if(!touched.risks){ 
+        const el=document.getElementById('otherRisks'); 
+        if(el) el.value=f.otherRisks||''; 
+      }
+      const allAlts = selectedProcs.flatMap(p=>p.alternatives||[]).filter(Boolean);
+      const altMap = {};
+      allAlts.forEach(alt => {
+        const norm = alt.toLowerCase().trim();
+        if(!altMap[norm]) altMap[norm] = alt.trim();
+      });
+      const autoAlts = Object.values(altMap);
+      const autoAltString = autoAlts.length? autoAlts.join(', ') : '';
+      if(!touched.alts) f.alternatives = autoAltString;
+      if(!touched.alts){ 
+        const el=document.getElementById('alternatives'); 
+        if(el) el.value=f.alternatives||''; 
+      }
+    }
+
+    // Render preview
+    function setLine(sel, txt, len=18){ 
+      document.querySelectorAll(sel).forEach(el => el.textContent = (txt && txt.trim())? txt : '_'.repeat(len)); 
+    }
+    function setBlock(id, txt){ 
+      const el=document.querySelector(id); 
+      if(el) el.textContent = txt||''; 
+    }
+
+    function renderPreview(){
+      setLine('.hdrPatientName', f.patientName, 20);
+      setLine('.hdrId', f.idNumber, 12);
+      setLine('.hdrDob', f.dob, 12);
+      setLine('.hdrFacility', f.facility, 12);
+      setLine('.witnessName', f.witnessName, 24);
+      setLine('.witnessDate', f.witnessDate, 12);
+      setLine('.witnessTime', f.witnessTime, 10);
+      setLine('.designeeName', f.designeeName, 28);
+      const patientNameForProcedure = (f.consentForName && f.consentForName.trim())? f.consentForName : (f.patientName||'');
+      setLine('.consentForName', patientNameForProcedure, 28);
+      setBlock('#p1_diagnosis', f.diagnosis||'');
+      setBlock('#p1_recommended', f.recommendedProcedure||'');
+      setBlock('#p1_alternatives', f.alternatives||'');
+      setBlock('#p2_otherRisks', f.otherRisks||'');
+      setLine('.physicianName', f.physicianName, 24);
+      setLine('.signerDate', f.signerDate, 12);
+      setLine('.signerTime', f.signerTime, 10);
+      setLine('.signerRel', f.signerRelationship, 22);
+      setLine('.physDate', f.physSigDate, 12);
+      setLine('.physTime', f.physSigTime, 10);
+      setLine('.physName', f.physSigName, 24);
+      setLine('.cyracom', f.cyracom, 14);
+      setLine('.interpName', f.interpName, 24);
+    }
+
+    // Generate pages dynamically
+    function generatePages() {
+      const rightPanel = document.querySelector('.right');
+      rightPanel.innerHTML = '';
+      
+      const proceduresLength = (f.recommendedProcedure || '').length;
+      const diagnosisLength = (f.diagnosis || '').length;
+      const alternativesLength = (f.alternatives || '').length;
+      const otherRisksLength = (f.otherRisks || '').length;
+      
+      const needsSplitPage1 = proceduresLength > 800 || diagnosisLength > 600 || alternativesLength > 600;
+      const totalPages = needsSplitPage1 ? 5 : 4;
+      
+      // Page 1
+      const page1 = document.createElement('div');
+      page1.className = 'sheet';
+      page1.innerHTML = `
+        <div class="header">
+          <div class="hdr">
+            <div class="hdr-left">
+              <div class="pageNo">Page 1 of ${totalPages}</div>
+              <img class="logo" src="gTlSit7.png" alt="UPMC" />
+            </div>
+            <div class="hdr-right">
+              <div><strong>Patient Name:</strong> <span class="hdrPatientName line"></span></div>
+              <div><strong>Identification Number:</strong> <span class="hdrId line"></span></div>
+              <div><strong>Date of Birth:</strong> <span class="hdrDob line"></span></div>
+              <div><strong>Facility:</strong> <span class="hdrFacility line"></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="content">
+          <div class="title">CONSENT TO SURGERY OR SPECIAL PROCEDURE</div>
+          <p>
+            I,
+            <span class="field-container">
+              <span class="field-text designeeName"></span>
+              <span class="field-label">(Name of patient or Designee)</span>
+            </span>
+            have been asked to read all the information contained in this consent form and to consent to the procedure described below on behalf of
+            <span class="field-container">
+              <span class="field-text consentForName"></span>
+              <span class="field-label">(Name of Patient)</span>
+            </span>
+            or myself. I have been told that I should ask questions about anything that I do not understand. (If the decision‑maker signing this form is not the patient, references to "I," "my" or "me" should be read as if referring to "the patient.")
+          </p>
+          <p>I understand that the information in this consent form, in addition to discussions with my physicians and any other written materials they may provide, is intended to help me make an informed decision whether to voluntarily undergo the identified procedure.</p>
+          <p><strong>Diagnosis:</strong> I understand that after being examined, treated, and having studies reviewed, I have been diagnosed as having:</p>
+          <div class="dash" id="p1_diagnosis" style="min-height:0.5rem"></div>
+          <p><strong>Recommended Procedure:</strong> I understand that my physician(s) have recommended that I undergo a procedure known as</p>
+          <div class="dash" id="p1_recommended"></div>
+          <p>I understand that a series of the described procedure(s) in the operating room are planned.</p>
+          ${!needsSplitPage1 ? `
+            <p><strong>Alternatives.</strong> I understand that I may choose NOT to undergo the Recommended Treatment. I acknowledge that my physician(s) or physician representative has described the alternative treatments, the risks and benefits of the alternative treatments, the likelihood of me achieving my goals; any potential problems that might occur during recuperation and the likely medical results should I decide not to undergo the recommended procedure. These treatment alternatives may include:</p>
+            <div class="dash" id="p1_alternatives" style="min-height:0.5rem"></div>
+            <p><strong>Risks of Surgery.</strong> I understand that there are inherent risks in the performance of the recommended procedure. These include:</p>
+            <ol class="ol">
+              <li><strong>Bleeding:</strong> If needed, blood and/or blood products have the following general risks: reactions resulting in itching, rash, fever, chills, headache, or shock; respiratory distress (shortness of breath); kidney damage; systemic bacterial infection; exposure to blood borne viruses including hepatitis (an inflammatory disease affecting the liver) and Human Immunodeficiency Virus (HIV, the virus that causes AIDS); and death. Alternatives to transfusion include the use of devices that filter and return blood lost in surgery to me or by providing medications that boost my blood count prior to an elective procedure. Bleeding and/or severe anemia could put my life in danger or cause permanent brain damage. I understand that substitutes for blood or plasma might not work well enough. Blood and/or blood products might offer the only chance to preserve my life.</li>
+            </ol>
+            <p>____  I refuse the transfusion of blood and/or blood products and understand that I will be asked to sign a separate form entitled Release from Liability for the Refusal of Blood Transfusion.</p>
+            <p style="margin-bottom:0">If my procedure is to be performed in an Ambulatory Surgical Facility (ASF), the comparative risks, benefits and alternatives associated with performing the procedure in the ASF instead of a hospital have been fully explained to me. I understand the hospital may require that all jewelry and/or body piercing hardware be removed prior to surgery.</p>
+          ` : ''}
+        </div>
+        <div class="footer">
+          <img class="barcode" src="Hh6nBGq.png" alt="barcode" />
+          <div class="foot-date">2/16/2024</div>
+        </div>
+      `;
+      rightPanel.appendChild(page1);
+
+      if (needsSplitPage1) {
+        const page1b = document.createElement('div');
+        page1b.className = 'sheet';
+        page1b.style.marginTop = '1rem';
+        page1b.innerHTML = `
+          <div class="header">
+            <div class="hdr">
+              <div class="hdr-left">
+                <div class="pageNo">Page 2 of ${totalPages}</div>
+                <img class="logo" src="gTlSit7.png" alt="UPMC" />
+              </div>
+              <div class="hdr-right">
+                <div><strong>Patient Name:</strong> <span class="hdrPatientName line"></span></div>
+                <div><strong>Identification Number:</strong> <span class="hdrId line"></span></div>
+                <div><strong>Date of Birth:</strong> <span class="hdrDob line"></span></div>
+                <div><strong>Facility:</strong> <span class="hdrFacility line"></span></div>
+              </div>
+            </div>
+          </div>
+          <div class="content">
+            <div class="title">CONSENT TO SURGERY OR SPECIAL PROCEDURE</div>
+            <p><strong>Alternatives.</strong> I understand that I may choose NOT to undergo the Recommended Treatment. I acknowledge that my physician(s) or physician representative has described the alternative treatments, the risks and benefits of the alternative treatments, the likelihood of me achieving my goals; any potential problems that might occur during recuperation and the likely medical results should I decide not to undergo the recommended procedure. These treatment alternatives may include:</p>
+            <div class="dash" id="p1_alternatives" style="min-height:0.5rem"></div>
+            <p><strong>Risks of Surgery.</strong> I understand that there are inherent risks in the performance of the recommended procedure. These include:</p>
+            <ol class="ol">
+              <li><strong>Bleeding:</strong> If needed, blood and/or blood products have the following general risks: reactions resulting in itching, rash, fever, chills, headache, or shock; respiratory distress (shortness of breath); kidney damage; systemic bacterial infection; exposure to blood borne viruses including hepatitis (an inflammatory disease affecting the liver) and Human Immunodeficiency Virus (HIV, the virus that causes AIDS); and death. Alternatives to transfusion include the use of devices that filter and return blood lost in surgery to me or by providing medications that boost my blood count prior to an elective procedure. Bleeding and/or severe anemia could put my life in danger or cause permanent brain damage. I understand that substitutes for blood or plasma might not work well enough. Blood and/or blood products might offer the only chance to preserve my life.</li>
+              <li>Infection: This may occur at the site of surgery or elsewhere depending upon procedure performed.</li>
+              <li>Injury to adjacent organs.</li>
+              <li>Pain. This should resolve within a few days but may be prolonged.</li>
+              <li>As with all surgeries, there is a risk of heart attack, stroke, multisystem organ failure, reactions to medications, and death, even in healthy patients.</li>
+            </ol>
+            <p>____  I refuse the transfusion of blood and/or blood products and understand that I will be asked to sign a separate form entitled Release from Liability for the Refusal of Blood Transfusion.</p>
+            <p style="margin-bottom:0">If my procedure is to be performed in an Ambulatory Surgical Facility (ASF), the comparative risks, benefits and alternatives associated with performing the procedure in the ASF instead of a hospital have been fully explained to me. I understand the hospital may require that all jewelry and/or body piercing hardware be removed prior to surgery.</p>
+          </div>
+          <div class="footer">
+            <img class="barcode" src="Hh6nBGq.png" alt="barcode" />
+            <div class="foot-date">2/16/2024</div>
+          </div>
+        `;
+        rightPanel.appendChild(page1b);
+      }
+
+      addRemainingPages(rightPanel, needsSplitPage1);
+      renderPreview();
+    }
+
+    function addRemainingPages(rightPanel, hasExtraPage) {
+      const pageOffset = hasExtraPage ? 1 : 0;
+      const totalPages = 4 + pageOffset;
+      
+      // Page 2 (or 3 if split)
+      const page2 = document.createElement('div');
+      page2.className = 'sheet';
+      page2.style.marginTop = '1rem';
+      const page2Num = 2 + pageOffset;
+      page2.innerHTML = `
+        <div class="header">
+          <div class="hdr">
+            <div class="hdr-left">
+              <div class="pageNo">Page ${page2Num} of ${totalPages}</div>
+              <img class="logo" src="gTlSit7.png" alt="UPMC" />
+            </div>
+            <div class="hdr-right">
+              <div><strong>Patient Name:</strong> <span class="hdrPatientName line"></span></div>
+              <div><strong>Identification Number:</strong> <span class="hdrId line"></span></div>
+              <div><strong>Date of Birth:</strong> <span class="hdrDob line"></span></div>
+              <div><strong>Facility:</strong> <span class="hdrFacility line"></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="content">
+          <div class="title">CONSENT TO SURGERY OR SPECIAL PROCEDURE</div>
+          <ol class="ol" start="${hasExtraPage ? '6' : '2'}">
+            ${!hasExtraPage ? '<li>Infection: This may occur at the site of surgery or elsewhere depending upon procedure performed.</li><li>Injury to adjacent organs.</li><li>Pain. This should resolve within a few days but may be prolonged.</li><li>As with all surgeries, there is a risk of heart attack, stroke, multisystem organ failure, reactions to medications, and death, even in healthy patients.</li>' : ''}
+            <li>Blood clots. These clots usually develop in the legs and can break free and move through the heart to the lungs. In the lungs, they can cause serious interference with breathing, which can lead to death. Blood clots are treated with blood‑thinning drugs that may need to be taken for an extended period of time.</li>
+            <li>Nerve damage surrounding the surgical site or Damage to nerves from pressure or positioning of the arms, legs or back during the surgery. Nerve damage can cause numbness, weakness, paralysis and/or pain. In most cases these symptoms are temporary, but in rare cases they can last for extended periods or even permanently.</li>
+            <li>Burns caused by use of electrical equipment that may be needed to stop bleeding or by other equipment.</li>
+            <li>Wound dehiscence.</li>
+            <li>Prolonged hospitalization.</li>
+            <li>Other risks:</li>
+          </ol>
+          <div class="dash" id="p2_otherRisks" style="min-height:3rem"></div>
+          <p><strong>Teaching Facility and Overlapping Surgeries:</strong> I understand that the facility is a teaching facility. The health care team may include residents, fellows, students, and skilled healthcare professionals. Credentialed team members may perform all or parts of my procedure under the supervision and guidance of my physician(s). My attending physician may also be caring for one other patient during my surgery but remains responsible to me and will perform or be present for the key portions of the procedure. If unanticipated circumstances require my surgeon to be unavailable during my surgery, another qualified surgeon will promptly come to the operating room. Representatives of medical device companies may be present to provide devices and observe and advise on their use. Who will participate and in what manner will be decided at the time of the procedure and will depend on the availability of individuals with the necessary expertise and on my medical condition.</p>
+          <p>If an accidental exposure to my blood or body fluids occurs to staff during the surgery or procedure, I agree to blood tests for hepatitis B, hepatitis C and HIV.</p>
+          <p>I understand that the physician(s) or others may choose to photograph, televise, film, or otherwise record all or any portion of my procedure for medical, scientific, or educational purposes. I consent to the photographing, televising, filming, or other forms of recording of the procedure(s) to be performed, including appropriate portions of my body, body functions or sounds, provided my identity is not revealed. I understand and agree that 1) any photographs, films, or other audio or visual recordings created will be the sole property of the facility: and 2) the facility or any appropriate staff member may edit, preserve, or destroy all or any part of the</p>
+        </div>
+        <div class="footer">
+          <img class="barcode" src="Hh6nBGq.png" alt="barcode" />
+          <div class="foot-date">2/16/2024</div>
+        </div>
+      `;
+      rightPanel.appendChild(page2);
+
+      // Page 3
+      const page3 = document.createElement('div');
+      page3.className = 'sheet';
+      page3.style.marginTop = '1rem';
+      page3.innerHTML = `
+        <div class="header">
+          <div class="hdr">
+            <div class="hdr-left">
+              <div class="pageNo">Page ${3 + pageOffset} of ${totalPages}</div>
+              <img class="logo" src="gTlSit7.png" alt="UPMC" />
+            </div>
+            <div class="hdr-right">
+              <div><strong>Patient Name:</strong> <span class="hdrPatientName line"></span></div>
+              <div><strong>Identification Number:</strong> <span class="hdrId line"></span></div>
+              <div><strong>Date of Birth:</strong> <span class="hdrDob line"></span></div>
+              <div><strong>Facility:</strong> <span class="hdrFacility line"></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="content">
+          <div class="title">CONSENT TO SURGERY OR SPECIAL PROCEDURE</div>
+          <p>photographs, films, or other audio or visual recordings. Such recordings are not part of the medical record and I understand I cannot obtain a copy.</p>
+          <p>I authorize the disposal or retention, preservation, testing, or use for scientific, educational, or other purposes of all or any portion of specimens, tissues, body parts, or other things, including prostheses and medical/surgical appliances, that may be removed from my body.</p>
+          <p>I understand that if any medical device, as defined by federal regulations, is implanted in a patient's body, the facility is required by law to report to the manufacturer the name, address and social security number of the patient and the description and identity of the device.</p>
+          <p style="font-weight:700">MY SIGNATURE BELOW ACKNOWLEDGES THAT:</p>
+          <ol class="ol">
+            <li>I have read (or had read to me), understand and agree to the statements set forth in this consent form.</li>
+            <li>A physician or representative has explained to me all information referred to in this consent form. I have had an opportunity to ask questions and my questions have been answered to my satisfaction, including any question I have about the potential use of blood and/or blood products and any risks regarding their use.</li>
+            <li>All statements requiring completion were filled in before I signed.</li>
+            <li>No guarantees or assurances concerning the results of the procedure(s) have been made.</li>
+            <li>I am signing this consent voluntarily. I am not signing due to any coercion or other influence.</li>
+            <li>I hereby consent and authorize Dr. <span class="physicianName" style="display:inline-block;border-bottom:1px solid #000;min-width:2in"></span> (my physician(s)) and/or those associates, assistants and other health care providers designated by my physician(s) to perform the recommended procedure described above. I understand that during the procedure, conditions may become apparent that require my physicians or their designees to take steps or perform additional procedures that they believe are medically necessary to achieve the desired benefits or for my well‑being.</li>
+            <li>I authorize and request my physician(s) or their designees to perform whatever medical acts or additional procedures they, in the exercise of their sole professional judgment, deem reasonable and necessary, and I waive any obligation on their part to stop or delay the continuation of my procedure to obtain additional consent if I am unable to give additional consent at that time.</li>
+          </ol>
+        </div>
+        <div class="footer">
+          <img class="barcode" src="Hh6nBGq.png" alt="barcode" />
+          <div class="foot-date">2/16/2024</div>
+        </div>
+      `;
+      rightPanel.appendChild(page3);
+
+      // Page 4 (final signature page)
+      const page4 = document.createElement('div');
+      page4.className = 'sheet';
+      page4.style.marginTop = '1rem';
+      page4.innerHTML = `
+        <div class="header">
+          <div class="hdr">
+            <div class="hdr-left">
+              <div class="pageNo">Page ${totalPages} of ${totalPages}</div>
+              <img class="logo" src="gTlSit7.png" alt="UPMC" />
+            </div>
+            <div class="hdr-right">
+              <div><strong>Patient Name:</strong> <span class="hdrPatientName line"></span></div>
+              <div><strong>Identification Number:</strong> <span class="hdrId line"></span></div>
+              <div><strong>Date of Birth:</strong> <span class="hdrDob line"></span></div>
+              <div><strong>Facility:</strong> <span class="hdrFacility line"></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="content">
+          <div class="title">CONSENT TO SURGERY OR SPECIAL PROCEDURE</div>
+          <div class="signature-section" style="margin-bottom:.25in">
+            <div class="signature-row">
+              <div class="sig-field">
+                <span>Date:</span>
+                <span class="uline u-date-time witnessDate"></span>
+              </div>
+              <div class="sig-field">
+                <span>Time:</span>
+                <span class="uline u-date-time witnessTime"></span>
+              </div>
+              <div class="sig-field flex-grow" style="justify-content:space-between;">
+                <span>Witness</span>
+                <span class="uline u-med witnessName"></span>
+              </div>
+            </div>
+            <div class="signature-row">
+              <div class="sig-field">
+                <span>Date:</span>
+                <span class="uline u-date-time signerDate"></span>
+              </div>
+              <div class="sig-field">
+                <span>Time:</span>
+                <span class="uline u-date-time signerTime"></span>
+              </div>
+              <div class="sig-field flex-grow" style="justify-content:space-between;">
+                <span>Signature of patient or person authorized to consent for patient</span>
+                <span class="uline u-med"></span>
+              </div>
+            </div>
+            <div class="signature-row">
+              <div class="sig-field flex-grow" style="justify-content:space-between;">
+                <span>Relationship to patient if signer is not Patient:</span>
+                <span class="uline u-rel signerRelationship"></span>
+              </div>
+            </div>
+          </div>
+          <div style="padding-top:.2in;margin-bottom:.25in">
+            <p>I have explained to the patient signing above all the information referred to in this consent form. I have given no guarantee or assurance as to the results that may be obtained.</p>
+            <div class="signature-row">
+              <div class="sig-field">
+                <span>Date</span>
+                <span class="uline u-date-time physSigDate"></span>
+              </div>
+              <div class="sig-field">
+                <span>Time</span>
+                <span class="uline u-date-time physSigTime"></span>
+              </div>
+              <div class="sig-field flex-grow" style="justify-content:space-between;">
+                <span>Signature of Physician or Representative</span>
+                <span class="uline u-med"></span>
+              </div>
+            </div>
+            <div class="signature-row">
+              <div class="sig-field flex-grow" style="justify-content:space-between;">
+                <span>               Printed name</span>
+                <span class="uline u-rel physSigName"></span>
+              </div>
+            </div>
+          </div>
+          <div style="border-top:1px solid #000;padding-top:.2in">
+            <div style="font-weight:700">INTERPRETER'S STATEMENT</div>
+            <p>Execute if an interpreter is provided to assist the individual in understanding this informed consent form:</p>
+            <p>I have translated the information and advice presented orally to the individual to be treated by the person obtaining this consent.</p>
+            <p>In addition, I have sight translated the consent form (read it aloud in his/her language). To the best of my knowledge and belief he/she understood this explanation.</p>
+            <div class="list" style="font-size:10pt">
+              <div><strong>Cyracom ID (if applicable)</strong>: <span class="uline u-short cyracom"></span></div>
+              <div><strong>Print Name</strong>: <span class="uline u-rel interpName"></span></div>
+              <div><strong>Signature</strong>: <span class="uline u-wide"></span> <span class="muted" style="font-size:9pt">(Not required if a Cyracom Interpreter Was Used)</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <img class="barcode" src="Hh6nBGq.png" alt="barcode" />
+          <div class="foot-date">2/16/2024</div>
+        </div>
+      `;
+      rightPanel.appendChild(page4);
+    }
+
+    // Review text
+    function renderReview(){
+      const review = (
+`Patient: ${f.patientName||''} (MRN ${f.idNumber||''}${f.dob?`, DOB ${f.dob}`:''})
+Facility: ${f.facility||''}
+
+Procedures: ${f.recommendedProcedure||'(none)'}
+
+Diagnosis: ${f.diagnosis||''}
+Alternatives: ${f.alternatives||''}
+Other risks: ${f.otherRisks||''}
+
+Surgeon(s): ${f.physicianName||''}`.trim());
+      document.getElementById('reviewBox').value = review;
+    }
+
+    // Initialize
+    load();
+    populateSurgeonDropdown();
+    renderSelectedSurgeons();
+    renderProcedures();
+    bindInputs();
+    updateDerived();
+    generatePages();
+    renderPreview();
+    renderReview();
+  </script>
+</body>
+</html>
