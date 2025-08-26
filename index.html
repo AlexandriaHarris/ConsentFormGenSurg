@@ -656,46 +656,107 @@
       
       // Define your specialty's procedures
       PROCEDURES: [
-       const GENERAL_AND_CARDIOTHORACIC_PROCEDURES = [
+  const GENERAL_AND_CARDIOTHORACIC_PROCEDURES = [
   // ========== GENERAL SURGERY - HERNIA REPAIRS ==========
   {
     key: 'INGUINAL_HERNIA',
     name: 'Inguinal Hernia Repair (Open/Laparoscopic)',
     specialty: 'Hernia Surgery',
-    risks: ['recurrence', 'chronic groin pain', 'mesh infection/rejection', 'testicular atrophy/ischemia', 'ilioinguinal/iliohypogastric nerve injury (numbness/pain)', 'spermatic cord injury', 'vas deferens injury (infertility risk)', 'bladder perforation', 'seroma formation'],
-    alternatives: ['Watchful waiting', 'Hernia belt/truss', 'Different surgical approach (open vs laparoscopic)'],
+    risks: [
+      'recurrence',
+      'chronic groin pain',
+      'mesh infection/rejection',
+      'testicular atrophy/ischemia',
+      'ilioinguinal/iliohypogastric nerve injury (numbness/pain)',
+      'spermatic cord injury',
+      'vas deferens injury (infertility risk)',
+      'bladder perforation',
+      'seroma formation'
+    ],
+    alternatives: [
+      'Watchful waiting',
+      'Hernia belt/truss',
+      'Different surgical approach (open vs laparoscopic)'
+    ],
     requiresLaterality: true
   },
   {
     key: 'VENTRAL_HERNIA',
     name: 'Ventral/Incisional Hernia Repair',
     specialty: 'Hernia Surgery',
-    risks: ['recurrence', 'mesh infection/rejection', 'enterocutaneous fistula', 'bowel injury/perforation', 'chronic abdominal wall pain', 'seroma formation', 'wound dehiscence', 'respiratory compromise (loss of domain)'],
-    alternatives: ['Observation', 'Abdominal binder', 'Weight loss before surgery'],
+    risks: [
+      'recurrence',
+      'mesh infection/rejection',
+      'enterocutaneous fistula',
+      'bowel injury/perforation',
+      'chronic abdominal wall pain',
+      'seroma formation',
+      'wound dehiscence',
+      'respiratory compromise (loss of domain)'
+    ],
+    alternatives: [
+      'Observation',
+      'Abdominal binder',
+      'Weight loss before surgery'
+    ],
     requiresLaterality: false
   },
   {
     key: 'UMBILICAL_HERNIA',
     name: 'Umbilical Hernia Repair',
     specialty: 'Hernia Surgery',
-    risks: ['recurrence', 'mesh complications', 'seroma formation', 'umbilical deformity/cosmetic dissatisfaction', 'chronic pain at repair site'],
-    alternatives: ['Observation (if asymptomatic)', 'Watchful waiting'],
+    risks: [
+      'recurrence',
+      'mesh complications',
+      'seroma formation',
+      'umbilical deformity/cosmetic dissatisfaction',
+      'chronic pain at repair site'
+    ],
+    alternatives: [
+      'Observation (if asymptomatic)',
+      'Watchful waiting'
+    ],
     requiresLaterality: false
   },
   {
     key: 'FEMORAL_HERNIA',
     name: 'Femoral Hernia Repair',
     specialty: 'Hernia Surgery',
-    risks: ['recurrence', 'femoral vein/artery injury', 'femoral nerve injury', 'bladder injury', 'bowel injury if incarcerated', 'chronic groin pain', 'lymphocele formation', 'testicular ischemia'],
-    alternatives: ['Emergency surgery only (high risk of incarceration)'],
+    risks: [
+      'recurrence',
+      'femoral vein/artery injury',
+      'femoral nerve injury',
+      'bladder injury',
+      'bowel injury if incarcerated',
+      'chronic groin pain',
+      'lymphocele formation',
+      'testicular ischemia'
+    ],
+    alternatives: [
+      'Emergency surgery only (high risk of incarceration)'
+    ],
     requiresLaterality: true
   },
   {
     key: 'HIATAL_HERNIA',
     name: 'Hiatal Hernia Repair with Fundoplication',
     specialty: 'Hernia Surgery',
-    risks: ['dysphagia (difficulty swallowing)', 'gas bloat syndrome', 'inability to belch/vomit', 'wrap migration/loosening', 'vagus nerve injury (gastroparesis)', 'splenic injury requiring splenectomy', 'esophageal perforation', 'pneumothorax', 'dumping syndrome'],
-    alternatives: ['Medical management (PPIs)', 'Lifestyle modifications', 'Endoscopic procedures'],
+    risks: [
+      'dysphagia (difficulty swallowing)',
+      'gas bloat syndrome',
+      'inability to belch/vomit',
+      'wrap migration/loosening',
+      'vagus nerve injury (gastroparesis)',
+      'splenic injury requiring splenectomy',
+      'esophageal perforation',
+      'pneumothorax',
+      'dumping syndrome'
+    ],
+    alternatives: [
+      'Medical management (PPIs)',
+      'Lifestyle modifications',
+      'Endoscopic procedures'
+    ],
     requiresLaterality: false
   },
 
@@ -704,24 +765,63 @@
     key: 'LAP_CHOLE',
     name: 'Laparoscopic Cholecystectomy',
     specialty: 'Hepatobiliary',
-    risks: ['bile duct injury (CBD, hepatic ducts)', 'bile leak from gallbladder bed', 'retained stones in bile duct', 'hepatic artery injury', 'bowel perforation (thermal injury)', 'conversion to open surgery', 'postcholecystectomy syndrome', 'port site hernia'],
-    alternatives: ['Open cholecystectomy', 'Percutaneous cholecystostomy', 'Medical management', 'ERCP with sphincterotomy'],
+    risks: [
+      'bile duct injury (CBD, hepatic ducts)',
+      'bile leak from gallbladder bed',
+      'retained stones in bile duct',
+      'hepatic artery injury',
+      'bowel perforation (thermal injury)',
+      'conversion to open surgery',
+      'postcholecystectomy syndrome',
+      'port site hernia'
+    ],
+    alternatives: [
+      'Open cholecystectomy',
+      'Percutaneous cholecystostomy',
+      'Medical management',
+      'ERCP with sphincterotomy'
+    ],
     requiresLaterality: false
   },
   {
     key: 'OPEN_CHOLE',
     name: 'Open Cholecystectomy',
     specialty: 'Hepatobiliary',
-    risks: ['bile duct injury', 'bile leak', 'retained stones', 'hepatic artery injury', 'duodenal injury', 'incisional hernia', 'postcholecystectomy syndrome'],
-    alternatives: ['Laparoscopic approach', 'Percutaneous drainage', 'Medical management'],
+    risks: [
+      'bile duct injury',
+      'bile leak',
+      'retained stones',
+      'hepatic artery injury',
+      'duodenal injury',
+      'incisional hernia',
+      'postcholecystectomy syndrome'
+    ],
+    alternatives: [
+      'Laparoscopic approach',
+      'Percutaneous drainage',
+      'Medical management'
+    ],
     requiresLaterality: false
   },
   {
     key: 'ERCP',
     name: 'ERCP with Sphincterotomy',
     specialty: 'Hepatobiliary',
-    risks: ['post-ERCP pancreatitis', 'sphincterotomy bleeding', 'duodenal perforation', 'ascending cholangitis', 'guidewire perforation', 'contrast reaction', 'failed cannulation', 'stone migration into pancreatic duct'],
-    alternatives: ['MRCP', 'Surgical exploration', 'Percutaneous drainage'],
+    risks: [
+      'post-ERCP pancreatitis',
+      'sphincterotomy bleeding',
+      'duodenal perforation',
+      'ascending cholangitis',
+      'guidewire perforation',
+      'contrast reaction',
+      'failed cannulation',
+      'stone migration into pancreatic duct'
+    ],
+    alternatives: [
+      'MRCP',
+      'Surgical exploration',
+      'Percutaneous drainage'
+    ],
     requiresLaterality: false
   },
 
@@ -730,16 +830,39 @@
     key: 'LAP_APPY',
     name: 'Laparoscopic Appendectomy',
     specialty: 'Emergency General Surgery',
-    risks: ['intra-abdominal abscess', 'stump appendicitis', 'cecal injury', 'iliac vessel injury', 'bladder injury', 'conversion to open', 'port site infection/hernia'],
-    alternatives: ['Open appendectomy', 'Antibiotics alone (for uncomplicated appendicitis)', 'Percutaneous drainage (if abscess)'],
+    risks: [
+      'intra-abdominal abscess',
+      'stump appendicitis',
+      'cecal injury',
+      'iliac vessel injury',
+      'bladder injury',
+      'conversion to open',
+      'port site infection/hernia'
+    ],
+    alternatives: [
+      'Open appendectomy',
+      'Antibiotics alone (for uncomplicated appendicitis)',
+      'Percutaneous drainage (if abscess)'
+    ],
     requiresLaterality: false
   },
   {
     key: 'OPEN_APPY',
     name: 'Open Appendectomy',
     specialty: 'Emergency General Surgery',
-    risks: ['intra-abdominal abscess', 'stump appendicitis', 'cecal injury', 'right ureter injury', 'wound infection (superficial/deep)', 'incisional hernia'],
-    alternatives: ['Laparoscopic approach', 'Antibiotics alone', 'Interval appendectomy'],
+    risks: [
+      'intra-abdominal abscess',
+      'stump appendicitis',
+      'cecal injury',
+      'right ureter injury',
+      'wound infection (superficial/deep)',
+      'incisional hernia'
+    ],
+    alternatives: [
+      'Laparoscopic approach',
+      'Antibiotics alone',
+      'Interval appendectomy'
+    ],
     requiresLaterality: false
   },
 
@@ -748,64 +871,165 @@
     key: 'RIGHT_HEMI',
     name: 'Right Hemicolectomy',
     specialty: 'Colorectal',
-    risks: ['anastomotic leak', 'ileocolic vessel bleeding', 'right ureter injury', 'duodenal injury', 'post-op ileus', 'vitamin B12 deficiency (if terminal ileum removed)', 'bile salt diarrhea', 'incisional hernia'],
-    alternatives: ['Left untreated (not recommended for cancer)', 'Endoscopic removal (small polyps)', 'Chemotherapy/radiation'],
+    risks: [
+      'anastomotic leak',
+      'ileocolic vessel bleeding',
+      'right ureter injury',
+      'duodenal injury',
+      'post-op ileus',
+      'vitamin B12 deficiency (if terminal ileum removed)',
+      'bile salt diarrhea',
+      'incisional hernia'
+    ],
+    alternatives: [
+      'Left untreated (not recommended for cancer)',
+      'Endoscopic removal (small polyps)',
+      'Chemotherapy/radiation'
+    ],
     requiresLaterality: false
   },
   {
     key: 'LEFT_HEMI',
     name: 'Left Hemicolectomy',
     specialty: 'Colorectal',
-    risks: ['anastomotic leak', 'left ureter injury', 'bladder injury', 'splenic flexure bleeding', 'hypogastric nerve injury (sexual/urinary dysfunction)', 'change in bowel habits', 'need for stoma'],
-    alternatives: ['Conservative management', 'Endoscopic removal', 'Chemotherapy/radiation'],
+    risks: [
+      'anastomotic leak',
+      'left ureter injury',
+      'bladder injury',
+      'splenic flexure bleeding',
+      'hypogastric nerve injury (sexual/urinary dysfunction)',
+      'change in bowel habits',
+      'need for stoma'
+    ],
+    alternatives: [
+      'Conservative management',
+      'Endoscopic removal',
+      'Chemotherapy/radiation'
+    ],
     requiresLaterality: false
   },
   {
     key: 'SIGMOID_COLECTOMY',
     name: 'Sigmoid Colectomy',
     specialty: 'Colorectal',
-    risks: ['anastomotic leak', 'left ureter injury', 'presacral venous bleeding', 'hypogastric nerve injury (erectile dysfunction, retrograde ejaculation)', 'bladder dysfunction', 'need for colostomy', 'recurrent diverticulitis'],
-    alternatives: ['Medical management', 'Percutaneous drainage', 'Hartmann procedure'],
+    risks: [
+      'anastomotic leak',
+      'left ureter injury',
+      'presacral venous bleeding',
+      'hypogastric nerve injury (erectile dysfunction, retrograde ejaculation)',
+      'bladder dysfunction',
+      'need for colostomy',
+      'recurrent diverticulitis'
+    ],
+    alternatives: [
+      'Medical management',
+      'Percutaneous drainage',
+      'Hartmann procedure'
+    ],
     requiresLaterality: false
   },
   {
     key: 'LAR',
     name: 'Low Anterior Resection',
     specialty: 'Colorectal',
-    risks: ['anastomotic leak', 'presacral nerve injury (sexual/bladder dysfunction)', 'low anterior resection syndrome (urgency, frequency, incontinence)', 'need for permanent colostomy', 'pelvic sidewall bleeding', 'vaginal injury (in females)'],
-    alternatives: ['Abdominoperineal resection', 'Transanal excision', 'Chemoradiation alone'],
+    risks: [
+      'anastomotic leak',
+      'presacral nerve injury (sexual/bladder dysfunction)',
+      'low anterior resection syndrome (urgency, frequency, incontinence)',
+      'need for permanent colostomy',
+      'pelvic sidewall bleeding',
+      'vaginal injury (in females)'
+    ],
+    alternatives: [
+      'Abdominoperineal resection',
+      'Transanal excision',
+      'Chemoradiation alone'
+    ],
     requiresLaterality: false
   },
   {
     key: 'APR',
     name: 'Abdominoperineal Resection',
     specialty: 'Colorectal',
-    risks: ['permanent colostomy', 'perineal wound breakdown/infection', 'pelvic nerve injury (sexual/urinary dysfunction)', 'phantom rectum syndrome', 'parastomal hernia', 'perineal hernia', 'empty pelvis syndrome'],
-    alternatives: ['Low anterior resection', 'Chemoradiation', 'Local excision'],
+    risks: [
+      'permanent colostomy',
+      'perineal wound breakdown/infection',
+      'pelvic nerve injury (sexual/urinary dysfunction)',
+      'phantom rectum syndrome',
+      'parastomal hernia',
+      'perineal hernia',
+      'empty pelvis syndrome'
+    ],
+    alternatives: [
+      'Low anterior resection',
+      'Chemoradiation',
+      'Local excision'
+    ],
     requiresLaterality: false
   },
   {
     key: 'TOTAL_COLECTOMY',
     name: 'Total Colectomy with Ileorectal Anastomosis',
     specialty: 'Colorectal',
-    risks: ['frequent bowel movements (10-12/day initially)', 'dehydration/electrolyte imbalances', 'anastomotic leak', 'small bowel obstruction', 'pouchitis (if J-pouch)', 'B12/fat-soluble vitamin deficiency', 'female infertility', 'nighttime incontinence'],
-    alternatives: ['Segmental colectomy', 'Medical management', 'Proctocolectomy with ileostomy'],
+    risks: [
+      'frequent bowel movements (10-12/day initially)',
+      'dehydration/electrolyte imbalances',
+      'anastomotic leak',
+      'small bowel obstruction',
+      'pouchitis (if J-pouch)',
+      'B12/fat-soluble vitamin deficiency',
+      'female infertility',
+      'nighttime incontinence'
+    ],
+    alternatives: [
+      'Segmental colectomy',
+      'Medical management',
+      'Proctocolectomy with ileostomy'
+    ],
     requiresLaterality: false
   },
   {
     key: 'HEMORRHOIDECTOMY',
     name: 'Hemorrhoidectomy',
     specialty: 'Colorectal',
-    risks: ['severe postoperative pain', 'anal stenosis/stricture', 'fecal incontinence', 'anal fissure', 'urinary retention', 'delayed hemorrhage (7-14 days)', 'skin tag formation', 'recurrence'],
-    alternatives: ['Rubber band ligation', 'Sclerotherapy', 'Infrared coagulation', 'Medical management', 'Stapled hemorrhoidopexy'],
+    risks: [
+      'severe postoperative pain',
+      'anal stenosis/stricture',
+      'fecal incontinence',
+      'anal fissure',
+      'urinary retention',
+      'delayed hemorrhage (7-14 days)',
+      'skin tag formation',
+      'recurrence'
+    ],
+    alternatives: [
+      'Rubber band ligation',
+      'Sclerotherapy',
+      'Infrared coagulation',
+      'Medical management',
+      'Stapled hemorrhoidopexy'
+    ],
     requiresLaterality: false
   },
   {
     key: 'FISTULOTOMY',
     name: 'Anal Fistulotomy/Fistulectomy',
     specialty: 'Colorectal',
-    risks: ['fecal incontinence (gas, liquid, solid)', 'recurrence/persistence', 'keyhole deformity', 'anal stenosis', 'delayed wound healing (6-12 weeks)', 'false tract creation'],
-    alternatives: ['Seton placement', 'Fibrin glue', 'Anal fistula plug', 'LIFT procedure', 'Advancement flap'],
+    risks: [
+      'fecal incontinence (gas, liquid, solid)',
+      'recurrence/persistence',
+      'keyhole deformity',
+      'anal stenosis',
+      'delayed wound healing (6-12 weeks)',
+      'false tract creation'
+    ],
+    alternatives: [
+      'Seton placement',
+      'Fibrin glue',
+      'Anal fistula plug',
+      'LIFT procedure',
+      'Advancement flap'
+    ],
     requiresLaterality: false
   },
 
@@ -814,32 +1038,83 @@
     key: 'LUMPECTOMY',
     name: 'Breast Lumpectomy/Partial Mastectomy',
     specialty: 'Breast Surgery',
-    risks: ['positive margins requiring re-excision', 'seroma formation', 'breast asymmetry/deformity', 'fat necrosis', 'chronic breast pain', 'nipple sensation changes', 'need for completion mastectomy'],
-    alternatives: ['Mastectomy', 'Neoadjuvant therapy', 'Hormone therapy alone', 'Active surveillance'],
+    risks: [
+      'positive margins requiring re-excision',
+      'seroma formation',
+      'breast asymmetry/deformity',
+      'fat necrosis',
+      'chronic breast pain',
+      'nipple sensation changes',
+      'need for completion mastectomy'
+    ],
+    alternatives: [
+      'Mastectomy',
+      'Neoadjuvant therapy',
+      'Hormone therapy alone',
+      'Active surveillance'
+    ],
     requiresLaterality: true
   },
   {
     key: 'MASTECTOMY',
     name: 'Mastectomy (Simple/Modified Radical)',
     specialty: 'Breast Surgery',
-    risks: ['skin flap necrosis', 'seroma formation (30-50%)', 'phantom breast syndrome', 'chest wall numbness', 'winged scapula (long thoracic nerve injury)', 'intercostobrachial nerve injury (arm numbness)', 'lymphedema', 'shoulder dysfunction'],
-    alternatives: ['Breast conservation therapy', 'Neoadjuvant therapy first', 'Hormone therapy', 'Bilateral mastectomy'],
+    risks: [
+      'skin flap necrosis',
+      'seroma formation (30-50%)',
+      'phantom breast syndrome',
+      'chest wall numbness',
+      'winged scapula (long thoracic nerve injury)',
+      'intercostobrachial nerve injury (arm numbness)',
+      'lymphedema',
+      'shoulder dysfunction'
+    ],
+    alternatives: [
+      'Breast conservation therapy',
+      'Neoadjuvant therapy first',
+      'Hormone therapy',
+      'Bilateral mastectomy'
+    ],
     requiresLaterality: true
   },
   {
     key: 'SLNB',
     name: 'Sentinel Lymph Node Biopsy',
     specialty: 'Breast Surgery',
-    risks: ['lymphedema (5-7%)', 'seroma', 'blue/green urine (from dye)', 'allergic reaction to blue dye', 'tattooing of skin', 'failure to identify sentinel node', 'axillary web syndrome'],
-    alternatives: ['Axillary lymph node dissection', 'No nodal surgery', 'Axillary radiation'],
+    risks: [
+      'lymphedema (5-7%)',
+      'seroma',
+      'blue/green urine (from dye)',
+      'allergic reaction to blue dye',
+      'tattooing of skin',
+      'failure to identify sentinel node',
+      'axillary web syndrome'
+    ],
+    alternatives: [
+      'Axillary lymph node dissection',
+      'No nodal surgery',
+      'Axillary radiation'
+    ],
     requiresLaterality: true
   },
   {
     key: 'ALND',
     name: 'Axillary Lymph Node Dissection',
     specialty: 'Breast Surgery',
-    risks: ['lymphedema (15-30%)', 'seroma', 'intercostobrachial nerve injury (inner arm numbness)', 'long thoracic nerve injury (winged scapula)', 'thoracodorsal nerve injury', 'axillary web syndrome', 'shoulder dysfunction/frozen shoulder'],
-    alternatives: ['Sentinel node biopsy', 'Axillary radiation', 'No further surgery'],
+    risks: [
+      'lymphedema (15-30%)',
+      'seroma',
+      'intercostobrachial nerve injury (inner arm numbness)',
+      'long thoracic nerve injury (winged scapula)',
+      'thoracodorsal nerve injury',
+      'axillary web syndrome',
+      'shoulder dysfunction/frozen shoulder'
+    ],
+    alternatives: [
+      'Sentinel node biopsy',
+      'Axillary radiation',
+      'No further surgery'
+    ],
     requiresLaterality: true
   },
 
@@ -848,24 +1123,63 @@
     key: 'THYROIDECTOMY',
     name: 'Thyroidectomy (Total/Partial)',
     specialty: 'Endocrine Surgery',
-    risks: ['recurrent laryngeal nerve injury (hoarseness, aspiration)', 'hypoparathyroidism/hypocalcemia (temporary or permanent)', 'superior laryngeal nerve injury (voice fatigue, pitch changes)', 'neck hematoma (airway compromise)', 'thyroid storm', 'tracheal injury', 'esophageal injury', 'permanent hypothyroidism'],
-    alternatives: ['Radioactive iodine', 'Thyroid suppression therapy', 'Active surveillance', 'Ethanol ablation'],
+    risks: [
+      'recurrent laryngeal nerve injury (hoarseness, aspiration)',
+      'hypoparathyroidism/hypocalcemia (temporary or permanent)',
+      'superior laryngeal nerve injury (voice fatigue, pitch changes)',
+      'neck hematoma (airway compromise)',
+      'thyroid storm',
+      'tracheal injury',
+      'esophageal injury',
+      'permanent hypothyroidism'
+    ],
+    alternatives: [
+      'Radioactive iodine',
+      'Thyroid suppression therapy',
+      'Active surveillance',
+      'Ethanol ablation'
+    ],
     requiresLaterality: false
   },
   {
     key: 'PARATHYROIDECTOMY',
     name: 'Parathyroidectomy',
     specialty: 'Endocrine Surgery',
-    risks: ['hypocalcemia/hungry bone syndrome', 'recurrent laryngeal nerve injury', 'persistent/recurrent hyperparathyroidism', 'neck hematoma', 'failure to locate adenoma', 'permanent hypoparathyroidism'],
-    alternatives: ['Medical management', 'Observation', 'Dialysis (if renal failure)'],
+    risks: [
+      'hypocalcemia/hungry bone syndrome',
+      'recurrent laryngeal nerve injury',
+      'persistent/recurrent hyperparathyroidism',
+      'neck hematoma',
+      'failure to locate adenoma',
+      'permanent hypoparathyroidism'
+    ],
+    alternatives: [
+      'Medical management',
+      'Observation',
+      'Dialysis (if renal failure)'
+    ],
     requiresLaterality: false
   },
   {
     key: 'ADRENALECTOMY',
     name: 'Adrenalectomy (Open/Laparoscopic)',
     specialty: 'Endocrine Surgery',
-    risks: ['adrenal insufficiency/crisis', 'inferior vena cava injury', 'renal vessel injury', 'spleen injury (left side)', 'liver injury (right side)', 'diaphragm injury/pneumothorax', 'pancreatic injury (left side)', 'hormone imbalance'],
-    alternatives: ['Medical management', 'Radiation therapy', 'Chemotherapy', 'Observation'],
+    risks: [
+      'adrenal insufficiency/crisis',
+      'inferior vena cava injury',
+      'renal vessel injury',
+      'spleen injury (left side)',
+      'liver injury (right side)',
+      'diaphragm injury/pneumothorax',
+      'pancreatic injury (left side)',
+      'hormone imbalance'
+    ],
+    alternatives: [
+      'Medical management',
+      'Radiation therapy',
+      'Chemotherapy',
+      'Observation'
+    ],
     requiresLaterality: true
   },
 
@@ -874,8 +1188,21 @@
     key: 'SPLENECTOMY',
     name: 'Splenectomy (Open/Laparoscopic)',
     specialty: 'General Surgery',
-    risks: ['overwhelming post-splenectomy infection (OPSI) - lifelong risk', 'pancreatic tail injury/fistula', 'gastric perforation', 'colon injury (splenic flexure)', 'portal vein thrombosis', 'thrombocytosis (>1 million)', 'subphrenic abscess'],
-    alternatives: ['Partial splenectomy', 'Splenic artery embolization', 'Medical management', 'Observation'],
+    risks: [
+      'overwhelming post-splenectomy infection (OPSI) - lifelong risk',
+      'pancreatic tail injury/fistula',
+      'gastric perforation',
+      'colon injury (splenic flexure)',
+      'portal vein thrombosis',
+      'thrombocytosis (>1 million)',
+      'subphrenic abscess'
+    ],
+    alternatives: [
+      'Partial splenectomy',
+      'Splenic artery embolization',
+      'Medical management',
+      'Observation'
+    ],
     requiresLaterality: false
   },
 
@@ -884,8 +1211,23 @@
     key: 'LIVER_RESECTION',
     name: 'Hepatectomy/Liver Resection',
     specialty: 'Hepatobiliary',
-    risks: ['liver failure/insufficiency', 'bile leak/biloma', 'hepatic vein injury', 'portal vein injury', 'inferior vena cava injury', 'diaphragm injury', 'post-hepatectomy liver failure', 'portal hypertension'],
-    alternatives: ['Ablation', 'Chemoembolization', 'Radiation therapy', 'Liver transplant', 'Systemic therapy'],
+    risks: [
+      'liver failure/insufficiency',
+      'bile leak/biloma',
+      'hepatic vein injury',
+      'portal vein injury',
+      'inferior vena cava injury',
+      'diaphragm injury',
+      'post-hepatectomy liver failure',
+      'portal hypertension'
+    ],
+    alternatives: [
+      'Ablation',
+      'Chemoembolization',
+      'Radiation therapy',
+      'Liver transplant',
+      'Systemic therapy'
+    ],
     requiresLaterality: true
   },
 
@@ -894,16 +1236,44 @@
     key: 'WHIPPLE',
     name: 'Pancreaticoduodenectomy (Whipple Procedure)',
     specialty: 'Hepatobiliary',
-    risks: ['pancreatic fistula/leak', 'delayed gastric emptying (20-30%)', 'pancreatic insufficiency (diabetes, malabsorption)', 'bile leak', 'gastrojejunostomy leak', 'chyle leak', 'portal vein/SMV injury', 'hepatic artery injury', 'marginal ulceration'],
-    alternatives: ['Palliative bypass', 'Chemotherapy/radiation', 'Total pancreatectomy', 'Supportive care'],
+    risks: [
+      'pancreatic fistula/leak',
+      'delayed gastric emptying (20-30%)',
+      'pancreatic insufficiency (diabetes, malabsorption)',
+      'bile leak',
+      'gastrojejunostomy leak',
+      'chyle leak',
+      'portal vein/SMV injury',
+      'hepatic artery injury',
+      'marginal ulceration'
+    ],
+    alternatives: [
+      'Palliative bypass',
+      'Chemotherapy/radiation',
+      'Total pancreatectomy',
+      'Supportive care'
+    ],
     requiresLaterality: false
   },
   {
     key: 'DISTAL_PANC',
     name: 'Distal Pancreatectomy',
     specialty: 'Hepatobiliary',
-    risks: ['pancreatic fistula (30%)', 'new-onset diabetes', 'splenic vessel injury', 'inadvertent splenectomy', 'gastric outlet obstruction', 'portal vein thrombosis', 'pancreatic insufficiency'],
-    alternatives: ['Observation', 'Enucleation', 'Chemotherapy/radiation', 'Drainage procedures'],
+    risks: [
+      'pancreatic fistula (30%)',
+      'new-onset diabetes',
+      'splenic vessel injury',
+      'inadvertent splenectomy',
+      'gastric outlet obstruction',
+      'portal vein thrombosis',
+      'pancreatic insufficiency'
+    ],
+    alternatives: [
+      'Observation',
+      'Enucleation',
+      'Chemotherapy/radiation',
+      'Drainage procedures'
+    ],
     requiresLaterality: false
   },
 
@@ -912,16 +1282,42 @@
     key: 'GASTRECTOMY',
     name: 'Gastrectomy (Partial/Total)',
     specialty: 'Upper GI Surgery',
-    risks: ['anastomotic leak', 'dumping syndrome (early and late)', 'B12 deficiency/pernicious anemia', 'iron deficiency anemia', 'afferent/efferent loop syndrome', 'internal hernia', 'Roux stasis syndrome', 'bile reflux gastritis'],
-    alternatives: ['Endoscopic resection', 'Chemotherapy/radiation', 'Palliative care'],
+    risks: [
+      'anastomotic leak',
+      'dumping syndrome (early and late)',
+      'B12 deficiency/pernicious anemia',
+      'iron deficiency anemia',
+      'afferent/efferent loop syndrome',
+      'internal hernia',
+      'Roux stasis syndrome',
+      'bile reflux gastritis'
+    ],
+    alternatives: [
+      'Endoscopic resection',
+      'Chemotherapy/radiation',
+      'Palliative care'
+    ],
     requiresLaterality: false
   },
   {
     key: 'PEG_TUBE',
     name: 'PEG Tube Placement',
     specialty: 'General Surgery',
-    risks: ['tube dislodgement into peritoneum', 'buried bumper syndrome', 'gastrocolic fistula', 'peritonitis', 'aspiration pneumonia', 'tube site infection/necrotizing fasciitis', 'gastric outlet obstruction'],
-    alternatives: ['Nasogastric tube', 'Surgical gastrostomy', 'Jejunostomy', 'TPN'],
+    risks: [
+      'tube dislodgement into peritoneum',
+      'buried bumper syndrome',
+      'gastrocolic fistula',
+      'peritonitis',
+      'aspiration pneumonia',
+      'tube site infection/necrotizing fasciitis',
+      'gastric outlet obstruction'
+    ],
+    alternatives: [
+      'Nasogastric tube',
+      'Surgical gastrostomy',
+      'Jejunostomy',
+      'TPN'
+    ],
     requiresLaterality: false
   },
 
@@ -930,16 +1326,37 @@
     key: 'SMALL_BOWEL_RESECTION',
     name: 'Small Bowel Resection',
     specialty: 'General Surgery',
-    risks: ['anastomotic leak', 'short bowel syndrome (<200cm remaining)', 'vitamin B12 deficiency (if ileum)', 'bile salt diarrhea', 'bowel obstruction from adhesions', 'enterocutaneous fistula'],
-    alternatives: ['Stricturoplasty', 'Medical management', 'Bypass procedure'],
+    risks: [
+      'anastomotic leak',
+      'short bowel syndrome (<200cm remaining)',
+      'vitamin B12 deficiency (if ileum)',
+      'bile salt diarrhea',
+      'bowel obstruction from adhesions',
+      'enterocutaneous fistula'
+    ],
+    alternatives: [
+      'Stricturoplasty',
+      'Medical management',
+      'Bypass procedure'
+    ],
     requiresLaterality: false
   },
   {
     key: 'ADHESIOLYSIS',
     name: 'Lysis of Adhesions',
     specialty: 'General Surgery',
-    risks: ['bowel perforation (enterotomy)', 'serosal tears', 'recurrent adhesions (up to 90%)', 'prolonged ileus', 'enterocutaneous fistula', 'increased operative time/blood loss'],
-    alternatives: ['Conservative management', 'Nasogastric decompression'],
+    risks: [
+      'bowel perforation (enterotomy)',
+      'serosal tears',
+      'recurrent adhesions (up to 90%)',
+      'prolonged ileus',
+      'enterocutaneous fistula',
+      'increased operative time/blood loss'
+    ],
+    alternatives: [
+      'Conservative management',
+      'Nasogastric decompression'
+    ],
     requiresLaterality: false
   },
 
@@ -948,16 +1365,41 @@
     key: 'PORT_PLACEMENT',
     name: 'Port-a-Cath Placement',
     specialty: 'Vascular Access',
-    risks: ['pneumothorax', 'arterial puncture', 'catheter malposition', 'cardiac arrhythmia', 'air embolism', 'catheter fracture/embolization', 'superior vena cava perforation', 'thoracic duct injury (left side)'],
-    alternatives: ['PICC line', 'Hickman catheter', 'Peripheral IV'],
+    risks: [
+      'pneumothorax',
+      'arterial puncture',
+      'catheter malposition',
+      'cardiac arrhythmia',
+      'air embolism',
+      'catheter fracture/embolization',
+      'superior vena cava perforation',
+      'thoracic duct injury (left side)'
+    ],
+    alternatives: [
+      'PICC line',
+      'Hickman catheter',
+      'Peripheral IV'
+    ],
     requiresLaterality: true
   },
   {
     key: 'DIALYSIS_ACCESS',
     name: 'AV Fistula/Graft Creation',
     specialty: 'Vascular Access',
-    risks: ['thrombosis/failure to mature', 'steal syndrome (hand ischemia)', 'high output heart failure', 'aneurysm/pseudoaneurysm', 'median nerve injury', 'venous hypertension', 'seroma'],
-    alternatives: ['Peritoneal dialysis', 'Dialysis catheter', 'Different access site'],
+    risks: [
+      'thrombosis/failure to mature',
+      'steal syndrome (hand ischemia)',
+      'high output heart failure',
+      'aneurysm/pseudoaneurysm',
+      'median nerve injury',
+      'venous hypertension',
+      'seroma'
+    ],
+    alternatives: [
+      'Peritoneal dialysis',
+      'Dialysis catheter',
+      'Different access site'
+    ],
     requiresLaterality: true
   },
 
@@ -966,48 +1408,131 @@
     key: 'CABG',
     name: 'Coronary Artery Bypass Grafting (CABG)',
     specialty: 'Cardiac Surgery',
-    risks: ['stroke', 'perioperative MI', 'graft failure/occlusion', 'atrial fibrillation (30%)', 'sternal wound infection/dehiscence', 'saphenous vein harvest site complications', 'phrenic nerve injury (diaphragm paralysis)', 'cognitive dysfunction/delirium', 'renal failure requiring dialysis'],
-    alternatives: ['Percutaneous coronary intervention (PCI)', 'Medical management', 'Hybrid revascularization'],
+    risks: [
+      'stroke',
+      'perioperative MI',
+      'graft failure/occlusion',
+      'atrial fibrillation (30%)',
+      'sternal wound infection/dehiscence',
+      'saphenous vein harvest site complications',
+      'phrenic nerve injury (diaphragm paralysis)',
+      'cognitive dysfunction/delirium',
+      'renal failure requiring dialysis'
+    ],
+    alternatives: [
+      'Percutaneous coronary intervention (PCI)',
+      'Medical management',
+      'Hybrid revascularization'
+    ],
     requiresLaterality: false
   },
   {
     key: 'AVR',
     name: 'Aortic Valve Replacement (Mechanical/Bioprosthetic)',
     specialty: 'Cardiac Surgery',
-    risks: ['stroke', 'complete heart block (pacemaker needed)', 'paravalvular leak', 'prosthetic valve endocarditis', 'valve thrombosis (mechanical)', 'structural valve deterioration (bioprosthetic)', 'coronary ostia occlusion', 'aortic dissection', 'patient-prosthesis mismatch'],
-    alternatives: ['TAVR', 'Valve repair', 'Medical management', 'Balloon valvuloplasty'],
+    risks: [
+      'stroke',
+      'complete heart block (pacemaker needed)',
+      'paravalvular leak',
+      'prosthetic valve endocarditis',
+      'valve thrombosis (mechanical)',
+      'structural valve deterioration (bioprosthetic)',
+      'coronary ostia occlusion',
+      'aortic dissection',
+      'patient-prosthesis mismatch'
+    ],
+    alternatives: [
+      'TAVR',
+      'Valve repair',
+      'Medical management',
+      'Balloon valvuloplasty'
+    ],
     requiresLaterality: false
   },
   {
     key: 'MVR',
     name: 'Mitral Valve Replacement',
     specialty: 'Cardiac Surgery',
-    risks: ['stroke', 'left ventricular rupture', 'circumflex coronary injury', 'systolic anterior motion (SAM)', 'paravalvular leak', 'valve thrombosis', 'hemolysis', 'complete heart block', 'left ventricular outflow tract obstruction'],
-    alternatives: ['Mitral valve repair', 'MitraClip', 'Medical management'],
+    risks: [
+      'stroke',
+      'left ventricular rupture',
+      'circumflex coronary injury',
+      'systolic anterior motion (SAM)',
+      'paravalvular leak',
+      'valve thrombosis',
+      'hemolysis',
+      'complete heart block',
+      'left ventricular outflow tract obstruction'
+    ],
+    alternatives: [
+      'Mitral valve repair',
+      'MitraClip',
+      'Medical management'
+    ],
     requiresLaterality: false
   },
   {
     key: 'TAVR',
     name: 'Transcatheter Aortic Valve Replacement (TAVR)',
     specialty: 'Cardiac Surgery',
-    risks: ['stroke', 'vascular injury (femoral/iliac dissection, rupture)', 'coronary artery occlusion', 'annular rupture', 'valve migration/embolization', 'conduction abnormalities (pacemaker 10-15%)', 'paravalvular leak', 'acute kidney injury'],
-    alternatives: ['Surgical AVR', 'Balloon valvuloplasty', 'Medical management'],
+    risks: [
+      'stroke',
+      'vascular injury (femoral/iliac dissection, rupture)',
+      'coronary artery occlusion',
+      'annular rupture',
+      'valve migration/embolization',
+      'conduction abnormalities (pacemaker 10-15%)',
+      'paravalvular leak',
+      'acute kidney injury'
+    ],
+    alternatives: [
+      'Surgical AVR',
+      'Balloon valvuloplasty',
+      'Medical management'
+    ],
     requiresLaterality: false
   },
   {
     key: 'ASCENDING_AORTA',
     name: 'Ascending Aorta Replacement',
     specialty: 'Cardiac Surgery',
-    risks: ['stroke', 'spinal cord ischemia/paralysis', 'recurrent laryngeal nerve injury', 'phrenic nerve injury', 'coronary button dehiscence', 'aortic dissection extension', 'malperfusion syndrome'],
-    alternatives: ['Medical management', 'Endovascular repair (if suitable)', 'Watchful waiting'],
+    risks: [
+      'stroke',
+      'spinal cord ischemia/paralysis',
+      'recurrent laryngeal nerve injury',
+      'phrenic nerve injury',
+      'coronary button dehiscence',
+      'aortic dissection extension',
+      'malperfusion syndrome'
+    ],
+    alternatives: [
+      'Medical management',
+      'Endovascular repair (if suitable)',
+      'Watchful waiting'
+    ],
     requiresLaterality: false
   },
   {
     key: 'LVAD',
     name: 'Left Ventricular Assist Device (LVAD) Implantation',
     specialty: 'Cardiac Surgery',
-    risks: ['stroke', 'pump thrombosis', 'GI bleeding (AV malformations)', 'drive-line infection', 'right heart failure', 'device malfunction', 'aortic insufficiency', 'hemolysis', 'acquired von Willebrand disease'],
-    alternatives: ['Heart transplant', 'Medical management', 'Intra-aortic balloon pump', 'Palliative care'],
+    risks: [
+      'stroke',
+      'pump thrombosis',
+      'GI bleeding (AV malformations)',
+      'drive-line infection',
+      'right heart failure',
+      'device malfunction',
+      'aortic insufficiency',
+      'hemolysis',
+      'acquired von Willebrand disease'
+    ],
+    alternatives: [
+      'Heart transplant',
+      'Medical management',
+      'Intra-aortic balloon pump',
+      'Palliative care'
+    ],
     requiresLaterality: false
   },
 
@@ -1016,80 +1541,209 @@
     key: 'LOBECTOMY',
     name: 'Pulmonary Lobectomy',
     specialty: 'Thoracic Surgery',
-    risks: ['prolonged air leak (>7 days)', 'bronchopleural fistula', 'postoperative pneumonia', 'atrial fibrillation', 'recurrent laryngeal nerve injury (hoarseness)', 'phrenic nerve injury', 'chylothorax', 'post-thoracotomy pain syndrome', 'empyema'],
-    alternatives: ['Segmentectomy', 'Wedge resection', 'Radiation therapy', 'Chemotherapy', 'Observation'],
+    risks: [
+      'prolonged air leak (>7 days)',
+      'bronchopleural fistula',
+      'postoperative pneumonia',
+      'atrial fibrillation',
+      'recurrent laryngeal nerve injury (hoarseness)',
+      'phrenic nerve injury',
+      'chylothorax',
+      'post-thoracotomy pain syndrome',
+      'empyema'
+    ],
+    alternatives: [
+      'Segmentectomy',
+      'Wedge resection',
+      'Radiation therapy',
+      'Chemotherapy',
+      'Observation'
+    ],
     requiresLaterality: true
   },
   {
     key: 'PNEUMONECTOMY',
     name: 'Pneumonectomy',
     specialty: 'Thoracic Surgery',
-    risks: ['postpneumonectomy syndrome', 'bronchopleural fistula', 'cardiac herniation', 'empyema', 'pulmonary edema (contralateral lung)', 'right heart failure', 'arrhythmias (especially right side)', 'post-pneumonectomy pulmonary edema'],
-    alternatives: ['Lobectomy', 'Sleeve resection', 'Chemoradiation', 'Palliative care'],
+    risks: [
+      'postpneumonectomy syndrome',
+      'bronchopleural fistula',
+      'cardiac herniation',
+      'empyema',
+      'pulmonary edema (contralateral lung)',
+      'right heart failure',
+      'arrhythmias (especially right side)',
+      'post-pneumonectomy pulmonary edema'
+    ],
+    alternatives: [
+      'Lobectomy',
+      'Sleeve resection',
+      'Chemoradiation',
+      'Palliative care'
+    ],
     requiresLaterality: true
   },
   {
     key: 'WEDGE_RESECTION',
     name: 'Wedge Resection of Lung',
     specialty: 'Thoracic Surgery',
-    risks: ['prolonged air leak', 'pneumothorax', 'incomplete resection/positive margins', 'pleural space infection', 'intercostal neuralgia'],
-    alternatives: ['Lobectomy', 'Segmentectomy', 'Ablation', 'Stereotactic radiation'],
+    risks: [
+      'prolonged air leak',
+      'pneumothorax',
+      'incomplete resection/positive margins',
+      'pleural space infection',
+      'intercostal neuralgia'
+    ],
+    alternatives: [
+      'Lobectomy',
+      'Segmentectomy',
+      'Ablation',
+      'Stereotactic radiation'
+    ],
     requiresLaterality: true
   },
   {
     key: 'VATS_PLEURODESIS',
     name: 'VATS Pleurodesis',
     specialty: 'Thoracic Surgery',
-    risks: ['severe pleuritic pain', 'fever/SIRS response', 'ARDS', 'trapped lung', 'empyema', 'failure of pleurodesis (recurrent effusion)'],
-    alternatives: ['Chest tube with chemical pleurodesis', 'PleurX catheter', 'Repeated thoracentesis'],
+    risks: [
+      'severe pleuritic pain',
+      'fever/SIRS response',
+      'ARDS',
+      'trapped lung',
+      'empyema',
+      'failure of pleurodesis (recurrent effusion)'
+    ],
+    alternatives: [
+      'Chest tube with chemical pleurodesis',
+      'PleurX catheter',
+      'Repeated thoracentesis'
+    ],
     requiresLaterality: true
   },
   {
     key: 'THYMECTOMY',
     name: 'Thymectomy',
     specialty: 'Thoracic Surgery',
-    risks: ['myasthenic crisis', 'phrenic nerve injury (both sides)', 'recurrent laryngeal nerve injury', 'innominate vein injury', 'incomplete resection', 'pleural effusion'],
-    alternatives: ['Medical management', 'Radiation therapy', 'Observation'],
+    risks: [
+      'myasthenic crisis',
+      'phrenic nerve injury (both sides)',
+      'recurrent laryngeal nerve injury',
+      'innominate vein injury',
+      'incomplete resection',
+      'pleural effusion'
+    ],
+    alternatives: [
+      'Medical management',
+      'Radiation therapy',
+      'Observation'
+    ],
     requiresLaterality: false
   },
   {
     key: 'ESOPHAGECTOMY',
     name: 'Esophagectomy (Ivor Lewis/McKeown)',
     specialty: 'Thoracic Surgery',
-    risks: ['anastomotic leak (cervical or intrathoracic)', 'conduit necrosis', 'chylothorax', 'recurrent laryngeal nerve injury (hoarseness/aspiration)', 'anastomotic stricture', 'dumping syndrome', 'delayed gastric emptying', 'reflux'],
-    alternatives: ['Definitive chemoradiation', 'Endoscopic resection', 'Palliative stenting', 'Photodynamic therapy'],
+    risks: [
+      'anastomotic leak (cervical or intrathoracic)',
+      'conduit necrosis',
+      'chylothorax',
+      'recurrent laryngeal nerve injury (hoarseness/aspiration)',
+      'anastomotic stricture',
+      'dumping syndrome',
+      'delayed gastric emptying',
+      'reflux'
+    ],
+    alternatives: [
+      'Definitive chemoradiation',
+      'Endoscopic resection',
+      'Palliative stenting',
+      'Photodynamic therapy'
+    ],
     requiresLaterality: false
   },
   {
     key: 'MEDIASTINAL_MASS',
     name: 'Mediastinal Mass Resection',
     specialty: 'Thoracic Surgery',
-    risks: ['phrenic nerve injury', 'recurrent laryngeal nerve injury', 'vagus nerve injury', 'superior vena cava injury', 'innominate vein injury', 'chylothorax', 'incomplete resection'],
-    alternatives: ['Biopsy only', 'Chemotherapy', 'Radiation therapy', 'Observation'],
+    risks: [
+      'phrenic nerve injury',
+      'recurrent laryngeal nerve injury',
+      'vagus nerve injury',
+      'superior vena cava injury',
+      'innominate vein injury',
+      'chylothorax',
+      'incomplete resection'
+    ],
+    alternatives: [
+      'Biopsy only',
+      'Chemotherapy',
+      'Radiation therapy',
+      'Observation'
+    ],
     requiresLaterality: false
   },
   {
     key: 'CHEST_WALL_RESECTION',
     name: 'Chest Wall Resection and Reconstruction',
     specialty: 'Thoracic Surgery',
-    risks: ['flail chest/paradoxical breathing', 'respiratory failure', 'mesh/hardware infection', 'hardware migration', 'chronic pain/neuralgia', 'shoulder dysfunction', 'lung herniation'],
-    alternatives: ['Radiation therapy', 'Chemotherapy', 'Observation', 'Palliative care'],
+    risks: [
+      'flail chest/paradoxical breathing',
+      'respiratory failure',
+      'mesh/hardware infection',
+      'hardware migration',
+      'chronic pain/neuralgia',
+      'shoulder dysfunction',
+      'lung herniation'
+    ],
+    alternatives: [
+      'Radiation therapy',
+      'Chemotherapy',
+      'Observation',
+      'Palliative care'
+    ],
     requiresLaterality: true
   },
   {
     key: 'SYMPATHECTOMY',
     name: 'Thoracoscopic Sympathectomy',
     specialty: 'Thoracic Surgery',
-    risks: ['compensatory hyperhidrosis (up to 80%)', 'Horner syndrome', 'gustatory sweating', 'pneumothorax', 'intercostal neuralgia', 'bradycardia', 'inability to increase heart rate with exercise'],
-    alternatives: ['Medical management', 'Botox injections', 'Iontophoresis', 'Topical treatments'],
+    risks: [
+      'compensatory hyperhidrosis (up to 80%)',
+      'Horner syndrome',
+      'gustatory sweating',
+      'pneumothorax',
+      'intercostal neuralgia',
+      'bradycardia',
+      'inability to increase heart rate with exercise'
+    ],
+    alternatives: [
+      'Medical management',
+      'Botox injections',
+      'Iontophoresis',
+      'Topical treatments'
+    ],
     requiresLaterality: true
   },
   {
     key: 'PECTUS_REPAIR',
     name: 'Pectus Excavatum/Carinatum Repair (Nuss/Ravitch)',
     specialty: 'Thoracic Surgery',
-    risks: ['bar displacement/rotation', 'cardiac perforation', 'pneumothorax', 'chronic pain requiring bar removal', 'overcorrection', 'bar allergy (nickel)', 'wound infection', 'recurrence after bar removal'],
-    alternatives: ['Observation', 'Vacuum bell therapy', 'Custom bracing'],
+    risks: [
+      'bar displacement/rotation',
+      'cardiac perforation',
+      'pneumothorax',
+      'chronic pain requiring bar removal',
+      'overcorrection',
+      'bar allergy (nickel)',
+      'wound infection',
+      'recurrence after bar removal'
+    ],
+    alternatives: [
+      'Observation',
+      'Vacuum bell therapy',
+      'Custom bracing'
+    ],
     requiresLaterality: false
   },
 
@@ -1098,27 +1752,69 @@
     key: 'ROUX_EN_Y',
     name: 'Roux-en-Y Gastric Bypass',
     specialty: 'Bariatric Surgery',
-    risks: ['anastomotic leak (gastrojejunal or jejunojejunal)', 'internal hernia', 'marginal ulcer', 'dumping syndrome', 'vitamin deficiencies (B12, iron, calcium, D)', 'gallstone formation', 'anastomotic stricture', 'weight regain', 'hypoglycemia'],
-    alternatives: ['Sleeve gastrectomy', 'Adjustable gastric band', 'Duodenal switch', 'Medical weight loss'],
+    risks: [
+      'anastomotic leak (gastrojejunal or jejunojejunal)',
+      'internal hernia',
+      'marginal ulcer',
+      'dumping syndrome',
+      'vitamin deficiencies (B12, iron, calcium, D)',
+      'gallstone formation',
+      'anastomotic stricture',
+      'weight regain',
+      'hypoglycemia'
+    ],
+    alternatives: [
+      'Sleeve gastrectomy',
+      'Adjustable gastric band',
+      'Duodenal switch',
+      'Medical weight loss'
+    ],
     requiresLaterality: false
   },
   {
     key: 'SLEEVE_GASTRECTOMY',
     name: 'Sleeve Gastrectomy',
     specialty: 'Bariatric Surgery',
-    risks: ['staple line leak', 'staple line bleeding', 'sleeve stricture', 'new/worsening GERD', 'portal/mesenteric vein thrombosis', 'nutritional deficiencies', 'gallstones', 'weight regain'],
-    alternatives: ['Gastric bypass', 'Adjustable gastric band', 'Duodenal switch', 'Medical weight loss'],
+    risks: [
+      'staple line leak',
+      'staple line bleeding',
+      'sleeve stricture',
+      'new/worsening GERD',
+      'portal/mesenteric vein thrombosis',
+      'nutritional deficiencies',
+      'gallstones',
+      'weight regain'
+    ],
+    alternatives: [
+      'Gastric bypass',
+      'Adjustable gastric band',
+      'Duodenal switch',
+      'Medical weight loss'
+    ],
     requiresLaterality: false
   },
   {
     key: 'GASTRIC_BAND',
     name: 'Adjustable Gastric Band Placement',
     specialty: 'Bariatric Surgery',
-    risks: ['band slippage/prolapse', 'band erosion into stomach', 'port infection/displacement', 'esophageal dilation', 'pouch dilation', 'inadequate weight loss', 'food intolerance', 'need for removal/revision'],
-    alternatives: ['Gastric bypass', 'Sleeve gastrectomy', 'Medical weight loss'],
+    risks: [
+      'band slippage/prolapse',
+      'band erosion into stomach',
+      'port infection/displacement',
+      'esophageal dilation',
+      'pouch dilation',
+      'inadequate weight loss',
+      'food intolerance',
+      'need for removal/revision'
+    ],
+    alternatives: [
+      'Gastric bypass',
+      'Sleeve gastrectomy',
+      'Medical weight loss'
+    ],
     requiresLaterality: false
   }
-    };
+];
 
     // ========================================
     // APPLICATION CODE - DO NOT EDIT BELOW
