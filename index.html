@@ -490,7 +490,83 @@
     let surgeons = [];
 
     const DEFAULT_PROCEDURES = [
+  { // ========== ENDOSCOPIC PROCEDURES ==========
   {
+    key: 'EGD',
+    name: 'Esophagogastroduodenoscopy (EGD)',
+    specialty: 'Gastroenterology/General Surgery',
+    risks: [
+      'esophageal perforation',
+      'gastric or duodenal perforation',
+      'bleeding (especially after biopsy or polypectomy)',
+      'aspiration pneumonia',
+      'cardiac arrhythmias',
+      'reaction to sedation/anesthesia',
+      'dental injury from bite block',
+      'sore throat',
+      'missed lesions'
+    ],
+    alternatives: [
+      'Upper GI series (barium swallow)',
+      'CT scan',
+      'Empiric medical therapy',
+      'Capsule endoscopy (for some indications)'
+    ],
+    requiresLaterality: false
+  },
+  {
+    key: 'COLONOSCOPY',
+    name: 'Colonoscopy',
+    specialty: 'Gastroenterology/General Surgery',
+    risks: [
+      'colonic perforation (0.1-0.3%)',
+      'bleeding (especially post-polypectomy)',
+      'post-polypectomy syndrome',
+      'splenic injury/rupture (rare)',
+      'gas explosion (extremely rare with modern prep)',
+      'reaction to sedation/anesthesia',
+      'abdominal pain/bloating',
+      'missed lesions/polyps',
+      'diverticulitis',
+      'bacteremia'
+    ],
+    alternatives: [
+      'CT colonography (virtual colonoscopy)',
+      'Flexible sigmoidoscopy',
+      'Barium enema',
+      'Stool DNA testing (Cologuard)',
+      'Fecal immunochemical test (FIT)',
+      'Capsule endoscopy (for some indications)'
+    ],
+    requiresLaterality: false
+  },
+  {
+    key: 'BRONCHOSCOPY',
+    name: 'Bronchoscopy (Flexible/Rigid)',
+    specialty: 'Pulmonology/Thoracic Surgery',
+    risks: [
+      'pneumothorax',
+      'bleeding (especially after biopsy)',
+      'bronchospasm/laryngospasm',
+      'hypoxemia',
+      'cardiac arrhythmias',
+      'fever (post-bronchoscopy)',
+      'pneumonia',
+      'vocal cord injury',
+      'reaction to sedation/anesthesia',
+      'air embolism (rare)',
+      'death (rare, <0.04%)'
+    ],
+    alternatives: [
+      'CT-guided needle biopsy',
+      'Sputum cytology',
+      'CT scan observation',
+      'Empiric treatment',
+      'Surgical biopsy (VATS or open)',
+      'Endobronchial ultrasound (EBUS) if not already planned'
+    ],
+    requiresLaterality: false
+  },
   },
 ];
 const ADDITIONAL_PROCEDURES = [
