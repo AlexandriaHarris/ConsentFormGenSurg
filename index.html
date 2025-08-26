@@ -3,7 +3,7 @@
 <head> 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Consent Form Builder - General Surgery</title>
+  <title>Consent Builder -- Single‑file HTML (Aligned v5)</title>
   <style>
     :root { --bg:#f7f7fb; --ink:#0f172a; --muted:#6b7280; --border:#e5e7eb; }
     *{box-sizing:border-box}
@@ -77,61 +77,61 @@
 
     /* Print preview side */
     .sheet {
-      position: relative;
-      width: 8.5in;
-      height: 11in;
-      background: #fff;
-      margin: 0 auto;
-      border: 1px solid var(--border);
-      box-shadow: 0 3px 24px rgba(0,0,0,.12);
-      page-break-after: always;
-      page-break-inside: avoid;
-    }
+  position: relative;
+  width: 8.5in;
+  height: 11in;
+  background: #fff;
+  margin: 0 auto;
+  border: 1px solid var(--border);
+  box-shadow: 0 3px 24px rgba(0,0,0,.12);
+  page-break-after: always;
+  page-break-inside: avoid;
+}
     /* HEADER layout */
     .header{position:absolute;left:0;right:0;top:0;height:1.25in;border-bottom:1px solid #000}
     .hdr{display:grid;grid-template-columns:1.6in 1fr;height:100%;padding:.25in .5in .2in .5in;column-gap:.3in;align-items:end}
     .hdr-left{display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start}
     .hdr-right{font:10pt "Times New Roman",Times,serif;line-height:1.1;text-align:right}
     .pageNo{font:10pt "Times New Roman",Times,serif}
-    .logo {
-      height: 0.35in;
-      width: auto;
-      display: block;
-    }
+.logo {
+  height: 0.35in;  /* Reduced from 0.55in */
+  width: auto;
+  display: block;
+}
     .line{display:inline-block;min-width:10ch}
 
     /* FOOTER minimal */
-    .footer {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 0.5in;
-      border-top: 1px solid #000;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 0.5in;
-      font-size: 9pt;
-      box-sizing: border-box;
-      background: white;
-      z-index: 10;
-    }
+.footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0.5in;
+  border-top: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.5in;
+  font-size: 9pt;
+  box-sizing: border-box;
+  background: white; /* Ensure footer has background */
+  z-index: 10; /* Keep footer on top */
+}
     .barcode{height:.45in;width:auto}
     .foot-date{font:10pt "Times New Roman",Times,serif}
 
     /* BODY */
-    .content {
-      position: absolute;
-      left: 0.5in;
-      right: 0.5in;
-      top: 1.25in;
-      bottom: 0.6in;
-      padding: 0;
-      font: 11pt "Times New Roman", Times, serif;
-      line-height: 1;
-      overflow: hidden;
-    }
+  .content {
+  position: absolute;
+  left: 0.5in;
+  right: 0.5in;
+  top: 1.25in;
+  bottom: 0.6in; /* Leave space for footer + small buffer */
+  padding: 0;
+  font: 11pt "Times New Roman", Times, serif;
+  line-height: 1;
+  overflow: hidden; /* Critical - hide any overflow */
+}
     .title{font-weight:700;text-align:center;margin:.15in 0;font-size:12pt}
     .small{font-size:9pt;text-align:center}
     .ol{padding-left:.25in}
@@ -149,42 +149,42 @@
       page-break-inside: avoid;
     }
 
-    /* WITNESS/SIGNATURE BLOCK - Updated widths */
-    .siggrid{display:grid;grid-template-columns:auto 1fr;column-gap:.2in;row-gap:.14in;font-size:10pt}
-    .siggrid .label{white-space:nowrap}
-    .uline{display:inline-block;border-bottom:1px solid #000;padding-bottom:0;vertical-align:baseline}
-    .u-wide{min-width:3.2in}
-    .u-med{min-width:2.0in}
-    .u-short{min-width:1.2in}
-    .u-rel{min-width:3.2in}
-    .u-date-time{min-width:0.45in}
-    .signature-row{display:flex;gap:.10in;align-items:baseline;margin:.05in 0;font-size:10pt}
-    .sig-field{display:flex;gap:.05in;align-items:baseline}
-    .flex-grow{flex:1 1 auto}
-    .field-container {
-      display: inline-block;
-      position: relative;
-      min-width: 3in;
-      padding-bottom: 0;
-      line-height: 1.1;
-      margin-bottom: 20px;
-    }
-    .field-container .field-text {
-      display: inline-block;
-      border-bottom: 1px solid #000;
-      min-width: 3in;
-      padding-bottom: 0;
-    }
-    .field-container .field-label {
-      position: absolute;
-      top: 14px;
-      left: 0;
-      right: 0;
-      font-size: 9pt;
-      text-align: center;
-      line-height: 1;
-    }
-    
+/* WITNESS/SIGNATURE BLOCK - Updated widths */
+.siggrid{display:grid;grid-template-columns:auto 1fr;column-gap:.2in;row-gap:.14in;font-size:10pt}
+.siggrid .label{white-space:nowrap}
+.uline{display:inline-block;border-bottom:1px solid #000;padding-bottom:0;vertical-align:baseline}
+.u-wide{min-width:3.2in}
+.u-med{min-width:2.0in}
+.u-short{min-width:1.2in}
+.u-rel{min-width:3.2in}
+.u-date-time{min-width:0.45in}  /* Reduced from 0.75in */
+.signature-row{display:flex;gap:.10in;align-items:baseline;margin:.05in 0;font-size:10pt}  /* Reduced gap from .25in */
+.sig-field{display:flex;gap:.05in;align-items:baseline}
+.flex-grow{flex:1 1 auto}
+.field-container {
+  display: inline-block;
+  position: relative;
+  /* REMOVE: border-bottom: 1px solid #000; */
+  min-width: 3in;
+  padding-bottom: 0;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+.field-container .field-text {
+  display: inline-block;
+  border-bottom: 1px solid #000;  /* ADD the underline here instead */
+  min-width: 3in;  /* Ensure the line stays the right width */
+  padding-bottom: 0;
+}
+.field-container .field-label {
+  position: absolute;
+  top: 14px;
+  left: 0;
+  right: 0;
+  font-size: 9pt;
+  text-align: center;
+  line-height: 1;
+}
     /* Print controls */
     @page {
       size: letter;
@@ -199,101 +199,107 @@
       overflow: hidden;
     }
     
-    @media print {
-      @page {
-        size: letter;
-        margin: 0;
-      }
-      
-      .no-print {
-        display: none !important;
-      }
-      
-      .app {
-        max-width: none !important;
-        padding: 0 !important;
-        margin: 0 !important;
-      }
-      
-      .grid {
-        display: block !important;
-        margin: 0 !important;
-        gap: 0 !important;
-      }
-      
-      .right {
-        overflow: visible !important;
-      }
-      
-      body {
-        margin: 0;
-        padding: 0;
-        background: white;
-      }
-      
-      .sheet {
-        width: 8.5in !important;
-        height: 11in !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        border: none !important;
-        box-shadow: none !important;
-        page-break-after: always;
-        page-break-inside: avoid;
-        position: relative !important;
-        overflow: hidden !important;
-      }
-      
-      .sheet + .sheet {
-        margin-top: 0 !important;
-      }
-      
-      .content {
-        position: absolute !important;
-        left: 0.5in !important;
-        right: 0.5in !important;
-        top: 1.25in !important;
-        bottom: 0.6in !important;
-        overflow: hidden !important;
-        max-height: calc(11in - 1.25in - 0.6in) !important;
-      }
-      
-      .footer {
-        position: absolute !important;
-        bottom: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        height: 0.5in !important;
-        page-break-inside: avoid !important;
-        page-break-before: avoid !important;
-      }
-      
-      p, .ol, .dash, .signature-section {
-        page-break-inside: avoid;
-      }
-    }
+@media print {
+  @page {
+    size: letter;
+    margin: 0;
+  }
+  
+  /* Hide interface elements during print */
+  .no-print {
+    display: none !important;
+  }
+  
+  .app {
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  .grid {
+    display: block !important;
+    margin: 0 !important;
+    gap: 0 !important;
+  }
+  
+  .right {
+    overflow: visible !important;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background: white;
+  }
+  
+  .sheet {
+    width: 8.5in !important;
+    height: 11in !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    page-break-after: always;
+    page-break-inside: avoid;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+  
+  /* Don't add margin between sheets when printing */
+  .sheet + .sheet {
+    margin-top: 0 !important;
+  }
+  
+  .content {
+    position: absolute !important;
+    left: 0.5in !important;
+    right: 0.5in !important;
+    top: 1.25in !important;
+    bottom: 0.6in !important;
+    overflow: hidden !important;
+    max-height: calc(11in - 1.25in - 0.6in) !important; /* Explicit max height */
+  }
+  
+  .footer {
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 0.5in !important;
+    page-break-inside: avoid !important;
+    page-break-before: avoid !important;
+  }
+  
+  /* Prevent content from breaking pages inappropriately */
+  p, .ol, .dash, .signature-section {
+    page-break-inside: avoid;
+  }
+}
 
-    .content p {
-      margin: 0.08in 0;
-    }
+/* Additional fixes for content spacing */
+.content p {
+  margin: 0.08in 0; /* Tighter paragraph spacing */
+}
 
-    .content .ol li {
-      margin: 0.06in 0;
-    }
+.content .ol li {
+  margin: 0.06in 0; /* Tighter list spacing */
+}
 
-    .signature-section {
-      page-break-inside: avoid;
-    }
+/* Ensure signature sections don't overflow */
+.signature-section {
+  page-break-inside: avoid;
+}
 
-    .content > div:last-child {
-      page-break-inside: avoid;
-    }
+/* For the interpreter section on page 4 */
+.content > div:last-child {
+  page-break-inside: avoid;
+}
   </style>
 </head>
 <body>
   <div class="topbar no-print">
     <div class="inner">
-      <div><strong>Consent Form Builder</strong> - General Surgery</div>
+      <div><strong>Consent Builder</strong> -- Single‑file HTML (aligned v5)</div>
       <div class="actions">
         <button id="resetBtn" class="btn">Reset</button>
         <button id="printBtn" class="btn primary">Print / Save PDF</button>
@@ -358,13 +364,16 @@
           <div class="hd">Procedures (multi‑select) & Risk Library</div>
           <div class="bd">
             <div id="procList" class="list"></div>
+            <!-- Laterality controls for procedures that require it -->
             <div id="lateralitySection" class="list" style="margin-top:.5rem; display:none"></div>
             <div class="border" style="margin-top:.75rem">
               <div style="font-weight:600;margin-bottom:.25rem">Add a procedure</div>
               <div class="list">
                 <input id="procName" type="text" placeholder="Procedure name" />
                 <textarea id="procRisks" rows="3" placeholder="Risks (comma or newline separated)"></textarea>
+                <!-- new field to capture alternatives for a procedure -->
                 <textarea id="procAlts" rows="2" placeholder="Alternatives (comma or newline separated)"></textarea>
+                <!-- checkbox to mark whether the new procedure requires laterality -->
                 <label style="display:flex;align-items:center;font-size:.75rem"><input type="checkbox" id="procLaterality" style="margin-right:.25rem">Requires laterality (L/R/B)</label>
                 <div style="text-align:right"><button class="btn" id="addProcBtn">Add to Catalog</button></div>
               </div>
@@ -454,14 +463,14 @@
         </div>
       </div>
 
-      <!-- Right: Print Preview -->
+      <!-- Right: Print Preview (exact wording/pages) -->
       <div class="right" style="overflow:auto;min-width:0">
       </div>
-    </div>
-  </div>
+
+    
 
   <script>
-    // Utilities
+    // ---------- Utilities ----------
     const $ = (sel, root=document) => root.querySelector(sel);
     const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
     const BLANK = (n=20) => '_'.repeat(n);
@@ -474,241 +483,1486 @@
       return arr.slice(0,-1).join(', ')+', and '+arr[arr.length-1];
     }
 
-    // State & persistence
+    // ---------- State & persistence ----------
     const defaults = { selectedProcKeys: [], selectedSurgeons: [], laterality: {} };
     let f = {...defaults};
     let catalog = [];
     let surgeons = [];
 
-    // Default procedures - General Surgery
     const DEFAULT_PROCEDURES = [
-      // HERNIA REPAIRS
-      {
-        key: 'INGUINAL_HERNIA',
-        name: 'Inguinal Hernia Repair (Open/Laparoscopic)',
-        specialty: 'Hernia Surgery',
-        risks: ['recurrence', 'chronic groin pain', 'mesh infection/rejection', 'testicular atrophy/ischemia', 'ilioinguinal/iliohypogastric nerve injury (numbness/pain)', 'spermatic cord injury', 'vas deferens injury (infertility risk)', 'bladder perforation', 'seroma formation'],
-        alternatives: ['Watchful waiting', 'Hernia belt/truss', 'Different surgical approach (open vs laparoscopic)'],
-        requiresLaterality: true
-      },
-      {
-        key: 'VENTRAL_HERNIA',
-        name: 'Ventral/Incisional Hernia Repair',
-        specialty: 'Hernia Surgery',
-        risks: ['recurrence', 'mesh infection/rejection', 'enterocutaneous fistula', 'bowel injury/perforation', 'chronic abdominal wall pain', 'seroma formation', 'wound dehiscence', 'respiratory compromise (loss of domain)'],
-        alternatives: ['Observation', 'Abdominal binder', 'Weight loss before surgery'],
-        requiresLaterality: false
-      },
-      {
-        key: 'UMBILICAL_HERNIA',
-        name: 'Umbilical Hernia Repair',
-        specialty: 'Hernia Surgery',
-        risks: ['recurrence', 'mesh complications', 'seroma formation', 'umbilical deformity/cosmetic dissatisfaction', 'chronic pain at repair site'],
-        alternatives: ['Observation (if asymptomatic)', 'Watchful waiting'],
-        requiresLaterality: false
-      },
-      
-      // GALLBLADDER
-      {
-        key: 'LAP_CHOLE',
-        name: 'Laparoscopic Cholecystectomy',
-        specialty: 'Hepatobiliary',
-        risks: ['bile duct injury (CBD, hepatic ducts)', 'bile leak from gallbladder bed', 'retained stones in bile duct', 'hepatic artery injury', 'bowel perforation (thermal injury)', 'conversion to open surgery', 'postcholecystectomy syndrome', 'port site hernia'],
-        alternatives: ['Open cholecystectomy', 'Percutaneous cholecystostomy', 'Medical management', 'ERCP with sphincterotomy'],
-        requiresLaterality: false
-      },
-      
-      // APPENDIX
-      {
-        key: 'LAP_APPY',
-        name: 'Laparoscopic Appendectomy',
-        specialty: 'Emergency General Surgery',
-        risks: ['intra-abdominal abscess', 'stump appendicitis', 'cecal injury', 'iliac vessel injury', 'bladder injury', 'conversion to open', 'port site infection/hernia'],
-        alternatives: ['Open appendectomy', 'Antibiotics alone (for uncomplicated appendicitis)', 'Percutaneous drainage (if abscess)'],
-        requiresLaterality: false
-      },
-      
-      // COLORECTAL
-      {
-        key: 'RIGHT_HEMI',
-        name: 'Right Hemicolectomy',
-        specialty: 'Colorectal',
-        risks: ['anastomotic leak', 'ileocolic vessel bleeding', 'right ureter injury', 'duodenal injury', 'post-op ileus', 'vitamin B12 deficiency (if terminal ileum removed)', 'bile salt diarrhea', 'incisional hernia'],
-        alternatives: ['Left untreated (not recommended for cancer)', 'Endoscopic removal (small polyps)', 'Chemotherapy/radiation'],
-        requiresLaterality: false
-      },
-      {
-        key: 'SIGMOID_COLECTOMY',
-        name: 'Sigmoid Colectomy',
-        specialty: 'Colorectal',
-        risks: ['anastomotic leak', 'left ureter injury', 'presacral venous bleeding', 'hypogastric nerve injury (erectile dysfunction, retrograde ejaculation)', 'bladder dysfunction', 'need for colostomy', 'recurrent diverticulitis'],
-        alternatives: ['Medical management', 'Percutaneous drainage', 'Hartmann procedure'],
-        requiresLaterality: false
-      },
-      {
-        key: 'HEMORRHOIDECTOMY',
-        name: 'Hemorrhoidectomy',
-        specialty: 'Colorectal',
-        risks: ['severe postoperative pain', 'anal stenosis/stricture', 'fecal incontinence', 'anal fissure', 'urinary retention', 'delayed hemorrhage (7-14 days)', 'skin tag formation', 'recurrence'],
-        alternatives: ['Rubber band ligation', 'Sclerotherapy', 'Infrared coagulation', 'Medical management', 'Stapled hemorrhoidopexy'],
-        requiresLaterality: false
-      },
-      
-      // BREAST
-      {
-        key: 'LUMPECTOMY',
-        name: 'Breast Lumpectomy/Partial Mastectomy',
-        specialty: 'Breast Surgery',
-        risks: ['positive margins requiring re-excision', 'seroma formation', 'breast asymmetry/deformity', 'fat necrosis', 'chronic breast pain', 'nipple sensation changes', 'need for completion mastectomy'],
-        alternatives: ['Mastectomy', 'Neoadjuvant therapy', 'Hormone therapy alone', 'Active surveillance'],
-        requiresLaterality: true
-      },
-      {
-        key: 'MASTECTOMY',
-        name: 'Mastectomy (Simple/Modified Radical)',
-        specialty: 'Breast Surgery',
-        risks: ['skin flap necrosis', 'seroma formation (30-50%)', 'phantom breast syndrome', 'chest wall numbness', 'winged scapula (long thoracic nerve injury)', 'intercostobrachial nerve injury (arm numbness)', 'lymphedema', 'shoulder dysfunction'],
-        alternatives: ['Breast conservation therapy', 'Neoadjuvant therapy first', 'Hormone therapy', 'Bilateral mastectomy'],
-        requiresLaterality: true
-      },
-      
-      // BARIATRIC
-      {
-        key: 'ROUX_EN_Y',
-        name: 'Roux-en-Y Gastric Bypass',
-        specialty: 'Bariatric Surgery',
-        risks: ['anastomotic leak (gastrojejunal or jejunojejunal)', 'internal hernia', 'marginal ulcer', 'dumping syndrome', 'vitamin deficiencies (B12, iron, calcium, D)', 'gallstone formation', 'anastomotic stricture', 'weight regain', 'hypoglycemia'],
-        alternatives: ['Sleeve gastrectomy', 'Adjustable gastric band', 'Duodenal switch', 'Medical weight loss'],
-        requiresLaterality: false
-      },
-      {
-        key: 'SLEEVE_GASTRECTOMY',
-        name: 'Sleeve Gastrectomy',
-        specialty: 'Bariatric Surgery',
-        risks: ['staple line leak', 'staple line bleeding', 'sleeve stricture', 'new/worsening GERD', 'portal/mesenteric vein thrombosis', 'nutritional deficiencies', 'gallstones', 'weight regain'],
-        alternatives: ['Gastric bypass', 'Adjustable gastric band', 'Duodenal switch', 'Medical weight loss'],
-        requiresLaterality: false
-      }
-    ];
+  {
+    key:'TandA',
+    name:'Tonsillectomy ± Adenoidectomy',
+    specialty: 'General ENT',
+    risks:['post-operative hemorrhage','dehydration','voice change/velopharyngeal insufficiency','dental or lip injury','infection','pain'],
+    alternatives:['Observation (watchful waiting)','Medical therapy (antibiotics, steroids)']
+  },
+  {
+    key:'BMT',
+    name:'Bilateral Myringotomy with Tympanostomy Tubes',
+    specialty: 'Otology',
+    risks:['otorrhea','premature tube extrusion or retention','persistent tympanic membrane perforation','hearing changes','need for further procedures'],
+    alternatives:['Observation','Antibiotic therapy']
+  },
+  {
+    key:'FESS',
+    name:'Functional Endoscopic Sinus Surgery',
+    specialty: 'Rhinology',
+    risks:['cerebrospinal fluid leak','orbital injury including diplopia or vision loss','bleeding','adhesions/scar formation','recurrence requiring revision','altered sense of smell'],
+    alternatives:['Medical therapy (steroid sprays, saline rinses)','Allergy management']
+  },
+  {
+    key:'SEPT',
+    name:'Septoplasty',
+    specialty: 'Rhinology',
+    risks:['septal perforation','persistent nasal obstruction','epistaxis','dental or upper-lip numbness','cosmetic change (e.g., saddle nose)'],
+    alternatives:['Medical management','Nasal decongestants']
+  },
+  {
+    key:'ITR',
+    name:'Inferior Turbinate Reduction',
+    specialty: 'Rhinology',
+    risks:['bleeding','crusting/dryness','infection','empty nose syndrome (rare)','need for revision'],
+    alternatives:['Medical management','Allergy management']
+  },
+  {
+    key:'DLB',
+    name:'Direct Laryngoscopy and Bronchoscopy',
+    specialty: 'Laryngology',
+    risks:['dental injury','airway trauma','laryngospasm/bronchospasm','hypoxia','need for intubation or hospital admission'],
+    alternatives:['Imaging studies (CT, MRI)','Noninvasive diagnostic tests']
+  },
+  {
+    key:'NECK',
+    name:'Neck Mass Excision',
+    specialty: 'Head & Neck',
+    risks:['nerve injury (e.g., marginal mandibular, spinal accessory)','seroma/hematoma','infection','scarring'],
+    alternatives:['Biopsy or fine-needle aspiration','Observation','Radiologic monitoring'],
+    requiresLaterality:true
+  },
+];
+const ADDITIONAL_PROCEDURES = [
+ I'll help you fix the formatting of your code to match the ENT form style. The main issue is that your risks and alternatives are currently single strings with multiple items, when they should be arrays with each item as a separate string. Here's the corrected format:
 
-    // Additional surgeons
+```javascript
+const GENERAL_AND_CARDIOTHORACIC_PROCEDURES = [
+  // ========== GENERAL SURGERY - HERNIA REPAIRS ==========
+  {
+    key: 'INGUINAL_HERNIA',
+    name: 'Inguinal Hernia Repair (Open/Laparoscopic)',
+    specialty: 'Hernia Surgery',
+    risks: [
+      'recurrence',
+      'chronic groin pain',
+      'mesh infection/rejection',
+      'testicular atrophy/ischemia',
+      'ilioinguinal/iliohypogastric nerve injury (numbness/pain)',
+      'spermatic cord injury',
+      'vas deferens injury (infertility risk)',
+      'bladder perforation',
+      'seroma formation'
+    ],
+    alternatives: [
+      'Watchful waiting',
+      'Hernia belt/truss',
+      'Different surgical approach (open vs laparoscopic)'
+    ],
+    requiresLaterality: true
+  },
+  {
+    key: 'VENTRAL_HERNIA',
+    name: 'Ventral/Incisional Hernia Repair',
+    specialty: 'Hernia Surgery',
+    risks: [
+      'recurrence',
+      'mesh infection/rejection',
+      'enterocutaneous fistula',
+      'bowel injury/perforation',
+      'chronic abdominal wall pain',
+      'seroma formation',
+      'wound dehiscence',
+      'respiratory compromise (loss of domain)'
+    ],
+    alternatives: [
+      'Observation',
+      'Abdominal binder',
+      'Weight loss before surgery'
+    ],
+    requiresLaterality: false
+  },
+  {
+    key: 'UMBILICAL_HERNIA',
+    name: 'Umbilical Hernia Repair',
+    specialty: 'Hernia Surgery',
+    risks: [
+      'recurrence',
+      'mesh complications',
+      'seroma formation',
+      'umbilical deformity/cosmetic dissatisfaction',
+      'chronic pain at repair site'
+    ],
+    alternatives: [
+      'Observation (if asymptomatic)',
+      'Watchful waiting'
+    ],
+    requiresLaterality: false
+  },
+  {
+    key: 'FEMORAL_HERNIA',
+    name: 'Femoral Hernia Repair',
+    specialty: 'Hernia Surgery',
+    risks: [
+      'recurrence',
+      'femoral vein/artery injury',
+      'femoral nerve injury',
+      'bladder injury',
+      'bowel injury if incarcerated',
+      'chronic groin pain',
+      'lymphocele formation',
+      'testicular ischemia'
+    ],
+    alternatives: [
+      'Emergency surgery only (high risk of incarceration)'
+    ],
+    requiresLaterality: true
+  },
+  {
+    key: 'HIATAL_HERNIA',
+    name: 'Hiatal Hernia Repair with Fundoplication',
+    specialty: 'Hernia Surgery',
+    risks: [
+      'dysphagia (difficulty swallowing)',
+      'gas bloat syndrome',
+      'inability to belch/vomit',
+      'wrap migration/loosening',
+      'vagus nerve injury (gastroparesis)',
+      'splenic injury requiring splenectomy',
+      'esophageal perforation',
+      'pneumothorax',
+      'dumping syndrome'
+    ],
+    alternatives: [
+      'Medical management (PPIs)',
+      'Lifestyle modifications',
+      'Endoscopic procedures'
+    ],
+    requiresLaterality: false
+  },
+
+  // ========== GENERAL SURGERY - GALLBLADDER ==========
+  {
+    key: 'LAP_CHOLE',
+    name: 'Laparoscopic Cholecystectomy',
+    specialty: 'Hepatobiliary',
+    risks: [
+      'bile duct injury (CBD, hepatic ducts)',
+      'bile leak from gallbladder bed',
+      'retained stones in bile duct',
+      'hepatic artery injury',
+      'bowel perforation (thermal injury)',
+      'conversion to open surgery',
+      'postcholecystectomy syndrome',
+      'port site hernia'
+    ],
+    alternatives: [
+      'Open cholecystectomy',
+      'Percutaneous cholecystostomy',
+      'Medical management',
+      'ERCP with sphincterotomy'
+    ],
+    requiresLaterality: false
+  },
+  {
+    key: 'OPEN_CHOLE',
+    name: 'Open Cholecystectomy',
+    specialty: 'Hepatobiliary',
+    risks: [
+      'bile duct injury',
+      'bile leak',
+      'retained stones',
+      'hepatic artery injury',
+      'duodenal injury',
+      'incisional hernia',
+      'postcholecystectomy syndrome'
+    ],
+    alternatives: [
+      'Laparoscopic approach',
+      'Percutaneous drainage',
+      'Medical management'
+    ],
+    requiresLaterality: false
+  },
+  {
+    key: 'ERCP',
+    name: 'ERCP with Sphincterotomy',
+    specialty: 'Hepatobiliary',
+    risks: [
+      'post-ERCP pancreatitis',
+      'sphincterotomy bleeding',
+      'duodenal perforation',
+      'ascending cholangitis',
+      'guidewire perforation',
+      'contrast reaction',
+      'failed cannulation',
+      'stone migration into pancreatic duct'
+    ],
+    alternatives: [
+      'MRCP',
+      'Surgical exploration',
+      'Percutaneous drainage'
+    ],
+    requiresLaterality: false
+  },
+
+  // ========== GENERAL SURGERY - APPENDIX ==========
+  {
+    key: 'LAP_APPY',
+    name: 'Laparoscopic Appendectomy',
+    specialty: 'Emergency General Surgery',
+    risks: [
+      'intra-abdominal abscess',
+      'stump appendicitis',
+      'cecal injury',
+      'iliac vessel injury',
+      'bladder injury',
+      'conversion to open',
+      'port site infection/hernia'
+    ],
+    alternatives: [
+      'Open appendectomy',
+      'Antibiotics alone (for uncomplicated appendicitis)',
+      'Percutaneous drainage (if abscess)'
+    ],
+    requiresLaterality: false
+  },
+  {
+    key: 'OPEN_APPY',
+    name: 'Open Appendectomy',
+    specialty: 'Emergency General Surgery',
+    risks: [
+      'intra-abdominal abscess',
+      'stump appendicitis',
+      'cecal injury',
+      'right ureter injury',
+      'wound infection (superficial/deep)',
+      'incisional hernia'
+    ],
+    alternatives: [
+      'Laparoscopic approach',
+      'Antibiotics alone',
+      'Interval appendectomy'
+    ],
+    requiresLaterality: false
+  },
+
+  // ========== GENERAL SURGERY - COLORECTAL ==========
+  {
+    key: 'RIGHT_HEMI',
+    name: 'Right Hemicolectomy',
+    specialty: 'Colorectal',
+    risks: [
+      'anastomotic leak',
+      'ileocolic vessel bleeding',
+      'right ureter injury',
+      'duodenal injury',
+      'post-op ileus',
+      'vitamin B12 deficiency (if terminal ileum removed)',
+      'bile salt diarrhea',
+      'incisional hernia'
+    ],
+    alternatives: [
+      'Left untreated (not recommended for cancer)',
+      'Endoscopic removal (small polyps)',
+      'Chemotherapy/radiation'
+    ],
+    requiresLaterality: false
+  },
+  {
+    key: 'LEFT_HEMI',
+    name: 'Left Hemicolectomy',
+    specialty: 'Colorectal',
+    risks: [
+      'anastomotic leak',
+      'left ureter injury',
+      'bladder injury',
+      'splenic flexure bleeding',
+      'hypogastric nerve injury (sexual/urinary dysfunction)',
+      'change in bowel habits',
+      'need for stoma'
+    ],
+    alternatives: [
+      'Conservative management',
+      'Endoscopic removal',
+      'Chemotherapy/radiation'
+    ],
+    requiresLaterality: false
+  },
+  {
+    key: 'SIGMOID_COLECTOMY',
+    name: 'Sigmoid Colectomy',
+    specialty: 'Colorectal',
+    risks: [
+      'anastomotic leak',
+      'left ureter injury',
+      'presacral venous bleeding',
+      'hypogastric nerve injury (erectile dysfunction, retrograde ejaculation)',
+      'bladder dysfunction',
+      'need for colostomy',
+      'recurrent diverticulitis'
+    ],
+    alternatives: [
+      'Medical management',
+      'Percutaneous drainage',
+      'Hartmann procedure'
+    ],
+    requiresLaterality: false
+  },
+  {
+    key: 'LAR',
+    name: 'Low Anterior Resection',
+    specialty: 'Colorectal',
+    risks: [
+      'anastomotic leak',
+      'presacral nerve injury (sexual/bladder dysfunction)',
+      'low anterior resection syndrome (urgency, frequency, incontinence)',
+      'need for permanent colostomy',
+      'pelvic sidewall bleeding',
+      'vaginal injury (in females)'
+    ],
+    alternatives: [
+      'Abdominoperineal resection',
+      'Transanal excision',
+      'Chemoradiation alone'
+    ],
+    requiresLaterality: false
+  },
+  {
+    key: 'APR',
+    name: 'Abdominoperineal Resection',
+    specialty: 'Colorectal',
+    risks: [
+      'permanent colostomy',
+      'perineal wound breakdown/infection',
+      'pelvic nerve injury (sexual/urinary dysfunction)',
+      'phantom rectum syndrome',
+      'parastomal hernia',
+      'perineal hernia',
+      'empty pelvis syndrome'
+    ],
+    alternatives: [
+      'Low anterior resection',
+      'Chemoradiation',
+      'Local excision'
+    ],
+    requiresLaterality: false
+  },
+  {
+    key: 'TOTAL_COLECTOMY',
+    name: 'Total Colectomy with Ileorectal Anastomosis',
+    specialty: 'Colorectal',
+    risks: [
+      'frequent bowel movements (10-12/day initially)',
+      'dehydration/electrolyte imbalances',
+      'anastomotic leak',
+      'small bowel obstruction',
+      'pouchitis (if J-pouch)',
+      'B12/fat-soluble vitamin deficiency',
+      'female infertility',
+      'nighttime incontinence'
+    ],
+    alternatives: [
+      'Segmental colectomy',
+      'Medical management',
+      'Proctocolectomy with ileostomy'
+    ],
+    requiresLaterality: false
+  },
+  {
+    key: 'HEMORRHOIDECTOMY',
+    name: 'Hemorrhoidectomy',
+    specialty: 'Colorectal',
+    risks: [
+      'severe postoperative pain',
+      'anal stenosis/stricture',
+      'fecal incontinence',
+      'anal fissure',
+      'urinary retention',
+      'delayed hemorrhage (7-14 days)',
+      'skin tag formation',
+      'recurrence'
+    ],
+    alternatives: [
+      'Rubber band ligation',
+      'Sclerotherapy',
+      'Infrared coagulation',
+      'Medical management',
+      'Stapled hemorrhoidopexy'
+    ],
+    requiresLaterality: false
+  },
+  {
+    key: 'FISTULOTOMY',
+    name: 'Anal Fistulotomy/Fistulectomy',
+    specialty: 'Colorectal',
+    risks: [
+      'fecal incontinence (gas, liquid, solid)',
+      'recurrence/persistence',
+      'keyhole deformity',
+      'anal stenosis',
+      'delayed wound healing (6-12 weeks)',
+      'false tract creation'
+    ],
+    alternatives: [
+      'Seton placement',
+      'Fibrin glue',
+      'Anal fistula plug',
+      'LIFT procedure',
+      'Advancement flap'
+    ],
+    requiresLaterality: false
+  },
+
+  // ========== GENERAL SURGERY - BREAST ==========
+  {
+    key: 'LUMPECTOMY',
+    name: 'Breast Lumpectomy/Partial Mastectomy',
+    specialty: 'Breast Surgery',
+    risks: [
+      'positive margins requiring re-excision',
+      'seroma formation',
+      'breast asymmetry/deformity',
+      'fat necrosis',
+      'chronic breast pain',
+      'nipple sensation changes',
+      'need for completion mastectomy'
+    ],
+    alternatives: [
+      'Mastectomy',
+      'Neoadjuvant therapy',
+      'Hormone therapy alone',
+      'Active surveillance'
+    ],
+    requiresLaterality: true
+  },
+  {
+    key: 'MASTECTOMY',
+    name: 'Mastectomy (Simple/Modified Radical)',
+    specialty: 'Breast Surgery',
+    risks: [
+      'skin flap necrosis',
+      'seroma formation (30-50%)',
+      'phantom breast syndrome',
+      'chest wall numbness',
+      'winged scapula (long thoracic nerve injury)',
+      'intercostobrachial nerve injury (arm numbness)',
+      'lymphedema',
+      'shoulder dysfunction'
+    ],
+    alternatives: [
+      'Breast conservation therapy',
+      'Neoadjuvant therapy first',
+      'Hormone therapy',
+      'Bilateral mastectomy'
+    ],
+    requiresLaterality: true
+  },
+  {
+    key: 'SLNB',
+    name: 'Sentinel Lymph Node Biopsy',
+    specialty: 'Breast Surgery',
+    risks: [
+      'lymphedema (5-7%)',
+      'seroma',
+      'blue/green urine (from dye)',
+      'allergic reaction to blue dye',
+      'tattooing of skin',
+      'failure to identify sentinel node',
+      'axillary web syndrome'
+    ],
+    alternatives: [
+      'Axillary lymph node dissection',
+      'No nodal surgery',
+      'Axillary radiation'
+    ],
+    requiresLaterality: true
+  },
+  {
+    key: 'ALND',
+    name: 'Axillary Lymph Node Dissection',
+    specialty: 'Breast Surgery',
+    risks: [
+      'lymphedema (15-30%)',
+      'seroma',
+      'intercostobrachial nerve injury (inner arm numbness)',
+      'long thoracic nerve injury (winged scapula)',
+      'thoracodorsal nerve injury',
+      'axillary web syndrome',
+      'shoulder dysfunction/frozen shoulder'
+    ],
+    alternatives: [
+      'Sentinel node biopsy',
+      'Axillary radiation',
+      'No further surgery'
+    ],
+    requiresLaterality: true
+  },
+
+  // ========== GENERAL SURGERY - ENDOCRINE ==========
+  {
+    key: 'THYROIDECTOMY',
+    name: 'Thyroidectomy (Total/Partial)',
+    specialty: 'Endocrine Surgery',
+    risks: [
+      'recurrent laryngeal nerve injury (hoarseness, aspiration)',
+      'hypoparathyroidism/hypocalcemia (temporary or permanent)',
+      'superior laryngeal nerve injury (voice fatigue, pitch changes)',
+      'neck hematoma (airway compromise)',
+      'thyroid storm',
+      'tracheal injury',
+      'esophageal injury',
+      'permanent hypothyroidism'
+    ],
+    alternatives: [
+      'Radioactive iodine',
+      'Thyroid suppression therapy',
+      'Active surveillance',
+      'Ethanol ablation'
+    ],
+    requiresLaterality: false
+  },
+  {
+    key: 'PARATHYROIDECTOMY',
+    name: 'Parathyroidectomy',
+    specialty: 'Endocrine Surgery',
+    risks: [
+      'hypocalcemia/hungry bone syndrome',
+      'recurrent laryngeal nerve injury',
+      'persistent/recurrent hyperparathyroidism',
+      'neck hematoma',
+      'failure to locate adenoma',
+      'permanent hypoparathyroidism'
+    ],
+    alternatives: [
+      'Medical management',
+      'Observation',
+      'Dialysis (if renal failure)'
+    ],
+    requiresLaterality: false
+  },
+  {
+    key: 'ADRENALECTOMY',
+    name: 'Adrenalectomy (Open/Laparoscopic)',
+    specialty: 'Endocrine Surgery',
+    risks: [
+      'adrenal insufficiency/crisis',
+      'inferior vena cava injury',
+      'renal vessel injury',
+      'spleen injury (left side)',
+      'liver injury (right side)',
+      'diaphragm injury/pneumothorax',
+      'pancreatic injury (left side)',
+      'hormone imbalance'
+    ],
+    alternatives: [
+      'Medical management',
+      'Radiation therapy',
+      'Chemotherapy',
+      'Observation'
+    ],
+    requiresLaterality: true
+  },
+
+  // ========== GENERAL SURGERY - SPLEEN ==========
+  {
+    key: 'SPLENECTOMY',
+    name: 'Splenectomy (Open/Laparoscopic)',
+    specialty: 'General Surgery',
+    risks: [
+      'overwhelming post-splenectomy infection (OPSI) - lifelong risk',
+      'pancreatic tail injury/fistula',
+      'gastric perforation',
+      'colon injury (splenic flexure)',
+      'portal vein thrombosis',
+      'thrombocytosis (>1 million)',
+      'subphrenic abscess'
+    ],
+    alternatives: [
+      'Partial splenectomy',
+      'Splenic artery embolization',
+      'Medical management',
+      'Observation'
+    ],
+    requiresLaterality: false
+  },
+
+  // ========== GENERAL SURGERY - LIVER ==========
+  {
+    key: 'LIVER_RESECTION',
+    name: 'Hepatectomy/Liver Resection',
+    specialty: 'Hepatobiliary',
+    risks: [
+      'liver failure/insufficiency',
+      'bile leak/biloma',
+      'hepatic vein injury',
+      'portal vein injury',
+      'inferior vena cava injury',
+      'diaphragm injury',
+      'post-hepatectomy liver failure',
+      'portal hypertension'
+    ],
+    alternatives: [
+      'Ablation',
+      'Chemoembolization',
+      'Radiation therapy',
+      'Liver transplant',
+      'Systemic therapy'
+    ],
+    requiresLaterality: true
+  },
+
+  // ========== GENERAL SURGERY - PANCREAS ==========
+  {
+    key: 'WHIPPLE',
+    name: 'Pancreaticoduodenectomy (Whipple Procedure)',
+    specialty: 'Hepatobiliary',
+    risks: [
+      'pancreatic fistula/leak',
+      'delayed gastric emptying (20-30%)',
+      'pancreatic insufficiency (diabetes, malabsorption)',
+      'bile leak',
+      'gastrojejunostomy leak',
+      'chyle leak',
+      'portal vein/SMV injury',
+      'hepatic artery injury',
+      'marginal ulceration'
+    ],
+    alternatives: [
+      'Palliative bypass',
+      'Chemotherapy/radiation',
+      'Total pancreatectomy',
+      'Supportive care'
+    ],
+    requiresLaterality: false
+  },
+  {
+    key: 'DISTAL_PANC',
+    name: 'Distal Pancreatectomy',
+    specialty: 'Hepatobiliary',
+    risks: [
+      'pancreatic fistula (30%)',
+      'new-onset diabetes',
+      'splenic vessel injury',
+      'inadvertent splenectomy',
+      'gastric outlet obstruction',
+      'portal vein thrombosis',
+      'pancreatic insufficiency'
+    ],
+    alternatives: [
+      'Observation',
+      'Enucleation',
+      'Chemotherapy/radiation',
+      'Drainage procedures'
+    ],
+    requiresLaterality: false
+  },
+
+  // ========== GENERAL SURGERY - STOMACH ==========
+  {
+    key: 'GASTRECTOMY',
+    name: 'Gastrectomy (Partial/Total)',
+    specialty: 'Upper GI Surgery',
+    risks: [
+      'anastomotic leak',
+      'dumping syndrome (early and late)',
+      'B12 deficiency/pernicious anemia',
+      'iron deficiency anemia',
+      'afferent/efferent loop syndrome',
+      'internal hernia',
+      'Roux stasis syndrome',
+      'bile reflux gastritis'
+    ],
+    alternatives: [
+      'Endoscopic resection',
+      'Chemotherapy/radiation',
+      'Palliative care'
+    ],
+    requiresLaterality: false
+  },
+  {
+    key: 'PEG_TUBE',
+    name: 'PEG Tube Placement',
+    specialty: 'General Surgery',
+    risks: [
+      'tube dislodgement into peritoneum',
+      'buried bumper syndrome',
+      'gastrocolic fistula',
+      'peritonitis',
+      'aspiration pneumonia',
+      'tube site infection/necrotizing fasciitis',
+      'gastric outlet obstruction'
+    ],
+    alternatives: [
+      'Nasogastric tube',
+      'Surgical gastrostomy',
+      'Jejunostomy',
+      'TPN'
+    ],
+    requiresLaterality: false
+  },
+
+  // ========== GENERAL SURGERY - SMALL BOWEL ==========
+  {
+    key: 'SMALL_BOWEL_RESECTION',
+    name: 'Small Bowel Resection',
+    specialty: 'General Surgery',
+    risks: [
+      'anastomotic leak',
+      'short bowel syndrome (<200cm remaining)',
+      'vitamin B12 deficiency (if ileum)',
+      'bile salt diarrhea',
+      'bowel obstruction from adhesions',
+      'enterocutaneous fistula'
+    ],
+    alternatives: [
+      'Stricturoplasty',
+      'Medical management',
+      'Bypass procedure'
+    ],
+    requiresLaterality: false
+  },
+  {
+    key: 'ADHESIOLYSIS',
+    name: 'Lysis of Adhesions',
+    specialty: 'General Surgery',
+    risks: [
+      'bowel perforation (enterotomy)',
+      'serosal tears',
+      'recurrent adhesions (up to 90%)',
+      'prolonged ileus',
+      'enterocutaneous fistula',
+      'increased operative time/blood loss'
+    ],
+    alternatives: [
+      'Conservative management',
+      'Nasogastric decompression'
+    ],
+    requiresLaterality: false
+  },
+
+  // ========== GENERAL SURGERY - VASCULAR ACCESS ==========
+  {
+    key: 'PORT_PLACEMENT',
+    name: 'Port-a-Cath Placement',
+    specialty: 'Vascular Access',
+    risks: [
+      'pneumothorax',
+      'arterial puncture',
+      'catheter malposition',
+      'cardiac arrhythmia',
+      'air embolism',
+      'catheter fracture/embolization',
+      'superior vena cava perforation',
+      'thoracic duct injury (left side)'
+    ],
+    alternatives: [
+      'PICC line',
+      'Hickman catheter',
+      'Peripheral IV'
+    ],
+    requiresLaterality: true
+  },
+  {
+    key: 'DIALYSIS_ACCESS',
+    name: 'AV Fistula/Graft Creation',
+    specialty: 'Vascular Access',
+    risks: [
+      'thrombosis/failure to mature',
+      'steal syndrome (hand ischemia)',
+      'high output heart failure',
+      'aneurysm/pseudoaneurysm',
+      'median nerve injury',
+      'venous hypertension',
+      'seroma'
+    ],
+    alternatives: [
+      'Peritoneal dialysis',
+      'Dialysis catheter',
+      'Different access site'
+    ],
+    requiresLaterality: true
+  },
+
+  // ========== CARDIOTHORACIC - CARDIAC ==========
+  {
+    key: 'CABG',
+    name: 'Coronary Artery Bypass Grafting (CABG)',
+    specialty: 'Cardiac Surgery',
+    risks: [
+      'stroke',
+      'perioperative MI',
+      'graft failure/occlusion',
+      'atrial fibrillation (30%)',
+      'sternal wound infection/dehiscence',
+      'saphenous vein harvest site complications',
+      'phrenic nerve injury (diaphragm paralysis)',
+      'cognitive dysfunction/delirium',
+      'renal failure requiring dialysis'
+    ],
+    alternatives: [
+      'Percutaneous coronary intervention (PCI)',
+      'Medical management',
+      'Hybrid revascularization'
+    ],
+    requiresLaterality: false
+  },
+  {
+    key: 'AVR',
+    name: 'Aortic Valve Replacement (Mechanical/Bioprosthetic)',
+    specialty: 'Cardiac Surgery',
+    risks: [
+      'stroke',
+      'complete heart block (pacemaker needed)',
+      'paravalvular leak',
+      'prosthetic valve endocarditis',
+      'valve thrombosis (mechanical)',
+      'structural valve deterioration (bioprosthetic)',
+      'coronary ostia occlusion',
+      'aortic dissection',
+      'patient-prosthesis mismatch'
+    ],
+    alternatives: [
+      'TAVR',
+      'Valve repair',
+      'Medical management',
+      'Balloon valvuloplasty'
+    ],
+    requiresLaterality: false
+  },
+  {
+    key: 'MVR',
+    name: 'Mitral Valve Replacement',
+    specialty: 'Cardiac Surgery',
+    risks: [
+      'stroke',
+      'left ventricular rupture',
+      'circumflex coronary injury',
+      'systolic anterior motion (SAM)',
+      'paravalvular leak',
+      'valve thrombosis',
+      'hemolysis',
+      'complete heart block',
+      'left ventricular outflow tract obstruction'
+    ],
+    alternatives: [
+      'Mitral valve repair',
+      'MitraClip',
+      'Medical management'
+    ],
+    requiresLaterality: false
+  },
+  {
+    key: 'TAVR',
+    name: 'Transcatheter Aortic Valve Replacement (TAVR)',
+    specialty: 'Cardiac Surgery',
+    risks: [
+      'stroke',
+      'vascular injury (femoral/iliac dissection, rupture)',
+      'coronary artery occlusion',
+      'annular rupture',
+      'valve migration/embolization',
+      'conduction abnormalities (pacemaker 10-15%)',
+      'paravalvular leak',
+      'acute kidney injury'
+    ],
+    alternatives: [
+      'Surgical AVR',
+      'Balloon valvuloplasty',
+      'Medical management'
+    ],
+    requiresLaterality: false
+  },
+  {
+    key: 'ASCENDING_AORTA',
+    name: 'Ascending Aorta Replacement',
+    specialty: 'Cardiac Surgery',
+    risks: [
+      'stroke',
+      'spinal cord ischemia/paralysis',
+      'recurrent laryngeal nerve injury',
+      'phrenic nerve injury',
+      'coronary button dehiscence',
+      'aortic dissection extension',
+      'malperfusion syndrome'
+    ],
+    alternatives: [
+      'Medical management',
+      'Endovascular repair (if suitable)',
+      'Watchful waiting'
+    ],
+    requiresLaterality: false
+  },
+  {
+    key: 'LVAD',
+    name: 'Left Ventricular Assist Device (LVAD) Implantation',
+    specialty: 'Cardiac Surgery',
+    risks: [
+      'stroke',
+      'pump thrombosis',
+      'GI bleeding (AV malformations)',
+      'drive-line infection',
+      'right heart failure',
+      'device malfunction',
+      'aortic insufficiency',
+      'hemolysis',
+      'acquired von Willebrand disease'
+    ],
+    alternatives: [
+      'Heart transplant',
+      'Medical management',
+      'Intra-aortic balloon pump',
+      'Palliative care'
+    ],
+    requiresLaterality: false
+  },
+
+  // ========== CARDIOTHORACIC - THORACIC ==========
+  {
+    key: 'LOBECTOMY',
+    name: 'Pulmonary Lobectomy',
+    specialty: 'Thoracic Surgery',
+    risks: [
+      'prolonged air leak (>7 days)',
+      'bronchopleural fistula',
+      'postoperative pneumonia',
+      'atrial fibrillation',
+      'recurrent laryngeal nerve injury (hoarseness)',
+      'phrenic nerve injury',
+      'chylothorax',
+      'post-thoracotomy pain syndrome',
+      'empyema'
+    ],
+    alternatives: [
+      'Segmentectomy',
+      'Wedge resection',
+      'Radiation therapy',
+      'Chemotherapy',
+      'Observation'
+    ],
+    requiresLaterality: true
+  },
+  {
+    key: 'PNEUMONECTOMY',
+    name: 'Pneumonectomy',
+    specialty: 'Thoracic Surgery',
+    risks: [
+      'postpneumonectomy syndrome',
+      'bronchopleural fistula',
+      'cardiac herniation',
+      'empyema',
+      'pulmonary edema (contralateral lung)',
+      'right heart failure',
+      'arrhythmias (especially right side)',
+      'post-pneumonectomy pulmonary edema'
+    ],
+    alternatives: [
+      'Lobectomy',
+      'Sleeve resection',
+      'Chemoradiation',
+      'Palliative care'
+    ],
+    requiresLaterality: true
+  },
+  {
+    key: 'WEDGE_RESECTION',
+    name: 'Wedge Resection of Lung',
+    specialty: 'Thoracic Surgery',
+    risks: [
+      'prolonged air leak',
+      'pneumothorax',
+      'incomplete resection/positive margins',
+      'pleural space infection',
+      'intercostal neuralgia'
+    ],
+    alternatives: [
+      'Lobectomy',
+      'Segmentectomy',
+      'Ablation',
+      'Stereotactic radiation'
+    ],
+    requiresLaterality: true
+  },
+  {
+    key: 'VATS_PLEURODESIS',
+    name: 'VATS Pleurodesis',
+    specialty: 'Thoracic Surgery',
+    risks: [
+      'severe pleuritic pain',
+      'fever/SIRS response',
+      'ARDS',
+      'trapped lung',
+      'empyema',
+      'failure of pleurodesis (recurrent effusion)'
+    ],
+    alternatives: [
+      'Chest tube with chemical pleurodesis',
+      'PleurX catheter',
+      'Repeated thoracentesis'
+    ],
+    requiresLaterality: true
+  },
+  {
+    key: 'THYMECTOMY',
+    name: 'Thymectomy',
+    specialty: 'Thoracic Surgery',
+    risks: [
+      'myasthenic crisis',
+      'phrenic nerve injury (both sides)',
+      'recurrent laryngeal nerve injury',
+      'innominate vein injury',
+      'incomplete resection',
+      'pleural effusion'
+    ],
+    alternatives: [
+      'Medical management',
+      'Radiation therapy',
+      'Observation'
+    ],
+    requiresLaterality: false
+  },
+  {
+    key: 'ESOPHAGECTOMY',
+    name: 'Esophagectomy (Ivor Lewis/McKeown)',
+    specialty: 'Thoracic Surgery',
+    risks: [
+      'anastomotic leak (cervical or intrathoracic)',
+      'conduit necrosis',
+      'chylothorax',
+      'recurrent laryngeal nerve injury (hoarseness/aspiration)',
+      'anastomotic stricture',
+      'dumping syndrome',
+      'delayed gastric emptying',
+      'reflux'
+    ],
+    alternatives: [
+      'Definitive chemoradiation',
+      'Endoscopic resection',
+      'Palliative stenting',
+      'Photodynamic therapy'
+    ],
+    requiresLaterality: false
+  },
+  {
+    key: 'MEDIASTINAL_MASS',
+    name: 'Mediastinal Mass Resection',
+    specialty: 'Thoracic Surgery',
+    risks: [
+      'phrenic nerve injury',
+      'recurrent laryngeal nerve injury',
+      'vagus nerve injury',
+      'superior vena cava injury',
+      'innominate vein injury',
+      'chylothorax',
+      'incomplete resection'
+    ],
+    alternatives: [
+      'Biopsy only',
+      'Chemotherapy',
+      'Radiation therapy',
+      'Observation'
+    ],
+    requiresLaterality: false
+  },
+  {
+    key: 'CHEST_WALL_RESECTION',
+    name: 'Chest Wall Resection and Reconstruction',
+    specialty: 'Thoracic Surgery',
+    risks: [
+      'flail chest/paradoxical breathing',
+      'respiratory failure',
+      'mesh/hardware infection',
+      'hardware migration',
+      'chronic pain/neuralgia',
+      'shoulder dysfunction',
+      'lung herniation'
+    ],
+    alternatives: [
+      'Radiation therapy',
+      'Chemotherapy',
+      'Observation',
+      'Palliative care'
+    ],
+    requiresLaterality: true
+  },
+  {
+    key: 'SYMPATHECTOMY',
+    name: 'Thoracoscopic Sympathectomy',
+    specialty: 'Thoracic Surgery',
+    risks: [
+      'compensatory hyperhidrosis (up to 80%)',
+      'Horner syndrome',
+      'gustatory sweating',
+      'pneumothorax',
+      'intercostal neuralgia',
+      'bradycardia',
+      'inability to increase heart rate with exercise'
+    ],
+    alternatives: [
+      'Medical management',
+      'Botox injections',
+      'Iontophoresis',
+      'Topical treatments'
+    ],
+    requiresLaterality: true
+  },
+  {
+    key: 'PECTUS_REPAIR',
+    name: 'Pectus Excavatum/Carinatum Repair (Nuss/Ravitch)',
+    specialty: 'Thoracic Surgery',
+    risks: [
+      'bar displacement/rotation',
+      'cardiac perforation',
+      'pneumothorax',
+      'chronic pain requiring bar removal',
+      'overcorrection',
+      'bar allergy (nickel)',
+      'wound infection',
+      'recurrence after bar removal'
+    ],
+    alternatives: [
+      'Observation',
+      'Vacuum bell therapy',
+      'Custom bracing'
+    ],
+    requiresLaterality: false
+  },
+
+  // ========== BARIATRIC SURGERY ==========
+  {
+    key: 'ROUX_EN_Y',
+    name: 'Roux-en-Y Gastric Bypass',
+    specialty: 'Bariatric Surgery',
+    risks: [
+      'anastomotic leak (gastrojejunal or jejunojejunal)',
+      'internal hernia',
+      'marginal ulcer',
+      'dumping syndrome',
+      'vitamin deficiencies (B12, iron, calcium, D)',
+      'gallstone formation',
+      'anastomotic stricture',
+      'weight regain',
+      'hypoglycemia'
+    ],
+    alternatives: [
+      'Sleeve gastrectomy',
+      'Adjustable gastric band',
+      'Duodenal switch',
+      'Medical weight loss'
+    ],
+    requiresLaterality: false
+  },
+  {
+    key: 'SLEEVE_GASTRECTOMY',
+    name: 'Sleeve Gastrectomy',
+    specialty: 'Bariatric Surgery',
+    risks: [
+      'staple line leak',
+      'staple line bleeding',
+      'sleeve stricture',
+      'new/worsening GERD',
+      'portal/mesenteric vein thrombosis',
+      'nutritional deficiencies',
+      'gallstones',
+      'weight regain'
+    ],
+    alternatives: [
+      'Gastric bypass',
+      'Adjustable gastric band',
+      'Duodenal switch',
+      'Medical weight loss'
+    ],
+    requiresLaterality: false
+  },
+  {
+    key: 'GASTRIC_BAND',
+    name: 'Adjustable Gastric Band Placement',
+    specialty: 'Bariatric Surgery',
+    risks: [
+      'band slippage/prolapse',
+      'band erosion into stomach',
+      'port infection/displacement',
+      'esophageal dilation',
+      'pouch dilation',
+      'inadequate weight loss',
+      'food intolerance',
+      'need for removal/revision'
+    ],
+    alternatives: [
+      'Gastric bypass',
+      'Sleeve gastrectomy',
+      'Medical weight loss'
+    ],
+    requiresLaterality: false
+  }
+];
+    
     const ADDITIONAL_SURGEONS = [
       "Timothy R. Billiar",
-      "Emilia J. Diego",
-      "Jennifer M. Holder-Murray",
-      "Kenneth K. W. Lee",
-      "Matthew D. Neal",
-      "Andrew B. Peitzman",
-      "Linwah Yip",
-      "Brian S. Zuckerbraun",
-      "Amer H. Zureikat",
-      "Anita P. Courcoulas",
-      "David A. Geller",
-      "Abhinav Humar",
-      "Kelly L. McCoy",
-      "David S. Medich",
-      "Kevin P. Mollen",
-      "Harry W. Sell Jr.",
-      "Jason L. Sperry",
-      "George K. Gittes",
-      "Michel S. Makaroun"
+  "Emilia J. Diego",
+  "Jennifer M. Holder-Murray",
+  "Kenneth K. W. Lee",
+  "Matthew D. Neal",
+  "Andrew B. Peitzman",
+  "Linwah Yip",
+  "Brian S. Zuckerbraun",
+  "Amer H. Zureikat",
+  "Anita P. Courcoulas",
+  "David A. Geller",
+  "Abhinav Humar",
+  "Kelly L. McCoy",
+  "David S. Medich",
+  "Kevin P. Mollen",
+  "Harry W. Sell Jr.",
+  "Jason L. Sperry",
+  "George K. Gittes",
+  "Michel S. Makaroun",
+  "Khodor Abou-Daya",
+  "Bestoun H. Ahmed",
+  "Georges Elie Al-Khoury",
+  "Louis H. Alarcon",
+  "Fanny S. Alie-Cusson",
+  "Pete Allen",
+  "Kelly Ann Miller Austin",
+  "Steven Ballesteros",
+  "Graciela Bauzá",
+  "Karla Bernardi",
+  "Geoff J. Bond",
+  "Joshua B. Brown",
+  "Marc Edward Brozovich",
+  "James P. Celebrezze Jr.",
+  "Mohammad Haroon Asif Choudry",
+  "Davide Cintorino",
+  "Alain C. Corcos",
+  "Marc E. Cordero",
+  "Michael S. Cowher",
+  "Ruy J. Cruz Jr.",
+  "Kellie E. Cunningham",
+  "Anthony Cyr",
+  "Fabrizio di Francesco",
+  "Genia Dubrovsky",
+  "Raymond Eid",
+  "Mustapha El Lakis",
+  "Mohamed El Masry",
+  "Ronen Elefant",
+  "Garth A. Elias",
+  "Gregory R. English",
+  "Farzad Esni",
+  "Christopher J. Esper",
+  "Steven Evans",
+  "Mohamed B. Ezzelarab",
+  "Raquel M. Forsythe",
+  "Andrea Gambotto",
+  "Armando Ganoza",
+  "Kevin O. Garrett",
+  "Jörg C. Gerlach",
+  "William N. Gilleland Jr.",
+  "Catherine Go",
+  "Vikraman Gunabushanam",
+  "Lindsey M. Haga",
+  "Eric S. Hager",
+  "Daniel E. Hall",
+  "Devin Halleran",
+  "Robert Handzel",
+  "Jon R. Henwood",
+  "Matthew P. Holtzman",
+  "Gina Howell",
+  "Christopher B. Hughes",
+  "Ronald R. Johnson",
+  "Udai S. Kammula",
+  "Ajai Khanna",
+  "Christine M. Leeper",
+  "Steven A. Leers",
+  "Nathan L. Liang",
+  "Michael T. Lotze",
+  "Jason A. Luciano",
+  "Kristin M. Lupinacci",
+  "Michael Madigan",
+  "Marcus M. Malek",
+  "George V. Mazariegos",
+  "Priscilla F. McAuliffe",
+  "John A. McKeating",
+  "Diana M. Metes",
+  "Deepika Mohan",
+  "Michele Molinari",
+  "Adrian E. Morelli",
+  "Michael J. Morowitz",
+  "Michael Morrison",
+  "Dominick A. Motto",
+  "Christopher J. Myers",
+  "Rami A. Namas",
+  "Geoffrey Nunns",
+  "Martin Oberbarnscheidt",
+  "Melanie C. Ongchin",
+  "Alessandro Paniccia",
+  "James F. Pingpank Jr.",
+  "Colin Powers",
+  "Juan C. Puyana",
+  "Mostafa H. Ramadan",
+  "Ramesh Chandran Ramanathan",
+  "Kimberly M. Ramonell",
+  "Douglas A. Reed",
+  "Ward M. Richardson",
+  "Walter E. Rizzoni",
+  "David M. Rothstein",
+  "Quratulain Sabih",
+  "Ulka Sachdev-Ost",
+  "Alaa Sada",
+  "Shawn D. Safford",
+  "Indranil Sau",
+  "Moh'd Akram Sbeih",
+  "Stefan Scholz",
+  "Vaishali D. Schuchert",
+  "Khalid M. Shalaby",
+  "Richard L. Simmons",
+  "Rakesh Sindhi",
+  "Michael J. Singh",
+  "Cheryl K. Six",
+  "Kyle A. Soltys",
+  "Atilla Soran",
+  "Joseph Sorg",
+  "Philip C. Spinella",
+  "Natalie Sridharan",
+  "Kurt R. Stahlfeld",
+  "Jennifer G. Steiman",
+  "Matthew J. TerBush",
+  "Robert Tessler",
+  "Amit D. Tevar",
+  "Samer T. Tohme",
+  "Edith Tzeng",
+  "Paul K. Waltz",
+  "Gregory A. Watson",
+  "Andrew R. Watson",
+  "Sean P. Whelan",
+  "Martin N. Wijkstrom",
+  "Norman Wolmark",
+  "Xiangwei Xiao",
+  "Hamza Yazdani",
+  "Mervin Yoder",
+  "Theodore H. Yuo",
+  "Mazen S. Zenati",
+  "Jenny A. Ziembicki"
     ];
 
-    function load(){
-      try{ f = JSON.parse(localStorage.getItem('consent-html-state')||'{}') }catch{ f={} }
-      f = {...defaults, ...f};
-      
-      // Load catalog from localStorage
-      try{ 
-        const savedCatalog = JSON.parse(localStorage.getItem('consent-proc-catalog-html')||'null');
-        if(savedCatalog) {
-          const keyMap = new Map();
-          savedCatalog.forEach(proc => {
-            if(proc && proc.key && !keyMap.has(proc.key)) {
-              keyMap.set(proc.key, proc);
-            }
-          });
-          catalog = Array.from(keyMap.values());
-        } else {
-          catalog = [...DEFAULT_PROCEDURES];
+function load(){
+  try{ f = JSON.parse(localStorage.getItem('consent-html-state')||'{}') }catch{ f={} }
+  f = {...defaults, ...f};
+  
+  // Load catalog from localStorage
+  try{ 
+    const savedCatalog = JSON.parse(localStorage.getItem('consent-proc-catalog-html')||'null');
+    if(savedCatalog) {
+      // Use saved catalog but remove any duplicates based on key
+      const keyMap = new Map();
+      savedCatalog.forEach(proc => {
+        if(proc && proc.key && !keyMap.has(proc.key)) {
+          keyMap.set(proc.key, proc);
         }
-      }catch{ 
-        catalog = [...DEFAULT_PROCEDURES];
-      }
-      
-      try{ surgeons = JSON.parse(localStorage.getItem('consent-surgeons-html')||'[]') }catch{ surgeons = [] }
+      });
+      catalog = Array.from(keyMap.values());
+    } else {
+      // First time - combine DEFAULT and ADDITIONAL procedures
+      const allProcs = [...DEFAULT_PROCEDURES, ...ADDITIONAL_PROCEDURES];
+      const keyMap = new Map();
+      allProcs.forEach(proc => {
+        if(proc && proc.key && !keyMap.has(proc.key)) {
+          keyMap.set(proc.key, proc);
+        }
+      });
+      catalog = Array.from(keyMap.values());
     }
+  }catch{ 
+    catalog = [...DEFAULT_PROCEDURES, ...ADDITIONAL_PROCEDURES];
+  }
+  
+  try{ surgeons = JSON.parse(localStorage.getItem('consent-surgeons-html')||'[]') }catch{ surgeons = [] }
+}
 
-    function save(){
-      localStorage.setItem('consent-html-state', JSON.stringify(f));
-      localStorage.setItem('consent-proc-catalog-html', JSON.stringify(catalog));
-      localStorage.setItem('consent-surgeons-html', JSON.stringify(surgeons));
-    }
+function save(){
+  localStorage.setItem('consent-html-state', JSON.stringify(f));
+  localStorage.setItem('consent-proc-catalog-html', JSON.stringify(catalog));
+  localStorage.setItem('consent-surgeons-html', JSON.stringify(surgeons));
+}
 
-    // Track manual edits
+    // Track manual edits to avoid overwriting auto text
     const touched = { rec:false, risks:false, alts:false };
 
-    // Populate surgeon dropdown
-    function populateSurgeonDropdown() {
-      const dropdown = $('#surgeonDropdown');
-      dropdown.innerHTML = '<option value="">-- Select Surgeon --</option>';
-      
-      function formatSurgeonName(name) {
-        const parts = name.trim().split(' ');
-        if (parts.length < 2) return name;
-        const lastName = parts[parts.length - 1];
-        const firstName = parts.slice(0, -1).join(' ');
-        return `${lastName}, ${firstName}`;
-      }
-      
-      const allSurgeons = [...new Set([...surgeons, ...ADDITIONAL_SURGEONS])]
-        .map(name => ({
-          original: name,
-          formatted: formatSurgeonName(name)
-        }))
-        .sort((a, b) => a.formatted.localeCompare(b.formatted));
-      
-      allSurgeons.forEach(surgeon => {
-        const option = document.createElement('option');
-        option.value = surgeon.original;
-        option.textContent = surgeon.formatted;
-        dropdown.appendChild(option);
-      });
-    }
+    // ---------- Rendering: left controls ----------
+// Modify the populateSurgeonDropdown function
+function populateSurgeonDropdown() {
+  const dropdown = $('#surgeonDropdown');
+  dropdown.innerHTML = '<option value="">-- Select Surgeon --</option>';
+  
+  // Function to convert "Firstname Lastname" to "Lastname, Firstname"
+  function formatSurgeonName(name) {
+    const parts = name.trim().split(' ');
+    if (parts.length < 2) return name;
+    
+    // Handle middle names/initials by taking everything except last as first name
+    const lastName = parts[parts.length - 1];
+    const firstName = parts.slice(0, -1).join(' ');
+    return `${lastName}, ${firstName}`;
+  }
+  
+  // Combine all surgeons, convert format, and sort by surname
+  const allSurgeons = [...new Set([...surgeons, ...ADDITIONAL_SURGEONS])]
+    .map(name => ({
+      original: name,
+      formatted: formatSurgeonName(name)
+    }))
+    .sort((a, b) => a.formatted.localeCompare(b.formatted));
+  
+  allSurgeons.forEach(surgeon => {
+    const option = document.createElement('option');
+    option.value = surgeon.original; // Keep original for internal use
+    option.textContent = surgeon.formatted; // Display as "Lastname, Firstname"
+    dropdown.appendChild(option);
+  });
+}
 
-    // Render selected surgeons
-    function renderSelectedSurgeons() {
-      const container = $('#selectedSurgeons');
-      container.innerHTML = '';
-      
-      function formatSurgeonName(name) {
-        const parts = name.trim().split(' ');
-        if (parts.length < 2) return name;
-        const lastName = parts[parts.length - 1];
-        const firstName = parts.slice(0, -1).join(' ');
-        return `${lastName}, ${firstName}`;
-      }
-      
-      if (f.selectedSurgeons && f.selectedSurgeons.length > 0) {
-        const sortedSurgeons = [...f.selectedSurgeons].sort((a, b) => {
-          const aLast = a.split(' ').pop();
-          const bLast = b.split(' ').pop();
-          return aLast.localeCompare(bLast);
-        });
-        
-        sortedSurgeons.forEach(name => {
-          const div = document.createElement('div');
-          div.className = 'surgeon-item';
-          div.innerHTML = `
-            <span>${formatSurgeonName(name)}</span>
-            <button class="remove-btn" onclick="removeSurgeon('${name.replace(/'/g, "\\'")}')">×</button>
-          `;
-          container.appendChild(div);
-        });
-      } else {
-        container.innerHTML = '<div class="muted" style="padding:0.5rem">No surgeons selected</div>';
-      }
-    }
+// Also update the renderSelectedSurgeons function to show the new format
+function renderSelectedSurgeons() {
+  const container = $('#selectedSurgeons');
+  container.innerHTML = '';
+  
+  // Helper function for formatting
+  function formatSurgeonName(name) {
+    const parts = name.trim().split(' ');
+    if (parts.length < 2) return name;
+    const lastName = parts[parts.length - 1];
+    const firstName = parts.slice(0, -1).join(' ');
+    return `${lastName}, ${firstName}`;
+  }
+  
+  if (f.selectedSurgeons && f.selectedSurgeons.length > 0) {
+    // Sort selected surgeons by last name for display
+    const sortedSurgeons = [...f.selectedSurgeons].sort((a, b) => {
+      const aLast = a.split(' ').pop();
+      const bLast = b.split(' ').pop();
+      return aLast.localeCompare(bLast);
+    });
+    
+    sortedSurgeons.forEach(name => {
+      const div = document.createElement('div');
+      div.className = 'surgeon-item';
+      div.innerHTML = `
+        <span>${formatSurgeonName(name)}</span>
+        <button class="remove-btn" onclick="removeSurgeon('${name.replace(/'/g, "\\'")}')">×</button>
+      `;
+      container.appendChild(div);
+    });
+  } else {
+    container.innerHTML = '<div class="muted" style="padding:0.5rem">No surgeons selected</div>';
+  }
+}
 
     function addSurgeon(name) {
       name = name.trim();
@@ -721,6 +1975,7 @@
       if (!f.selectedSurgeons.includes(name)) {
         f.selectedSurgeons.push(name);
         
+        // Add to surgeons list if not already there
         if (!surgeons.includes(name) && !ADDITIONAL_SURGEONS.includes(name)) {
           surgeons.push(name);
         }
@@ -728,10 +1983,10 @@
         save();
         populateSurgeonDropdown();
         renderSelectedSurgeons();
-        updateDerived();
-        generatePages();
-        renderPreview();
-        renderReview();
+       updateDerived();
+generatePages();  // Create the pages first
+renderPreview();  // Then populate the content
+renderReview();
       }
     }
 
@@ -739,114 +1994,125 @@
       f.selectedSurgeons = f.selectedSurgeons.filter(n => n !== name);
       save();
       renderSelectedSurgeons();
-      updateDerived();
-      generatePages();
-      renderPreview();
-      renderReview();
+  updateDerived();
+generatePages();  // Create the pages first
+renderPreview();  // Then populate the content
+renderReview();
     }
 
+    // Make removeSurgeon available globally for onclick
     window.removeSurgeon = removeSurgeon;
 
-    // Render procedures
-    function renderProcedures(){
-      const list = $('#procList');
-      list.innerHTML = '';
+
+function renderProcedures(){
+  const list = $('#procList');
+  list.innerHTML = '';
+  
+  // Group procedures by specialty
+  const grouped = {};
+  catalog.forEach(p => {
+    const spec = p.specialty || 'Other';
+    if(!grouped[spec]) grouped[spec] = [];
+    grouped[spec].push(p);
+  });
+  
+  // Sort specialties and procedures within each specialty
+  const sortedSpecs = Object.keys(grouped).sort();
+  
+  sortedSpecs.forEach(spec => {
+    // Add specialty header
+    const header = document.createElement('div');
+    header.style.cssText = 'font-weight:700; color:#4B5563; margin-top:0.75rem; margin-bottom:0.25rem; padding:0.25rem; background:#F3F4F6; border-radius:0.25rem';
+    header.textContent = spec.toUpperCase();
+    list.appendChild(header);
+    
+    // Sort procedures alphabetically within specialty
+    const procs = grouped[spec].sort((a,b) => a.name.localeCompare(b.name));
+    
+    procs.forEach(p => {
+      const id = 'proc_'+p.key;
+      const container = document.createElement('div');
+      container.style.marginLeft = '0.5rem';
       
-      const grouped = {};
-      catalog.forEach(p => {
-        const spec = p.specialty || 'Other';
-        if(!grouped[spec]) grouped[spec] = [];
-        grouped[spec].push(p);
-      });
+      const el = document.createElement('label');
+      el.className = 'check';
+      el.innerHTML = `<input type="checkbox" id="${id}"> <div style="font-weight:600">${p.name}</div>`;
       
-      const sortedSpecs = Object.keys(grouped).sort();
+      const cb = el.querySelector('input');
+      cb.checked = (f.selectedProcKeys||[]).includes(p.key);
       
-      sortedSpecs.forEach(spec => {
-        const header = document.createElement('div');
-        header.style.cssText = 'font-weight:700; color:#4B5563; margin-top:0.75rem; margin-bottom:0.25rem; padding:0.25rem; background:#F3F4F6; border-radius:0.25rem';
-        header.textContent = spec.toUpperCase();
-        list.appendChild(header);
+      // Add laterality buttons if required
+      if(p.requiresLaterality && cb.checked) {
+        const latButtons = document.createElement('div');
+        latButtons.style.cssText = 'margin-left:1.5rem; margin-top:0.25rem; display:flex; gap:0.25rem';
         
-        const procs = grouped[spec].sort((a,b) => a.name.localeCompare(b.name));
-        
-        procs.forEach(p => {
-          const id = 'proc_'+p.key;
-          const container = document.createElement('div');
-          container.style.marginLeft = '0.5rem';
+        ['Left', 'Right', 'Bilateral'].forEach(side => {
+          const btn = document.createElement('button');
+          btn.textContent = side;
+          btn.className = 'btn';
+          btn.style.cssText = 'padding:0.25rem 0.5rem; font-size:0.75rem';
           
-          const el = document.createElement('label');
-          el.className = 'check';
-          el.innerHTML = `<input type="checkbox" id="${id}"> <div style="font-weight:600">${p.name}</div>`;
-          
-          const cb = el.querySelector('input');
-          cb.checked = (f.selectedProcKeys||[]).includes(p.key);
-          
-          if(p.requiresLaterality && cb.checked) {
-            const latButtons = document.createElement('div');
-            latButtons.style.cssText = 'margin-left:1.5rem; margin-top:0.25rem; display:flex; gap:0.25rem';
-            
-            ['Left', 'Right', 'Bilateral'].forEach(side => {
-              const btn = document.createElement('button');
-              btn.textContent = side;
-              btn.className = 'btn';
-              btn.style.cssText = 'padding:0.25rem 0.5rem; font-size:0.75rem';
-              
-              if(f.laterality && f.laterality[p.key] === side) {
-                btn.style.background = '#111827';
-                btn.style.color = '#fff';
-              }
-              
-              btn.onclick = (e) => {
-                e.preventDefault();
-                if(!f.laterality) f.laterality = {};
-                
-                if(f.laterality[p.key] === side) {
-                  f.laterality[p.key] = '';
-                } else {
-                  f.laterality[p.key] = side;
-                }
-                
-                save(); 
-                updateDerived();
-                generatePages();
-                renderPreview();
-                renderReview();
-                renderProcedures();
-              };
-              
-              latButtons.appendChild(btn);
-            });
-            
-            container.appendChild(el);
-            container.appendChild(latButtons);
-          } else {
-            container.appendChild(el);
+          // Highlight if this is the selected laterality
+          if(f.laterality && f.laterality[p.key] === side) {
+            btn.style.background = '#111827';
+            btn.style.color = '#fff';
           }
           
-          cb.addEventListener('change', () => {
-            const set = new Set(f.selectedProcKeys||[]);
-            if(cb.checked) {
-              set.add(p.key);
+          btn.onclick = (e) => {
+            e.preventDefault();
+            if(!f.laterality) f.laterality = {};
+            
+            // If clicking the same button, deselect it
+            if(f.laterality[p.key] === side) {
+              f.laterality[p.key] = '';
             } else {
-              set.delete(p.key);
-              if(f.laterality && f.laterality[p.key]) {
-                delete f.laterality[p.key];
-              }
+              f.laterality[p.key] = side;
             }
-            f.selectedProcKeys = Array.from(set);
-            updateDerived(); 
+            
             save(); 
-            renderPreview(); 
-            renderReview();
-            renderProcedures();
-          });
+updateDerived();
+generatePages();  // Create the pages first
+renderPreview();  // Then populate the content
+renderReview();
+            renderProcedures(); // Re-render to update button states
+          };
           
-          list.appendChild(container);
+          latButtons.appendChild(btn);
         });
+        
+        container.appendChild(el);
+        container.appendChild(latButtons);
+      } else {
+        container.appendChild(el);
+      }
+      
+      cb.addEventListener('change', () => {
+        const set = new Set(f.selectedProcKeys||[]);
+        if(cb.checked) {
+          set.add(p.key);
+        } else {
+          set.delete(p.key);
+          // Clear laterality when unchecking
+          if(f.laterality && f.laterality[p.key]) {
+            delete f.laterality[p.key];
+          }
+        }
+        f.selectedProcKeys = Array.from(set);
+        updateDerived(); 
+        save(); 
+        renderPreview(); 
+        renderReview();
+        renderProcedures(); // Re-render to show/hide laterality buttons
       });
-    }
-
-    // Bind inputs
+      
+      list.appendChild(container);
+    });
+  });
+  
+  // Remove the old renderLaterality() call since we're handling it inline now
+  // renderLaterality();
+}
+    // Inputs bind
     function bindInputs(){
       document.querySelectorAll('input[data-field], textarea[data-field]').forEach(el => {
         const k = el.dataset.field;
@@ -869,11 +2135,11 @@
       });
     }
 
-    // Event listeners
+    // Surgeon dropdown and manual input event listeners
     $('#surgeonDropdown').addEventListener('change', function() {
       if (this.value) {
         addSurgeon(this.value);
-        this.value = '';
+        this.value = ''; // Reset dropdown
       }
     });
 
@@ -885,41 +2151,32 @@
       }
     });
 
+    // Add procedure
     $('#addProcBtn').addEventListener('click', () => {
-      const name = $('#procName').value.trim(); 
-      if(!name) return;
+      const name = $('#procName').value.trim(); if(!name) return;
       const risksCsv = $('#procRisks').value;
       const altsCsv = $('#procAlts').value;
       const risks = uniq(risksCsv.split(/[\n,]/));
       const alternatives = uniq(altsCsv.split(/[\n,]/));
       const key = (name.toUpperCase().replace(/[^A-Z0-9]+/g,'-') + '-' + Math.random().toString(36).slice(2,7).toUpperCase());
       const lateralityRequired = $('#procLaterality').checked;
-      catalog.push({key, name, risks, alternatives, requiresLaterality: lateralityRequired, specialty: 'Custom'});
-      $('#procName').value=''; 
-      $('#procRisks').value=''; 
-      $('#procAlts').value=''; 
-      $('#procLaterality').checked = false;
-      save(); 
-      renderProcedures(); 
-      updateDerived(); 
-      renderPreview(); 
-      renderReview();
+      catalog.push({key, name, risks, alternatives, requiresLaterality: lateralityRequired});
+      $('#procName').value=''; $('#procRisks').value=''; $('#procAlts').value=''; $('#procLaterality').checked = false;
+      save(); renderProcedures(); updateDerived(); renderPreview(); renderReview();
     });
 
+    // Buttons
     $('#printBtn').addEventListener('click', () => window.print());
-    $('#resetBtn').addEventListener('click', () => { 
-      localStorage.clear(); 
-      location.reload(); 
-    });
+    $('#resetBtn').addEventListener('click', () => { localStorage.clear(); location.reload(); });
     $('#copyBtn').addEventListener('click', async () => {
-      try{ 
-        await navigator.clipboard.writeText($('#reviewBox').value) 
-      }catch{}
+      try{ await navigator.clipboard.writeText($('#reviewBox').value) }catch{}
     });
 
-    // The rest of the functions remain the same...
-    // updateDerived, renderPreview, generatePages, addRemainingPages, renderReview
+    // Additional procedures and surgeons
+    
+  
 
+    // ---------- Derived text (auto) ----------
     function updateDerived(){
       const selectedProcs = (f.selectedProcKeys||[]).map(key => catalog.find(p=>p && p.key===key)).filter(Boolean);
       const namesWithLat = selectedProcs.map(p => {
@@ -931,15 +2188,9 @@
         return nm;
       });
       let autoRecommended = '';
-      if(namesWithLat.length===1){ 
-        autoRecommended = namesWithLat[0]; 
-      }
-      else if(namesWithLat.length===2){ 
-        autoRecommended = namesWithLat.join(' and '); 
-      }
-      else if(namesWithLat.length>2){ 
-        autoRecommended = namesWithLat.slice(0,-1).join('; ') + '; and ' + namesWithLat[namesWithLat.length-1]; 
-      }
+      if(namesWithLat.length===1){ autoRecommended = namesWithLat[0]; }
+      else if(namesWithLat.length===2){ autoRecommended = namesWithLat.join(' and '); }
+      else if(namesWithLat.length>2){ autoRecommended = namesWithLat.slice(0,-1).join('; ') + '; and ' + namesWithLat[namesWithLat.length-1]; }
       const allRisks = selectedProcs.flatMap(p=>p.risks||[]).filter(Boolean);
       const riskMap = {};
       allRisks.forEach(risk => {
@@ -953,52 +2204,44 @@
       const joined = joinNames(f.selectedSurgeons||[]);
       f.physicianName = joined || f.physicianName || '';
       save();
-      if(!touched.rec){ 
-        const el=document.getElementById('recommendedProcedure'); 
-        if(el) el.value=f.recommendedProcedure||''; 
-      }
-      if(!touched.risks){ 
-        const el=document.getElementById('otherRisks'); 
-        if(el) el.value=f.otherRisks||''; 
-      }
-      const allAlts = selectedProcs.flatMap(p=>p.alternatives||[]).filter(Boolean);
-      const altMap = {};
-      allAlts.forEach(alt => {
-        const norm = alt.toLowerCase().trim();
-        if(!altMap[norm]) altMap[norm] = alt.trim();
-      });
-      const autoAlts = Object.values(altMap);
+      if(!touched.rec){ const el=document.getElementById('recommendedProcedure'); if(el) el.value=f.recommendedProcedure||''; }
+      if(!touched.risks){ const el=document.getElementById('otherRisks'); if(el) el.value=f.otherRisks||''; }
+  // Deduplicate alternatives using the same approach as risks
+const allAlts = selectedProcs.flatMap(p=>p.alternatives||[]).filter(Boolean);
+const altMap = {};
+allAlts.forEach(alt => {
+  const norm = alt.toLowerCase().trim();
+  if(!altMap[norm]) altMap[norm] = alt.trim();
+});
+const autoAlts = Object.values(altMap);
       const autoAltString = autoAlts.length? autoAlts.join(', ') : '';
       if(!touched.alts) f.alternatives = autoAltString;
-      if(!touched.alts){ 
-        const el=document.getElementById('alternatives'); 
-        if(el) el.value=f.alternatives||''; 
-      }
+      if(!touched.alts){ const el=document.getElementById('alternatives'); if(el) el.value=f.alternatives||''; }
     }
 
-    function setLine(sel, txt, len=18){ 
-      document.querySelectorAll(sel).forEach(el => el.textContent = (txt && txt.trim())? txt : '_'.repeat(len)); 
-    }
-    function setBlock(id, txt){ 
-      const el=document.querySelector(id); 
-      if(el) el.textContent = txt||''; 
-    }
+    // ---------- Rendering: print side ----------
+    function setLine(sel, txt, len=18){ document.querySelectorAll(sel).forEach(el => el.textContent = (txt && txt.trim())? txt : '_'.repeat(len)); }
+    function setBlock(id, txt){ const el=document.querySelector(id); if(el) el.textContent = txt||''; }
 
     function renderPreview(){
       setLine('.hdrPatientName', f.patientName, 20);
       setLine('.hdrId', f.idNumber, 12);
       setLine('.hdrDob', f.dob, 12);
       setLine('.hdrFacility', f.facility, 12);
+
       setLine('.witnessName', f.witnessName, 24);
       setLine('.witnessDate', f.witnessDate, 12);
       setLine('.witnessTime', f.witnessTime, 10);
+
       setLine('.designeeName', f.designeeName, 28);
       const patientNameForProcedure = (f.consentForName && f.consentForName.trim())? f.consentForName : (f.patientName||'');
       setLine('.consentForName', patientNameForProcedure, 28);
+
       setBlock('#p1_diagnosis', f.diagnosis||'');
       setBlock('#p1_recommended', f.recommendedProcedure||'');
       setBlock('#p1_alternatives', f.alternatives||'');
       setBlock('#p2_otherRisks', f.otherRisks||'');
+
       setLine('.physicianName', f.physicianName, 24);
       setLine('.signerDate', f.signerDate, 12);
       setLine('.signerTime', f.signerTime, 10);
@@ -1009,69 +2252,317 @@
       setLine('.cyracom', f.cyracom, 14);
       setLine('.interpName', f.interpName, 24);
     }
+// ---------- Dynamic Page Generation ----------
+// ---------- Dynamic Page Generation ----------
+function generatePages() {
+  const rightPanel = document.querySelector('.right');
+  rightPanel.innerHTML = ''; // Clear existing pages
+  
+  // Check content length to determine if we need extra pages
+  const proceduresLength = (f.recommendedProcedure || '').length;
+  const diagnosisLength = (f.diagnosis || '').length;
+  const alternativesLength = (f.alternatives || '').length;
+  const otherRisksLength = (f.otherRisks || '').length;
+  
+  // Determine if content will overflow standard page 1
+  // Increased thresholds since we have more room
+  const needsSplitPage1 = proceduresLength > 800 || diagnosisLength > 600 || alternativesLength > 600;
+  const totalPages = needsSplitPage1 ? 5 : 4;
+  
+  // Page 1
+  const page1 = document.createElement('div');
+  page1.className = 'sheet';
+  page1.innerHTML = `
+    <div class="header">
+      <div class="hdr">
+        <div class="hdr-left">
+          <div class="pageNo">Page 1 of ${totalPages}</div>
+          <img class="logo" src="gTlSit7.png" alt="UPMC" />
+        </div>
+        <div class="hdr-right">
+          <div><strong>Patient Name:</strong> <span class="hdrPatientName line"></span></div>
+          <div><strong>Identification Number:</strong> <span class="hdrId line"></span></div>
+          <div><strong>Date of Birth:</strong> <span class="hdrDob line"></span></div>
+          <div><strong>Facility:</strong> <span class="hdrFacility line"></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="title">CONSENT TO SURGERY OR SPECIAL PROCEDURE</div>
+      <p>
+        I,
+        <span class="field-container">
+          <span class="field-text designeeName"></span>
+          <span class="field-label">(Name of patient or Designee)</span>
+        </span>
+        have been asked to read all the information contained in this consent form and to consent to the procedure described below on behalf of
+        <span class="field-container">
+          <span class="field-text consentForName"></span>
+          <span class="field-label">(Name of Patient)</span>
+        </span>
+        or myself. I have been told that I should ask questions about anything that I do not understand. (If the decision‑maker signing this form is not the patient, references to "I," "my" or "me" should be read as if referring to "the patient.")
+      </p>
+      <p>I understand that the information in this consent form, in addition to discussions with my physicians and any other written materials they may provide, is intended to help me make an informed decision whether to voluntarily undergo the identified procedure.</p>
+      <p><strong>Diagnosis:</strong> I understand that after being examined, treated, and having studies reviewed, I have been diagnosed as having:</p>
+      <div class="dash" id="p1_diagnosis" style="min-height:0.5rem"></div>
+      <p><strong>Recommended Procedure:</strong> I understand that my physician(s) have recommended that I undergo a procedure known as</p>
+      <div class="dash" id="p1_recommended"></div>
+      <p>I understand that a series of the described procedure(s) in the operating room are planned.</p>
+      ${!needsSplitPage1 ? `
+        <p><strong>Alternatives.</strong> I understand that I may choose NOT to undergo the Recommended Treatment. I acknowledge that my physician(s) or physician representative has described the alternative treatments, the risks and benefits of the alternative treatments, the likelihood of me achieving my goals; any potential problems that might occur during recuperation and the likely medical results should I decide not to undergo the recommended procedure. These treatment alternatives may include:</p>
+        <div class="dash" id="p1_alternatives" style="min-height:0.5rem"></div>
+        <p><strong>Risks of Surgery.</strong> I understand that there are inherent risks in the performance of the recommended procedure. These include:</p>
+        <ol class="ol">
+          <li><strong>Bleeding:</strong> If needed, blood and/or blood products have the following general risks: reactions resulting in itching, rash, fever, chills, headache, or shock; respiratory distress (shortness of breath); kidney damage; systemic bacterial infection; exposure to blood borne viruses including hepatitis (an inflammatory disease affecting the liver) and Human Immunodeficiency Virus (HIV, the virus that causes AIDS); and death. Alternatives to transfusion include the use of devices that filter and return blood lost in surgery to me or by providing medications that boost my blood count prior to an elective procedure. Bleeding and/or severe anemia could put my life in danger or cause permanent brain damage. I understand that substitutes for blood or plasma might not work well enough. Blood and/or blood products might offer the only chance to preserve my life.</li>
+        </ol>
+        <p>____  I refuse the transfusion of blood and/or blood products and understand that I will be asked to sign a separate form entitled Release from Liability for the Refusal of Blood Transfusion.</p>
+        <p style="margin-bottom:0">If my procedure is to be performed in an Ambulatory Surgical Facility (ASF), the comparative risks, benefits and alternatives associated with performing the procedure in the ASF instead of a hospital have been fully explained to me. I understand the hospital may require that all jewelry and/or body piercing hardware be removed prior to surgery.</p>
+      ` : ''}
+    </div>
+    <div class="footer">
+      <img class="barcode" src="Hh6nBGq.png" alt="barcode" />
+      <div class="foot-date">2/16/2024</div>
+    </div>
+  `;
+  rightPanel.appendChild(page1);
 
-    function generatePages() {
-      const rightPanel = document.querySelector('.right');
-      rightPanel.innerHTML = '';
-      
-      const proceduresLength = (f.recommendedProcedure || '').length;
-      const diagnosisLength = (f.diagnosis || '').length;
-      const alternativesLength = (f.alternatives || '').length;
-      
-      const needsSplitPage1 = proceduresLength > 800 || diagnosisLength > 600 || alternativesLength > 600;
-      const totalPages = needsSplitPage1 ? 5 : 4;
-      
-      // Page 1
-      const page1 = document.createElement('div');
-      page1.className = 'sheet';
-      page1.innerHTML = `
-        <div class="header">
-          <div class="hdr">
-            <div class="hdr-left">
-              <div class="pageNo">Page 1 of ${totalPages}</div>
-              <img class="logo" src="gTlSit7.png" alt="UPMC" />
-            </div>
-            <div class="hdr-right">
-              <div><strong>Patient Name:</strong> <span class="hdrPatientName line"></span></div>
-              <div><strong>Identification Number:</strong> <span class="hdrId line"></span></div>
-              <div><strong>Date of Birth:</strong> <span class="hdrDob line"></span></div>
-              <div><strong>Facility:</strong> <span class="hdrFacility line"></span></div>
-            </div>
+  // If we need to split, add continuation page
+  if (needsSplitPage1) {
+    const page1b = document.createElement('div');
+    page1b.className = 'sheet';
+    page1b.style.marginTop = '1rem';
+    page1b.innerHTML = `
+      <div class="header">
+        <div class="hdr">
+          <div class="hdr-left">
+            <div class="pageNo">Page 2 of ${totalPages}</div>
+            <img class="logo" src="gTlSit7.png" alt="UPMC" />
+          </div>
+          <div class="hdr-right">
+            <div><strong>Patient Name:</strong> <span class="hdrPatientName line"></span></div>
+            <div><strong>Identification Number:</strong> <span class="hdrId line"></span></div>
+            <div><strong>Date of Birth:</strong> <span class="hdrDob line"></span></div>
+            <div><strong>Facility:</strong> <span class="hdrFacility line"></span></div>
           </div>
         </div>
-        <div class="content">
-          <div class="title">CONSENT TO SURGERY OR SPECIAL PROCEDURE</div>
-          <p>
-            I,
-            <span class="field-container">
-              <span class="field-text designeeName"></span>
-              <span class="field-label">(Name of patient or Designee)</span>
-            </span>
-            have been asked to read all the information contained in this consent form and to consent to the procedure described below on behalf of
-            <span class="field-container">
-              <span class="field-text consentForName"></span>
-              <span class="field-label">(Name of Patient)</span>
-            </span>
-            or myself. I have been told that I should ask questions about anything that I do not understand. (If the decision‑maker signing this form is not the patient, references to "I," "my" or "me" should be read as if referring to "the patient.")
-          </p>
-          <p>I understand that the information in this consent form, in addition to discussions with my physicians and any other written materials they may provide, is intended to help me make an informed decision whether to voluntarily undergo the identified procedure.</p>
-          <p><strong>Diagnosis:</strong> I understand that after being examined, treated, and having studies reviewed, I have been diagnosed as having:</p>
-          <div class="dash" id="p1_diagnosis" style="min-height:0.5rem"></div>
-          <p><strong>Recommended Procedure:</strong> I understand that my physician(s) have recommended that I undergo a procedure known as</p>
-          <div class="dash" id="p1_recommended"></div>
-          <p>I understand that a series of the described procedure(s) in the operating room are planned.</p>
-        </div>
-        <div class="footer">
-          <img class="barcode" src="Hh6nBGq.png" alt="barcode" />
-          <div class="foot-date">2/16/2024</div>
-        </div>
-      `;
-      rightPanel.appendChild(page1);
+      </div>
+      <div class="content">
+        <div class="title">CONSENT TO SURGERY OR SPECIAL PROCEDURE</div>
+        <p><strong>Alternatives.</strong> I understand that I may choose NOT to undergo the Recommended Treatment. I acknowledge that my physician(s) or physician representative has described the alternative treatments, the risks and benefits of the alternative treatments, the likelihood of me achieving my goals; any potential problems that might occur during recuperation and the likely medical results should I decide not to undergo the recommended procedure. These treatment alternatives may include:</p>
+        <div class="dash" id="p1_alternatives" style="min-height:0.5rem"></div>
+        <p><strong>Risks of Surgery.</strong> I understand that there are inherent risks in the performance of the recommended procedure. These include:</p>
+        <ol class="ol">
+          <li><strong>Bleeding:</strong> If needed, blood and/or blood products have the following general risks: reactions resulting in itching, rash, fever, chills, headache, or shock; respiratory distress (shortness of breath); kidney damage; systemic bacterial infection; exposure to blood borne viruses including hepatitis (an inflammatory disease affecting the liver) and Human Immunodeficiency Virus (HIV, the virus that causes AIDS); and death. Alternatives to transfusion include the use of devices that filter and return blood lost in surgery to me or by providing medications that boost my blood count prior to an elective procedure. Bleeding and/or severe anemia could put my life in danger or cause permanent brain damage. I understand that substitutes for blood or plasma might not work well enough. Blood and/or blood products might offer the only chance to preserve my life.</li>
+          <li>Infection: This may occur at the site of surgery or elsewhere depending upon procedure performed.</li>
+          <li>Injury to adjacent organs.</li>
+          <li>Pain. This should resolve within a few days but may be prolonged.</li>
+          <li>As with all surgeries, there is a risk of heart attack, stroke, multisystem organ failure, reactions to medications, and death, even in healthy patients.</li>
+        </ol>
+        <p>____  I refuse the transfusion of blood and/or blood products and understand that I will be asked to sign a separate form entitled Release from Liability for the Refusal of Blood Transfusion.</p>
+        <p style="margin-bottom:0">If my procedure is to be performed in an Ambulatory Surgical Facility (ASF), the comparative risks, benefits and alternatives associated with performing the procedure in the ASF instead of a hospital have been fully explained to me. I understand the hospital may require that all jewelry and/or body piercing hardware be removed prior to surgery.</p>
+      </div>
+      <div class="footer">
+        <img class="barcode" src="Hh6nBGq.png" alt="barcode" />
+        <div class="foot-date">2/16/2024</div>
+      </div>
+    `;
+    rightPanel.appendChild(page1b);
+  }
 
-      // Add remaining pages
-      // (The rest of the page generation code continues as before...)
-    }
+  // Page 2 (or 3 if split)
+  const page2 = document.createElement('div');
+  page2.className = 'sheet';
+  page2.style.marginTop = '1rem';
+  const page2Num = needsSplitPage1 ? 3 : 2;
+  page2.innerHTML = `
+    <div class="header">
+      <div class="hdr">
+        <div class="hdr-left">
+          <div class="pageNo">Page ${page2Num} of ${totalPages}</div>
+          <img class="logo" src="gTlSit7.png" alt="UPMC" />
+        </div>
+        <div class="hdr-right">
+          <div><strong>Patient Name:</strong> <span class="hdrPatientName line"></span></div>
+          <div><strong>Identification Number:</strong> <span class="hdrId line"></span></div>
+          <div><strong>Date of Birth:</strong> <span class="hdrDob line"></span></div>
+          <div><strong>Facility:</strong> <span class="hdrFacility line"></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="title">CONSENT TO SURGERY OR SPECIAL PROCEDURE</div>
+      <ol class="ol" start="${needsSplitPage1 ? '6' : '2'}">
+        ${!needsSplitPage1 ? '<li>Infection: This may occur at the site of surgery or elsewhere depending upon procedure performed.</li><li>Injury to adjacent organs.</li><li>Pain. This should resolve within a few days but may be prolonged.</li><li>As with all surgeries, there is a risk of heart attack, stroke, multisystem organ failure, reactions to medications, and death, even in healthy patients.</li>' : ''}
+        <li>Blood clots. These clots usually develop in the legs and can break free and move through the heart to the lungs. In the lungs, they can cause serious interference with breathing, which can lead to death. Blood clots are treated with blood‑thinning drugs that may need to be taken for an extended period of time.</li>
+        <li>Nerve damage surrounding the surgical site or Damage to nerves from pressure or positioning of the arms, legs or back during the surgery. Nerve damage can cause numbness, weakness, paralysis and/or pain. In most cases these symptoms are temporary, but in rare cases they can last for extended periods or even permanently.</li>
+        <li>Burns caused by use of electrical equipment that may be needed to stop bleeding or by other equipment.</li>
+        <li>Wound dehiscence.</li>
+        <li>Prolonged hospitalization.</li>
+        <li>Other risks:</li>
+      </ol>
+      <div class="dash" id="p2_otherRisks" style="min-height:3rem"></div>
+      <p><strong>Teaching Facility and Overlapping Surgeries:</strong> I understand that the facility is a teaching facility. The health care team may include residents, fellows, students, and skilled healthcare professionals. Credentialed team members may perform all or parts of my procedure under the supervision and guidance of my physician(s). My attending physician may also be caring for one other patient during my surgery but remains responsible to me and will perform or be present for the key portions of the procedure. If unanticipated circumstances require my surgeon to be unavailable during my surgery, another qualified surgeon will promptly come to the operating room. Representatives of medical device companies may be present to provide devices and observe and advise on their use. Who will participate and in what manner will be decided at the time of the procedure and will depend on the availability of individuals with the necessary expertise and on my medical condition.</p>
+      <p>If an accidental exposure to my blood or body fluids occurs to staff during the surgery or procedure, I agree to blood tests for hepatitis B, hepatitis C and HIV.</p>
+      <p>I understand that the physician(s) or others may choose to photograph, televise, film, or otherwise record all or any portion of my procedure for medical, scientific, or educational purposes. I consent to the photographing, televising, filming, or other forms of recording of the procedure(s) to be performed, including appropriate portions of my body, body functions or sounds, provided my identity is not revealed. I understand and agree that 1) any photographs, films, or other audio or visual recordings created will be the sole property of the facility: and 2) the facility or any appropriate staff member may edit, preserve, or destroy all or any part of the</p>
+    </div>
+    <div class="footer">
+      <img class="barcode" src="Hh6nBGq.png" alt="barcode" />
+      <div class="foot-date">2/16/2024</div>
+    </div>
+  `;
+  rightPanel.appendChild(page2);
 
+  // Add remaining signature pages
+  addSignaturePages(rightPanel, needsSplitPage1);
+  
+  // NOW populate the fields after the DOM is created
+  renderPreview();
+}
+    function addSignaturePages(rightPanel, hasExtraPage) {
+  const pageOffset = hasExtraPage ? 1 : 0;
+  
+  // Page 3 (or 4 if extra page)
+  const page3 = document.createElement('div');
+  page3.className = 'sheet';
+  page3.style.marginTop = '1rem';
+  page3.innerHTML = `
+    <div class="header">
+      <div class="hdr">
+        <div class="hdr-left">
+          <div class="pageNo">Page ${3 + pageOffset} of ${4 + pageOffset}</div>
+          <img class="logo" src="gTlSit7.png" alt="UPMC" />
+        </div>
+        <div class="hdr-right">
+          <div><strong>Patient Name:</strong> <span class="hdrPatientName line"></span></div>
+          <div><strong>Identification Number:</strong> <span class="hdrId line"></span></div>
+          <div><strong>Date of Birth:</strong> <span class="hdrDob line"></span></div>
+          <div><strong>Facility:</strong> <span class="hdrFacility line"></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="title">CONSENT TO SURGERY OR SPECIAL PROCEDURE</div>
+      <p>photographs, films, or other audio or visual recordings. Such recordings are not part of the medical record and I understand I cannot obtain a copy.</p>
+      <p>I authorize the disposal or retention, preservation, testing, or use for scientific, educational, or other purposes of all or any portion of specimens, tissues, body parts, or other things, including prostheses and medical/surgical appliances, that may be removed from my body.</p>
+      <p>I understand that if any medical device, as defined by federal regulations, is implanted in a patient's body, the facility is required by law to report to the manufacturer the name, address and social security number of the patient and the description and identity of the device.</p>
+      <p style="font-weight:700">MY SIGNATURE BELOW ACKNOWLEDGES THAT:</p>
+      <ol class="ol">
+        <li>I have read (or had read to me), understand and agree to the statements set forth in this consent form.</li>
+        <li>A physician or representative has explained to me all information referred to in this consent form. I have had an opportunity to ask questions and my questions have been answered to my satisfaction, including any question I have about the potential use of blood and/or blood products and any risks regarding their use.</li>
+        <li>All statements requiring completion were filled in before I signed.</li>
+        <li>No guarantees or assurances concerning the results of the procedure(s) have been made.</li>
+        <li>I am signing this consent voluntarily. I am not signing due to any coercion or other influence.</li>
+        <li>I hereby consent and authorize Dr. <span class="physicianName" style="display:inline-block;border-bottom:1px solid #000;min-width:2in"></span> (my physician(s)) and/or those associates, assistants and other health care providers designated by my physician(s) to perform the recommended procedure described above. I understand that during the procedure, conditions may become apparent that require my physicians or their designees to take steps or perform additional procedures that they believe are medically necessary to achieve the desired benefits or for my well‑being.</li>
+        <li>I authorize and request my physician(s) or their designees to perform whatever medical acts or additional procedures they, in the exercise of their sole professional judgment, deem reasonable and necessary, and I waive any obligation on their part to stop or delay the continuation of my procedure to obtain additional consent if I am unable to give additional consent at that time.</li>
+      </ol>
+    </div>
+    <div class="footer">
+      <img class="barcode" src="Hh6nBGq.png" alt="barcode" />
+      <div class="foot-date">2/16/2024</div>
+    </div>
+  `;
+  rightPanel.appendChild(page3);
+
+  // Page 4 (or 5 if extra page)
+  const page4 = document.createElement('div');
+  page4.className = 'sheet';
+  page4.style.marginTop = '1rem';
+  page4.innerHTML = `
+    <div class="header">
+      <div class="hdr">
+        <div class="hdr-left">
+          <div class="pageNo">Page ${4 + pageOffset} of ${4 + pageOffset}</div>
+          <img class="logo" src="gTlSit7.png" alt="UPMC" />
+        </div>
+        <div class="hdr-right">
+          <div><strong>Patient Name:</strong> <span class="hdrPatientName line"></span></div>
+          <div><strong>Identification Number:</strong> <span class="hdrId line"></span></div>
+          <div><strong>Date of Birth:</strong> <span class="hdrDob line"></span></div>
+          <div><strong>Facility:</strong> <span class="hdrFacility line"></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="title">CONSENT TO SURGERY OR SPECIAL PROCEDURE</div>
+      <div class="signature-section" style="margin-bottom:.25in">
+        <div class="signature-row">
+          <div class="sig-field">
+            <span>Date:</span>
+            <span class="uline u-date-time witnessDate"></span>
+          </div>
+          <div class="sig-field">
+            <span>Time:</span>
+            <span class="uline u-date-time witnessTime"></span>
+          </div>
+          <div class="sig-field flex-grow" style="justify-content:space-between;">
+            <span>Witness</span>
+            <span class="uline u-med witnessName"></span>
+          </div>
+        </div>
+        <div class="signature-row">
+          <div class="sig-field">
+            <span>Date:</span>
+            <span class="uline u-date-time signerDate"></span>
+          </div>
+          <div class="sig-field">
+            <span>Time:</span>
+            <span class="uline u-date-time signerTime"></span>
+          </div>
+          <div class="sig-field flex-grow" style="justify-content:space-between;">
+            <span>Signature of patient or person authorized to consent for patient</span>
+            <span class="uline u-med"></span>
+          </div>
+        </div>
+        <div class="signature-row">
+          <div class="sig-field flex-grow" style="justify-content:space-between;">
+            <span>Relationship to patient if signer is not Patient:</span>
+            <span class="uline u-rel signerRelationship"></span>
+          </div>
+        </div>
+      </div>
+      <div style="padding-top:.2in;margin-bottom:.25in">
+        <p>I have explained to the patient signing above all the information referred to in this consent form. I have given no guarantee or assurance as to the results that may be obtained.</p>
+        <div class="signature-row">
+          <div class="sig-field">
+            <span>Date</span>
+            <span class="uline u-date-time physSigDate"></span>
+          </div>
+          <div class="sig-field">
+            <span>Time</span>
+            <span class="uline u-date-time physSigTime"></span>
+          </div>
+          <div class="sig-field flex-grow" style="justify-content:space-between;">
+            <span>Signature of Physician or Representative</span>
+            <span class="uline u-med"></span>
+          </div>
+        </div>
+        <div class="signature-row">
+          <div class="sig-field flex-grow" style="justify-content:space-between;">
+            <span>               Printed name</span>
+            <span class="uline u-rel physSigName"></span>
+          </div>
+        </div>
+      </div>
+      <div style="border-top:1px solid #000;padding-top:.2in">
+        <div style="font-weight:700">INTERPRETER'S STATEMENT</div>
+        <p>Execute if an interpreter is provided to assist the individual in understanding this informed consent form:</p>
+        <p>I have translated the information and advice presented orally to the individual to be treated by the person obtaining this consent.</p>
+        <p>In addition, I have sight translated the consent form (read it aloud in his/her language). To the best of my knowledge and belief he/she understood this explanation.</p>
+        <div class="list" style="font-size:10pt">
+          <div><strong>Cyracom ID (if applicable)</strong>: <span class="uline u-short cyracom"></span></div>
+          <div><strong>Print Name</strong>: <span class="uline u-rel interpName"></span></div>
+          <div><strong>Signature</strong>: <span class="uline u-wide"></span> <span class="muted" style="font-size:9pt">(Not required if a Cyracom Interpreter Was Used)</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <img class="barcode" src="Hh6nBGq.png" alt="barcode" />
+      <div class="foot-date">2/16/2024</div>
+    </div>
+  `;
+  rightPanel.appendChild(page4);
+}
+    // ---------- Review text ----------
     function renderReview(){
       const review = (
 `Patient: ${f.patientName||''} (MRN ${f.idNumber||''}${f.dob?`, DOB ${f.dob}`:''})
@@ -1087,16 +2578,16 @@ Surgeon(s): ${f.physicianName||''}`.trim());
       document.getElementById('reviewBox').value = review;
     }
 
-    // Initialize
+    // ---------- Init ----------
     load();
     populateSurgeonDropdown();
     renderSelectedSurgeons();
     renderProcedures();
     bindInputs();
-    updateDerived();
-    generatePages();
-    renderPreview();
-    renderReview();
+ updateDerived();
+generatePages();  // Create the pages first
+renderPreview();  // Then populate the content
+renderReview();
   </script>
 </body>
 </html>
