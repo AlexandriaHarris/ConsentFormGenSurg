@@ -491,61 +491,9 @@
 
     const DEFAULT_PROCEDURES = [
   {
-    key:'TandA',
-    name:'Tonsillectomy ± Adenoidectomy',
-    specialty: 'General ENT',
-    risks:['post-operative hemorrhage','dehydration','voice change/velopharyngeal insufficiency','dental or lip injury','infection','pain'],
-    alternatives:['Observation (watchful waiting)','Medical therapy (antibiotics, steroids)']
-  },
-  {
-    key:'BMT',
-    name:'Bilateral Myringotomy with Tympanostomy Tubes',
-    specialty: 'Otology',
-    risks:['otorrhea','premature tube extrusion or retention','persistent tympanic membrane perforation','hearing changes','need for further procedures'],
-    alternatives:['Observation','Antibiotic therapy']
-  },
-  {
-    key:'FESS',
-    name:'Functional Endoscopic Sinus Surgery',
-    specialty: 'Rhinology',
-    risks:['cerebrospinal fluid leak','orbital injury including diplopia or vision loss','bleeding','adhesions/scar formation','recurrence requiring revision','altered sense of smell'],
-    alternatives:['Medical therapy (steroid sprays, saline rinses)','Allergy management']
-  },
-  {
-    key:'SEPT',
-    name:'Septoplasty',
-    specialty: 'Rhinology',
-    risks:['septal perforation','persistent nasal obstruction','epistaxis','dental or upper-lip numbness','cosmetic change (e.g., saddle nose)'],
-    alternatives:['Medical management','Nasal decongestants']
-  },
-  {
-    key:'ITR',
-    name:'Inferior Turbinate Reduction',
-    specialty: 'Rhinology',
-    risks:['bleeding','crusting/dryness','infection','empty nose syndrome (rare)','need for revision'],
-    alternatives:['Medical management','Allergy management']
-  },
-  {
-    key:'DLB',
-    name:'Direct Laryngoscopy and Bronchoscopy',
-    specialty: 'Laryngology',
-    risks:['dental injury','airway trauma','laryngospasm/bronchospasm','hypoxia','need for intubation or hospital admission'],
-    alternatives:['Imaging studies (CT, MRI)','Noninvasive diagnostic tests']
-  },
-  {
-    key:'NECK',
-    name:'Neck Mass Excision',
-    specialty: 'Head & Neck',
-    risks:['nerve injury (e.g., marginal mandibular, spinal accessory)','seroma/hematoma','infection','scarring'],
-    alternatives:['Biopsy or fine-needle aspiration','Observation','Radiologic monitoring'],
-    requiresLaterality:true
   },
 ];
 const ADDITIONAL_PROCEDURES = [
- I'll help you fix the formatting of your code to match the ENT form style. The main issue is that your risks and alternatives are currently single strings with multiple items, when they should be arrays with each item as a separate string. Here's the corrected format:
-
-```javascript
-const GENERAL_AND_CARDIOTHORACIC_PROCEDURES = [
   // ========== GENERAL SURGERY - HERNIA REPAIRS ==========
   {
     key: 'INGUINAL_HERNIA',
