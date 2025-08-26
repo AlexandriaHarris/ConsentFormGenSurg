@@ -490,7 +490,7 @@
     let surgeons = [];
 
     const DEFAULT_PROCEDURES = [
-  { // ========== ENDOSCOPIC PROCEDURES ==========
+  // ========== ENDOSCOPIC PROCEDURES ==========
   {
     key: 'EGD',
     name: 'Esophagogastroduodenoscopy (EGD)',
@@ -566,9 +566,9 @@
       'Endobronchial ultrasound (EBUS) if not already planned'
     ],
     requiresLaterality: false
-  },
-  },
+  }
 ];
+
 const ADDITIONAL_PROCEDURES = [
   // ========== GENERAL SURGERY - HERNIA REPAIRS ==========
   {
@@ -607,11 +607,7 @@ const ADDITIONAL_PROCEDURES = [
       'wound dehiscence',
       'respiratory compromise (loss of domain)'
     ],
-    alternatives: [
-      'Observation',
-      'Abdominal binder',
-      'Weight loss before surgery'
-    ],
+    alternatives: ['Observation', 'Abdominal binder', 'Weight loss before surgery'],
     requiresLaterality: false
   },
   {
@@ -625,10 +621,7 @@ const ADDITIONAL_PROCEDURES = [
       'umbilical deformity/cosmetic dissatisfaction',
       'chronic pain at repair site'
     ],
-    alternatives: [
-      'Observation (if asymptomatic)',
-      'Watchful waiting'
-    ],
+    alternatives: ['Observation (if asymptomatic)', 'Watchful waiting'],
     requiresLaterality: false
   },
   {
@@ -645,9 +638,7 @@ const ADDITIONAL_PROCEDURES = [
       'lymphocele formation',
       'testicular ischemia'
     ],
-    alternatives: [
-      'Emergency surgery only (high risk of incarceration)'
-    ],
+    alternatives: ['Emergency surgery only (high risk of incarceration)'],
     requiresLaterality: true
   },
   {
@@ -665,11 +656,7 @@ const ADDITIONAL_PROCEDURES = [
       'pneumothorax',
       'dumping syndrome'
     ],
-    alternatives: [
-      'Medical management (PPIs)',
-      'Lifestyle modifications',
-      'Endoscopic procedures'
-    ],
+    alternatives: ['Medical management (PPIs)', 'Lifestyle modifications', 'Endoscopic procedures'],
     requiresLaterality: false
   },
 
@@ -709,11 +696,7 @@ const ADDITIONAL_PROCEDURES = [
       'incisional hernia',
       'postcholecystectomy syndrome'
     ],
-    alternatives: [
-      'Laparoscopic approach',
-      'Percutaneous drainage',
-      'Medical management'
-    ],
+    alternatives: ['Laparoscopic approach', 'Percutaneous drainage', 'Medical management'],
     requiresLaterality: false
   },
   {
@@ -730,11 +713,7 @@ const ADDITIONAL_PROCEDURES = [
       'failed cannulation',
       'stone migration into pancreatic duct'
     ],
-    alternatives: [
-      'MRCP',
-      'Surgical exploration',
-      'Percutaneous drainage'
-    ],
+    alternatives: ['MRCP', 'Surgical exploration', 'Percutaneous drainage'],
     requiresLaterality: false
   },
 
@@ -752,11 +731,7 @@ const ADDITIONAL_PROCEDURES = [
       'conversion to open',
       'port site infection/hernia'
     ],
-    alternatives: [
-      'Open appendectomy',
-      'Antibiotics alone (for uncomplicated appendicitis)',
-      'Percutaneous drainage (if abscess)'
-    ],
+    alternatives: ['Open appendectomy', 'Antibiotics alone (for uncomplicated appendicitis)', 'Percutaneous drainage (if abscess)'],
     requiresLaterality: false
   },
   {
@@ -771,11 +746,7 @@ const ADDITIONAL_PROCEDURES = [
       'wound infection (superficial/deep)',
       'incisional hernia'
     ],
-    alternatives: [
-      'Laparoscopic approach',
-      'Antibiotics alone',
-      'Interval appendectomy'
-    ],
+    alternatives: ['Laparoscopic approach', 'Antibiotics alone', 'Interval appendectomy'],
     requiresLaterality: false
   },
 
@@ -794,11 +765,7 @@ const ADDITIONAL_PROCEDURES = [
       'bile salt diarrhea',
       'incisional hernia'
     ],
-    alternatives: [
-      'Left untreated (not recommended for cancer)',
-      'Endoscopic removal (small polyps)',
-      'Chemotherapy/radiation'
-    ],
+    alternatives: ['Left untreated (not recommended for cancer)', 'Endoscopic removal (small polyps)', 'Chemotherapy/radiation'],
     requiresLaterality: false
   },
   {
@@ -814,11 +781,7 @@ const ADDITIONAL_PROCEDURES = [
       'change in bowel habits',
       'need for stoma'
     ],
-    alternatives: [
-      'Conservative management',
-      'Endoscopic removal',
-      'Chemotherapy/radiation'
-    ],
+    alternatives: ['Conservative management', 'Endoscopic removal', 'Chemotherapy/radiation'],
     requiresLaterality: false
   },
   {
@@ -834,11 +797,7 @@ const ADDITIONAL_PROCEDURES = [
       'need for colostomy',
       'recurrent diverticulitis'
     ],
-    alternatives: [
-      'Medical management',
-      'Percutaneous drainage',
-      'Hartmann procedure'
-    ],
+    alternatives: ['Medical management', 'Percutaneous drainage', 'Hartmann procedure'],
     requiresLaterality: false
   },
   {
@@ -853,11 +812,7 @@ const ADDITIONAL_PROCEDURES = [
       'pelvic sidewall bleeding',
       'vaginal injury (in females)'
     ],
-    alternatives: [
-      'Abdominoperineal resection',
-      'Transanal excision',
-      'Chemoradiation alone'
-    ],
+    alternatives: ['Abdominoperineal resection', 'Transanal excision', 'Chemoradiation alone'],
     requiresLaterality: false
   },
   {
@@ -873,11 +828,7 @@ const ADDITIONAL_PROCEDURES = [
       'perineal hernia',
       'empty pelvis syndrome'
     ],
-    alternatives: [
-      'Low anterior resection',
-      'Chemoradiation',
-      'Local excision'
-    ],
+    alternatives: ['Low anterior resection', 'Chemoradiation', 'Local excision'],
     requiresLaterality: false
   },
   {
@@ -894,11 +845,7 @@ const ADDITIONAL_PROCEDURES = [
       'female infertility',
       'nighttime incontinence'
     ],
-    alternatives: [
-      'Segmental colectomy',
-      'Medical management',
-      'Proctocolectomy with ileostomy'
-    ],
+    alternatives: ['Segmental colectomy', 'Medical management', 'Proctocolectomy with ileostomy'],
     requiresLaterality: false
   },
   {
@@ -936,13 +883,7 @@ const ADDITIONAL_PROCEDURES = [
       'delayed wound healing (6-12 weeks)',
       'false tract creation'
     ],
-    alternatives: [
-      'Seton placement',
-      'Fibrin glue',
-      'Anal fistula plug',
-      'LIFT procedure',
-      'Advancement flap'
-    ],
+    alternatives: ['Seton placement', 'Fibrin glue', 'Anal fistula plug', 'LIFT procedure', 'Advancement flap'],
     requiresLaterality: false
   },
 
@@ -960,12 +901,7 @@ const ADDITIONAL_PROCEDURES = [
       'nipple sensation changes',
       'need for completion mastectomy'
     ],
-    alternatives: [
-      'Mastectomy',
-      'Neoadjuvant therapy',
-      'Hormone therapy alone',
-      'Active surveillance'
-    ],
+    alternatives: ['Mastectomy', 'Neoadjuvant therapy', 'Hormone therapy alone', 'Active surveillance'],
     requiresLaterality: true
   },
   {
@@ -982,12 +918,7 @@ const ADDITIONAL_PROCEDURES = [
       'lymphedema',
       'shoulder dysfunction'
     ],
-    alternatives: [
-      'Breast conservation therapy',
-      'Neoadjuvant therapy first',
-      'Hormone therapy',
-      'Bilateral mastectomy'
-    ],
+    alternatives: ['Breast conservation therapy', 'Neoadjuvant therapy first', 'Hormone therapy', 'Bilateral mastectomy'],
     requiresLaterality: true
   },
   {
@@ -1003,11 +934,7 @@ const ADDITIONAL_PROCEDURES = [
       'failure to identify sentinel node',
       'axillary web syndrome'
     ],
-    alternatives: [
-      'Axillary lymph node dissection',
-      'No nodal surgery',
-      'Axillary radiation'
-    ],
+    alternatives: ['Axillary lymph node dissection', 'No nodal surgery', 'Axillary radiation'],
     requiresLaterality: true
   },
   {
@@ -1023,11 +950,7 @@ const ADDITIONAL_PROCEDURES = [
       'axillary web syndrome',
       'shoulder dysfunction/frozen shoulder'
     ],
-    alternatives: [
-      'Sentinel node biopsy',
-      'Axillary radiation',
-      'No further surgery'
-    ],
+    alternatives: ['Sentinel node biopsy', 'Axillary radiation', 'No further surgery'],
     requiresLaterality: true
   },
 
@@ -1046,12 +969,7 @@ const ADDITIONAL_PROCEDURES = [
       'esophageal injury',
       'permanent hypothyroidism'
     ],
-    alternatives: [
-      'Radioactive iodine',
-      'Thyroid suppression therapy',
-      'Active surveillance',
-      'Ethanol ablation'
-    ],
+    alternatives: ['Radioactive iodine', 'Thyroid suppression therapy', 'Active surveillance', 'Ethanol ablation'],
     requiresLaterality: false
   },
   {
@@ -1066,11 +984,7 @@ const ADDITIONAL_PROCEDURES = [
       'failure to locate adenoma',
       'permanent hypoparathyroidism'
     ],
-    alternatives: [
-      'Medical management',
-      'Observation',
-      'Dialysis (if renal failure)'
-    ],
+    alternatives: ['Medical management', 'Observation', 'Dialysis (if renal failure)'],
     requiresLaterality: false
   },
   {
@@ -1087,12 +1001,7 @@ const ADDITIONAL_PROCEDURES = [
       'pancreatic injury (left side)',
       'hormone imbalance'
     ],
-    alternatives: [
-      'Medical management',
-      'Radiation therapy',
-      'Chemotherapy',
-      'Observation'
-    ],
+    alternatives: ['Medical management', 'Radiation therapy', 'Chemotherapy', 'Observation'],
     requiresLaterality: true
   },
 
@@ -1110,12 +1019,7 @@ const ADDITIONAL_PROCEDURES = [
       'thrombocytosis (>1 million)',
       'subphrenic abscess'
     ],
-    alternatives: [
-      'Partial splenectomy',
-      'Splenic artery embolization',
-      'Medical management',
-      'Observation'
-    ],
+    alternatives: ['Partial splenectomy', 'Splenic artery embolization', 'Medical management', 'Observation'],
     requiresLaterality: false
   },
 
@@ -1134,13 +1038,7 @@ const ADDITIONAL_PROCEDURES = [
       'post-hepatectomy liver failure',
       'portal hypertension'
     ],
-    alternatives: [
-      'Ablation',
-      'Chemoembolization',
-      'Radiation therapy',
-      'Liver transplant',
-      'Systemic therapy'
-    ],
+    alternatives: ['Ablation', 'Chemoembolization', 'Radiation therapy', 'Liver transplant', 'Systemic therapy'],
     requiresLaterality: true
   },
 
@@ -1160,12 +1058,7 @@ const ADDITIONAL_PROCEDURES = [
       'hepatic artery injury',
       'marginal ulceration'
     ],
-    alternatives: [
-      'Palliative bypass',
-      'Chemotherapy/radiation',
-      'Total pancreatectomy',
-      'Supportive care'
-    ],
+    alternatives: ['Palliative bypass', 'Chemotherapy/radiation', 'Total pancreatectomy', 'Supportive care'],
     requiresLaterality: false
   },
   {
@@ -1181,12 +1074,7 @@ const ADDITIONAL_PROCEDURES = [
       'portal vein thrombosis',
       'pancreatic insufficiency'
     ],
-    alternatives: [
-      'Observation',
-      'Enucleation',
-      'Chemotherapy/radiation',
-      'Drainage procedures'
-    ],
+    alternatives: ['Observation', 'Enucleation', 'Chemotherapy/radiation', 'Drainage procedures'],
     requiresLaterality: false
   },
 
@@ -1205,11 +1093,7 @@ const ADDITIONAL_PROCEDURES = [
       'Roux stasis syndrome',
       'bile reflux gastritis'
     ],
-    alternatives: [
-      'Endoscopic resection',
-      'Chemotherapy/radiation',
-      'Palliative care'
-    ],
+    alternatives: ['Endoscopic resection', 'Chemotherapy/radiation', 'Palliative care'],
     requiresLaterality: false
   },
   {
@@ -1225,12 +1109,7 @@ const ADDITIONAL_PROCEDURES = [
       'tube site infection/necrotizing fasciitis',
       'gastric outlet obstruction'
     ],
-    alternatives: [
-      'Nasogastric tube',
-      'Surgical gastrostomy',
-      'Jejunostomy',
-      'TPN'
-    ],
+    alternatives: ['Nasogastric tube', 'Surgical gastrostomy', 'Jejunostomy', 'TPN'],
     requiresLaterality: false
   },
 
@@ -1247,11 +1126,7 @@ const ADDITIONAL_PROCEDURES = [
       'bowel obstruction from adhesions',
       'enterocutaneous fistula'
     ],
-    alternatives: [
-      'Stricturoplasty',
-      'Medical management',
-      'Bypass procedure'
-    ],
+    alternatives: ['Stricturoplasty', 'Medical management', 'Bypass procedure'],
     requiresLaterality: false
   },
   {
@@ -1266,10 +1141,7 @@ const ADDITIONAL_PROCEDURES = [
       'enterocutaneous fistula',
       'increased operative time/blood loss'
     ],
-    alternatives: [
-      'Conservative management',
-      'Nasogastric decompression'
-    ],
+    alternatives: ['Conservative management', 'Nasogastric decompression'],
     requiresLaterality: false
   },
 
@@ -1288,11 +1160,7 @@ const ADDITIONAL_PROCEDURES = [
       'superior vena cava perforation',
       'thoracic duct injury (left side)'
     ],
-    alternatives: [
-      'PICC line',
-      'Hickman catheter',
-      'Peripheral IV'
-    ],
+    alternatives: ['PICC line', 'Hickman catheter', 'Peripheral IV'],
     requiresLaterality: true
   },
   {
@@ -1308,11 +1176,7 @@ const ADDITIONAL_PROCEDURES = [
       'venous hypertension',
       'seroma'
     ],
-    alternatives: [
-      'Peritoneal dialysis',
-      'Dialysis catheter',
-      'Different access site'
-    ],
+    alternatives: ['Peritoneal dialysis', 'Dialysis catheter', 'Different access site'],
     requiresLaterality: true
   },
 
@@ -1332,11 +1196,7 @@ const ADDITIONAL_PROCEDURES = [
       'cognitive dysfunction/delirium',
       'renal failure requiring dialysis'
     ],
-    alternatives: [
-      'Percutaneous coronary intervention (PCI)',
-      'Medical management',
-      'Hybrid revascularization'
-    ],
+    alternatives: ['Percutaneous coronary intervention (PCI)', 'Medical management', 'Hybrid revascularization'],
     requiresLaterality: false
   },
   {
@@ -1354,12 +1214,7 @@ const ADDITIONAL_PROCEDURES = [
       'aortic dissection',
       'patient-prosthesis mismatch'
     ],
-    alternatives: [
-      'TAVR',
-      'Valve repair',
-      'Medical management',
-      'Balloon valvuloplasty'
-    ],
+    alternatives: ['TAVR', 'Valve repair', 'Medical management', 'Balloon valvuloplasty'],
     requiresLaterality: false
   },
   {
@@ -1377,11 +1232,7 @@ const ADDITIONAL_PROCEDURES = [
       'complete heart block',
       'left ventricular outflow tract obstruction'
     ],
-    alternatives: [
-      'Mitral valve repair',
-      'MitraClip',
-      'Medical management'
-    ],
+    alternatives: ['Mitral valve repair', 'MitraClip', 'Medical management'],
     requiresLaterality: false
   },
   {
@@ -1398,11 +1249,7 @@ const ADDITIONAL_PROCEDURES = [
       'paravalvular leak',
       'acute kidney injury'
     ],
-    alternatives: [
-      'Surgical AVR',
-      'Balloon valvuloplasty',
-      'Medical management'
-    ],
+    alternatives: ['Surgical AVR', 'Balloon valvuloplasty', 'Medical management'],
     requiresLaterality: false
   },
   {
@@ -1418,11 +1265,7 @@ const ADDITIONAL_PROCEDURES = [
       'aortic dissection extension',
       'malperfusion syndrome'
     ],
-    alternatives: [
-      'Medical management',
-      'Endovascular repair (if suitable)',
-      'Watchful waiting'
-    ],
+    alternatives: ['Medical management', 'Endovascular repair (if suitable)', 'Watchful waiting'],
     requiresLaterality: false
   },
   {
@@ -1440,12 +1283,7 @@ const ADDITIONAL_PROCEDURES = [
       'hemolysis',
       'acquired von Willebrand disease'
     ],
-    alternatives: [
-      'Heart transplant',
-      'Medical management',
-      'Intra-aortic balloon pump',
-      'Palliative care'
-    ],
+    alternatives: ['Heart transplant', 'Medical management', 'Intra-aortic balloon pump', 'Palliative care'],
     requiresLaterality: false
   },
 
@@ -1465,13 +1303,7 @@ const ADDITIONAL_PROCEDURES = [
       'post-thoracotomy pain syndrome',
       'empyema'
     ],
-    alternatives: [
-      'Segmentectomy',
-      'Wedge resection',
-      'Radiation therapy',
-      'Chemotherapy',
-      'Observation'
-    ],
+    alternatives: ['Segmentectomy', 'Wedge resection', 'Radiation therapy', 'Chemotherapy', 'Observation'],
     requiresLaterality: true
   },
   {
@@ -1488,12 +1320,7 @@ const ADDITIONAL_PROCEDURES = [
       'arrhythmias (especially right side)',
       'post-pneumonectomy pulmonary edema'
     ],
-    alternatives: [
-      'Lobectomy',
-      'Sleeve resection',
-      'Chemoradiation',
-      'Palliative care'
-    ],
+    alternatives: ['Lobectomy', 'Sleeve resection', 'Chemoradiation', 'Palliative care'],
     requiresLaterality: true
   },
   {
@@ -1507,12 +1334,7 @@ const ADDITIONAL_PROCEDURES = [
       'pleural space infection',
       'intercostal neuralgia'
     ],
-    alternatives: [
-      'Lobectomy',
-      'Segmentectomy',
-      'Ablation',
-      'Stereotactic radiation'
-    ],
+    alternatives: ['Lobectomy', 'Segmentectomy', 'Ablation', 'Stereotactic radiation'],
     requiresLaterality: true
   },
   {
@@ -1527,11 +1349,7 @@ const ADDITIONAL_PROCEDURES = [
       'empyema',
       'failure of pleurodesis (recurrent effusion)'
     ],
-    alternatives: [
-      'Chest tube with chemical pleurodesis',
-      'PleurX catheter',
-      'Repeated thoracentesis'
-    ],
+    alternatives: ['Chest tube with chemical pleurodesis', 'PleurX catheter', 'Repeated thoracentesis'],
     requiresLaterality: true
   },
   {
@@ -1546,11 +1364,7 @@ const ADDITIONAL_PROCEDURES = [
       'incomplete resection',
       'pleural effusion'
     ],
-    alternatives: [
-      'Medical management',
-      'Radiation therapy',
-      'Observation'
-    ],
+    alternatives: ['Medical management', 'Radiation therapy', 'Observation'],
     requiresLaterality: false
   },
   {
@@ -1567,12 +1381,7 @@ const ADDITIONAL_PROCEDURES = [
       'delayed gastric emptying',
       'reflux'
     ],
-    alternatives: [
-      'Definitive chemoradiation',
-      'Endoscopic resection',
-      'Palliative stenting',
-      'Photodynamic therapy'
-    ],
+    alternatives: ['Definitive chemoradiation', 'Endoscopic resection', 'Palliative stenting', 'Photodynamic therapy'],
     requiresLaterality: false
   },
   {
@@ -1588,12 +1397,7 @@ const ADDITIONAL_PROCEDURES = [
       'chylothorax',
       'incomplete resection'
     ],
-    alternatives: [
-      'Biopsy only',
-      'Chemotherapy',
-      'Radiation therapy',
-      'Observation'
-    ],
+    alternatives: ['Biopsy only', 'Chemotherapy', 'Radiation therapy', 'Observation'],
     requiresLaterality: false
   },
   {
@@ -1609,12 +1413,7 @@ const ADDITIONAL_PROCEDURES = [
       'shoulder dysfunction',
       'lung herniation'
     ],
-    alternatives: [
-      'Radiation therapy',
-      'Chemotherapy',
-      'Observation',
-      'Palliative care'
-    ],
+    alternatives: ['Radiation therapy', 'Chemotherapy', 'Observation', 'Palliative care'],
     requiresLaterality: true
   },
   {
@@ -1630,12 +1429,7 @@ const ADDITIONAL_PROCEDURES = [
       'bradycardia',
       'inability to increase heart rate with exercise'
     ],
-    alternatives: [
-      'Medical management',
-      'Botox injections',
-      'Iontophoresis',
-      'Topical treatments'
-    ],
+    alternatives: ['Medical management', 'Botox injections', 'Iontophoresis', 'Topical treatments'],
     requiresLaterality: true
   },
   {
@@ -1652,11 +1446,7 @@ const ADDITIONAL_PROCEDURES = [
       'wound infection',
       'recurrence after bar removal'
     ],
-    alternatives: [
-      'Observation',
-      'Vacuum bell therapy',
-      'Custom bracing'
-    ],
+    alternatives: ['Observation', 'Vacuum bell therapy', 'Custom bracing'],
     requiresLaterality: false
   },
 
@@ -1676,12 +1466,7 @@ const ADDITIONAL_PROCEDURES = [
       'weight regain',
       'hypoglycemia'
     ],
-    alternatives: [
-      'Sleeve gastrectomy',
-      'Adjustable gastric band',
-      'Duodenal switch',
-      'Medical weight loss'
-    ],
+    alternatives: ['Sleeve gastrectomy', 'Adjustable gastric band', 'Duodenal switch', 'Medical weight loss'],
     requiresLaterality: false
   },
   {
@@ -1698,12 +1483,7 @@ const ADDITIONAL_PROCEDURES = [
       'gallstones',
       'weight regain'
     ],
-    alternatives: [
-      'Gastric bypass',
-      'Adjustable gastric band',
-      'Duodenal switch',
-      'Medical weight loss'
-    ],
+    alternatives: ['Gastric bypass', 'Adjustable gastric band', 'Duodenal switch', 'Medical weight loss'],
     requiresLaterality: false
   },
   {
@@ -1720,160 +1500,157 @@ const ADDITIONAL_PROCEDURES = [
       'food intolerance',
       'need for removal/revision'
     ],
-    alternatives: [
-      'Gastric bypass',
-      'Sleeve gastrectomy',
-      'Medical weight loss'
-    ],
+    alternatives: ['Gastric bypass', 'Sleeve gastrectomy', 'Medical weight loss'],
     requiresLaterality: false
   }
 ];
+
     
     const ADDITIONAL_SURGEONS = [
-      "Timothy R. Billiar",
-  "Emilia J. Diego",
-  "Jennifer M. Holder-Murray",
-  "Kenneth K. W. Lee",
-  "Matthew D. Neal",
-  "Andrew B. Peitzman",
-  "Linwah Yip",
-  "Brian S. Zuckerbraun",
-  "Amer H. Zureikat",
-  "Anita P. Courcoulas",
-  "David A. Geller",
-  "Abhinav Humar",
-  "Kelly L. McCoy",
-  "David S. Medich",
-  "Kevin P. Mollen",
-  "Harry W. Sell Jr.",
-  "Jason L. Sperry",
-  "George K. Gittes",
-  "Michel S. Makaroun",
-  "Khodor Abou-Daya",
-  "Bestoun H. Ahmed",
-  "Georges Elie Al-Khoury",
-  "Louis H. Alarcon",
-  "Fanny S. Alie-Cusson",
-  "Pete Allen",
-  "Kelly Ann Miller Austin",
-  "Steven Ballesteros",
-  "Graciela Bauzá",
-  "Karla Bernardi",
-  "Geoff J. Bond",
-  "Joshua B. Brown",
-  "Marc Edward Brozovich",
-  "James P. Celebrezze Jr.",
-  "Mohammad Haroon Asif Choudry",
-  "Davide Cintorino",
-  "Alain C. Corcos",
-  "Marc E. Cordero",
-  "Michael S. Cowher",
-  "Ruy J. Cruz Jr.",
-  "Kellie E. Cunningham",
-  "Anthony Cyr",
-  "Fabrizio di Francesco",
-  "Genia Dubrovsky",
-  "Raymond Eid",
-  "Mustapha El Lakis",
-  "Mohamed El Masry",
-  "Ronen Elefant",
-  "Garth A. Elias",
-  "Gregory R. English",
-  "Farzad Esni",
-  "Christopher J. Esper",
-  "Steven Evans",
-  "Mohamed B. Ezzelarab",
-  "Raquel M. Forsythe",
-  "Andrea Gambotto",
-  "Armando Ganoza",
-  "Kevin O. Garrett",
-  "Jörg C. Gerlach",
-  "William N. Gilleland Jr.",
-  "Catherine Go",
-  "Vikraman Gunabushanam",
-  "Lindsey M. Haga",
-  "Eric S. Hager",
-  "Daniel E. Hall",
-  "Devin Halleran",
-  "Robert Handzel",
-  "Jon R. Henwood",
-  "Matthew P. Holtzman",
-  "Gina Howell",
-  "Christopher B. Hughes",
-  "Ronald R. Johnson",
-  "Udai S. Kammula",
-  "Ajai Khanna",
-  "Christine M. Leeper",
-  "Steven A. Leers",
-  "Nathan L. Liang",
-  "Michael T. Lotze",
-  "Jason A. Luciano",
-  "Kristin M. Lupinacci",
-  "Michael Madigan",
-  "Marcus M. Malek",
-  "George V. Mazariegos",
-  "Priscilla F. McAuliffe",
-  "John A. McKeating",
-  "Diana M. Metes",
-  "Deepika Mohan",
-  "Michele Molinari",
-  "Adrian E. Morelli",
-  "Michael J. Morowitz",
-  "Michael Morrison",
-  "Dominick A. Motto",
-  "Christopher J. Myers",
-  "Rami A. Namas",
-  "Geoffrey Nunns",
-  "Martin Oberbarnscheidt",
-  "Melanie C. Ongchin",
-  "Alessandro Paniccia",
-  "James F. Pingpank Jr.",
-  "Colin Powers",
-  "Juan C. Puyana",
-  "Mostafa H. Ramadan",
-  "Ramesh Chandran Ramanathan",
-  "Kimberly M. Ramonell",
-  "Douglas A. Reed",
-  "Ward M. Richardson",
-  "Walter E. Rizzoni",
-  "David M. Rothstein",
-  "Quratulain Sabih",
-  "Ulka Sachdev-Ost",
-  "Alaa Sada",
-  "Shawn D. Safford",
-  "Indranil Sau",
-  "Moh'd Akram Sbeih",
-  "Stefan Scholz",
-  "Vaishali D. Schuchert",
-  "Khalid M. Shalaby",
-  "Richard L. Simmons",
-  "Rakesh Sindhi",
-  "Michael J. Singh",
-  "Cheryl K. Six",
-  "Kyle A. Soltys",
-  "Atilla Soran",
-  "Joseph Sorg",
-  "Philip C. Spinella",
-  "Natalie Sridharan",
-  "Kurt R. Stahlfeld",
-  "Jennifer G. Steiman",
-  "Matthew J. TerBush",
-  "Robert Tessler",
-  "Amit D. Tevar",
-  "Samer T. Tohme",
-  "Edith Tzeng",
-  "Paul K. Waltz",
-  "Gregory A. Watson",
-  "Andrew R. Watson",
-  "Sean P. Whelan",
-  "Martin N. Wijkstrom",
-  "Norman Wolmark",
-  "Xiangwei Xiao",
-  "Hamza Yazdani",
-  "Mervin Yoder",
-  "Theodore H. Yuo",
-  "Mazen S. Zenati",
-  "Jenny A. Ziembicki"
+      'Timothy R. Billiar',
+  'Emilia J. Diego',
+  'Jennifer M. Holder-Murray',
+  'Kenneth K. W. Lee',
+  'Matthew D. Neal',
+  'Andrew B. Peitzman',
+  'Linwah Yip',
+  'Brian S. Zuckerbraun',
+  'Amer H. Zureikat',
+  'Anita P. Courcoulas',
+  'David A. Geller',
+  'Abhinav Humar',
+  'Kelly L. McCoy',
+  'David S. Medich',
+  'Kevin P. Mollen',
+  'Harry W. Sell Jr.',
+  'Jason L. Sperry',
+  'George K. Gittes',
+  'Michel S. Makaroun',
+  'Khodor Abou-Daya',
+  'Bestoun H. Ahmed',
+  'Georges Elie Al-Khoury',
+  'Louis H. Alarcon',
+  'Fanny S. Alie-Cusson',
+  'Pete Allen',
+  'Kelly Ann Miller Austin',
+  'Steven Ballesteros',
+  'Graciela Bauzá',
+  'Karla Bernardi',
+  'Geoff J. Bond',
+  'Joshua B. Brown',
+  'Marc Edward Brozovich',
+  'James P. Celebrezze Jr.',
+  'Mohammad Haroon Asif Choudry',
+  'Davide Cintorino',
+  'Alain C. Corcos',
+  'Marc E. Cordero',
+  'Michael S. Cowher',
+  'Ruy J. Cruz Jr.',
+  'Kellie E. Cunningham',
+  'Anthony Cyr',
+  'Fabrizio di Francesco',
+  'Genia Dubrovsky',
+  'Raymond Eid',
+  'Mustapha El Lakis',
+  'Mohamed El Masry',
+  'Ronen Elefant',
+  'Garth A. Elias',
+  'Gregory R. English',
+  'Farzad Esni',
+  'Christopher J. Esper',
+  'Steven Evans',
+  'Mohamed B. Ezzelarab',
+  'Raquel M. Forsythe',
+  'Andrea Gambotto',
+  'Armando Ganoza',
+  'Kevin O. Garrett',
+  'Jörg C. Gerlach',
+  'William N. Gilleland Jr.',
+  'Catherine Go',
+  'Vikraman Gunabushanam',
+  'Lindsey M. Haga',
+  'Eric S. Hager',
+  'Daniel E. Hall',
+  'Devin Halleran',
+  'Robert Handzel',
+  'Jon R. Henwood',
+  'Matthew P. Holtzman',
+  'Gina Howell',
+  'Christopher B. Hughes',
+  'Ronald R. Johnson',
+  'Udai S. Kammula',
+  'Ajai Khanna',
+  'Christine M. Leeper',
+  'Steven A. Leers',
+  'Nathan L. Liang',
+  'Michael T. Lotze',
+  'Jason A. Luciano',
+  'Kristin M. Lupinacci',
+  'Michael Madigan',
+  'Marcus M. Malek',
+  'George V. Mazariegos',
+  'Priscilla F. McAuliffe',
+  'John A. McKeating',
+  'Diana M. Metes',
+  'Deepika Mohan',
+  'Michele Molinari',
+  'Adrian E. Morelli',
+  'Michael J. Morowitz',
+  'Michael Morrison',
+  'Dominick A. Motto',
+  'Christopher J. Myers',
+  'Rami A. Namas',
+  'Geoffrey Nunns',
+  'Martin Oberbarnscheidt',
+  'Melanie C. Ongchin',
+  'Alessandro Paniccia',
+  'James F. Pingpank Jr.',
+  'Colin Powers',
+  'Juan C. Puyana',
+  'Mostafa H. Ramadan',
+  'Ramesh Chandran Ramanathan',
+  'Kimberly M. Ramonell',
+  'Douglas A. Reed',
+  'Ward M. Richardson',
+  'Walter E. Rizzoni',
+  'David M. Rothstein',
+  'Quratulain Sabih',
+  'Ulka Sachdev-Ost',
+  'Alaa Sada',
+  'Shawn D. Safford',
+  'Indranil Sau',
+  'Mohd Akram Sbeih',
+  'Stefan Scholz',
+  'Vaishali D. Schuchert',
+  'Khalid M. Shalaby',
+  'Richard L. Simmons',
+  'Rakesh Sindhi',
+  'Michael J. Singh',
+  'Cheryl K. Six',
+  'Kyle A. Soltys',
+  'Atilla Soran',
+  'Joseph Sorg',
+  'Philip C. Spinella',
+  'Natalie Sridharan',
+  'Kurt R. Stahlfeld',
+  'Jennifer G. Steiman',
+  'Matthew J. TerBush',
+  'Robert Tessler',
+  'Amit D. Tevar',
+  'Samer T. Tohme',
+  'Edith Tzeng',
+  'Paul K. Waltz',
+  'Gregory A. Watson',
+  'Andrew R. Watson',
+  'Sean P. Whelan',
+  'Martin N. Wijkstrom',
+  'Norman Wolmark',
+  'Xiangwei Xiao',
+  'Hamza Yazdani',
+  'Mervin Yoder',
+  'Theodore H. Yuo',
+  'Mazen S. Zenati',
+  'Jenny A. Ziembicki'
     ];
 
 function load(){
